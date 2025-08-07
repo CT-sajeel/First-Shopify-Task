@@ -30,6 +30,30 @@
     },
     "ct_image_banner_LThNDG": {
       "type": "ct-image-banner",
+      "blocks": {
+        "heading_zCHDDQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image bannergfgfdgdfgdfgdfgfg",
+            "heading_size": "h1"
+          }
+        },
+        "buttons_JkUdRT": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_zCHDDQ",
+        "buttons_JkUdRT"
+      ],
       "name": "CT Image Banner",
       "settings": {
         "image": "shopify://shop_images/Loved_By_Lea_Handbag_Collection_Desktop_3840_x_1528.webp",
