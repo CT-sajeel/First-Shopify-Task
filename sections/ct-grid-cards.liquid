@@ -1,129 +1,145 @@
 {% schema %}
 {
-  "name": "Custom Image with Text",
+  "name": "Skin Needs Grid",
   "tag": "section",
-  "class": "custom-image-text-section",
-  "settings": [
+  "class": "skin-needs-section",
+  "settings": [],
+  "blocks": [
     {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Image"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Your Heading Here"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "Subheading",
-      "default": "Your Subheading Here"
-    },
-    {
-      "type": "text",
-      "id": "button_text",
-      "label": "Button Text",
-      "default": "Learn More"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button Link"
-    },
-    {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background Color",
-      "default": "#f9f9f9"
+      "type": "need",
+      "name": "Skin Need Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Skin Concern"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        }
+      ]
     }
   ],
+  "max_blocks": 6,
   "presets": [
     {
-      "name": "Custom Image with Text",
-      "category": "Custom Sections"
+      "name": "Skin Needs Grid",
+      "blocks": []
     }
   ]
 }
 {% endschema %}
 
-{% style %}
-.custom-image-text-section {
-  background-color: {{ section.settings.background_color }};
-  padding: 50px 20px;
+{% stylesheet %}
+.skin-needs-section {
+  padding: 40px 20px;
 }
 
-.custom-image-text-wrapper {
+.skin-needs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.skin-need-block {
+  background-color: #fff;
+  text-align: left;
   display: flex;
-  flex-direction: row;
-  gap: 40px;
-  align-items: center;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  flex-direction: column;
+  height: 100%;
 }
 
-.custom-image-text-image {
-  flex: 1;
+.skin-need-block .content {
+  padding: 20px;
 }
 
-.custom-image-text-content {
-  flex: 1;
+.skin-need-block h3 {
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
-.custom-image-text-content h2 {
-  font-size: 2rem;
+.skin-need-block p {
+  color: #444;
+  font-size: 1rem;
   margin-bottom: 15px;
 }
 
-.custom-image-text-content p {
-  font-size: 1.2rem;
-  margin-bottom: 25px;
-}
-
-.custom-image-text-content a {
-  display: inline-block;
-  background-color: #000;
-  color: #fff;
-  padding: 12px 24px;
+.skin-need-block a {
+  font-weight: bold;
+  color: #000;
   text-decoration: none;
-  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
-@media screen and (max-width: 768px) {
-  .custom-image-text-wrapper {
-    flex-direction: column;
-    text-align: center;
-  }
+.skin-need-block a:hover {
+  text-decoration: underline;
+}
 
-  .custom-image-text-content a {
-    margin-top: 20px;
+@media screen and (max-width: 749px) {
+  .skin-needs-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
   }
 }
-{% endstyle %}
+{% endstylesheet %}
 
-<div class="custom-image-text-wrapper">
-  {% if section.settings.image %}
-{% if section.settings.image != blank %}
-  <div class="custom-image-text-image">
-    {{ section.settings.image | image_url: width: 800 | image_tag:
-      alt: section.settings.heading,
-      class: 'responsive-image'
-    }}
-  </div>
-{% endif %}
-  {% endif %}
+<div class="skin-needs-section">
+  <div class="skin-needs-grid">
+    {% for block in section.blocks %}
+      <div class="skin-need-block">
+        <!-- Image block using Dawn-compatible layout -->
+        <div class="image-with-text__media-item grid__item">
+          <div
+            class="image-with-text__media image-with-text__media--adapt global-media-settings
+              {% if block.settings.image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}"
+            {% if block.settings.image != blank %}
+              style="padding-bottom: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%;"
+            {% endif %}
+          >
+            {% if block.settings.image != blank %}
+              {% assign widths = '165, 360, 535, 750, 1070, 1500' %}
+              {% capture sizes %}
+                (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 3 }}px,
+                (min-width: 750px) calc((100vw - 130px) / 3),
+                calc((100vw - 50px) / 1)
+              {% endcapture %}
+              {{
+                block.settings.image
+                | image_url: width: 1500
+                | image_tag: sizes: sizes, widths: widths, alt: block.settings.title
+              }}
+            {% else %}
+              {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+          </div>
+        </div>
 
-  <div class="custom-image-text-content">
-    {% if section.settings.heading %}
-      <h2>{{ section.settings.heading }}</h2>
-    {% endif %}
-    {% if section.settings.subheading %}
-      <p>{{ section.settings.subheading }}</p>
-    {% endif %}
-    {% if section.settings.button_text and section.settings.button_link %}
-      <a href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a>
-    {% endif %}
+        <!-- Text content -->
+        <div class="content">
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.description }}</p>
+          {% if block.settings.link != blank %}
+            <a href="{{ block.settings.link }}">SHOP NOW →</a>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
   </div>
 </div>
