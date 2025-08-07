@@ -1,3 +1,42 @@
+{% schema %}
+{
+  "name": "Feature Highlights",
+  "tag": "section",
+  "class": "custom-features",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "SVG Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Feature Highlights",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}
+
 {% stylesheet %}
 .custom-features {
   background: linear-gradient(to right, #ffffff, #eaf9fd);
@@ -15,7 +54,7 @@
   font-family: inherit;
 }
 
-.custom-features .feature-block img {
+.custom-features .feature-block .svg-icon {
   height: 40px;
   margin-bottom: 15px;
 }
@@ -31,7 +70,7 @@
   margin: 0;
 }
 
-/* Responsive for mobile devices */
+/* Mobile styles */
 @media screen and (max-width: 749px) {
   .custom-features .features-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -48,81 +87,12 @@
   <div class="features-grid">
     {% for block in section.blocks %}
       <div class="feature-block">
-        {% if block.settings.icon %}
-          <img src="{{ block.settings.icon | image_url: width: 80 }}" alt="{{ block.settings.title }}">
-        {% endif %}
+        <div class="svg-icon">
+          {{ block.settings.icon_svg }}
+        </div>
         <h3>{{ block.settings.title }}</h3>
         <p>{{ block.settings.description }}</p>
       </div>
     {% endfor %}
   </div>
 </div>
-{% schema %}
-{
-  "name": "CT Feature Highlights",
-  "tag": "section",
-  "class": "custom-features",
-  "settings": [],
-  "blocks": [
-    {
-      "type": "feature",
-      "name": "Feature",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "icon",
-          "label": "Icon"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Feature Title"
-        },
-        {
-          "type": "textarea",
-          "id": "description",
-          "label": "Description",
-          "default": "Feature description goes here."
-        }
-      ]
-    }
-  ],
-  "max_blocks": 4,
-  "presets": [
-    {
-      "name": "Feature Highlights",
-      "blocks": [
-        {
-          "type": "feature",
-          "settings": {
-            "title": "Complimentary Shipping",
-            "description": "Take advantage of free shipping on all orders over $65 (USA shipping only)."
-          }
-        },
-        {
-          "type": "feature",
-          "settings": {
-            "title": "Satisfaction Guarantee",
-            "description": "Our customer happiness team is here to help at hello@leablack.com."
-          }
-        },
-        {
-          "type": "feature",
-          "settings": {
-            "title": "Best Products",
-            "description": "We source the highest quality ingredients and CBD for our natural skincare solutions."
-          }
-        },
-        {
-          "type": "feature",
-          "settings": {
-            "title": "100% Secure Checkout",
-            "description": "We accept AMEX, MasterCard, and Visa."
-          }
-        }
-      ]
-    }
-  ]
-}
-{% endschema %}
