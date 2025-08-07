@@ -10,6 +10,8 @@
         content: '';
         display: block;
       }
+      #Banner-{{ section.id }} .ct-mobile {display:block;}
+      #Banner-{{ section.id }} .ct-desktop {display:none;}
 
     }
 
@@ -20,6 +22,8 @@
         content: '';
         display: block;
       }
+      #Banner-{{ section.id }} .ct-mobile {display:none;}
+      #Banner-{{ section.id }} .ct-desktop {display:block;}
     }
   {%- endstyle -%}
 {%- endif -%}
