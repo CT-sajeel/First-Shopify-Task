@@ -11,7 +11,8 @@
         display: block;
       }
       #Banner-{{ section.id }} .ct-sp-mobile {display:block;}
-      #Banner-{{ section.id }} .ct-sp-desktop {display:none !important; height:auto;}
+      #Banner-{{ section.id }} .ct-sp-desktop {display:none !important;}
+      
 
     }
 
@@ -23,7 +24,8 @@
         display: block;
       }
       #Banner-{{ section.id }} .ct-sp-mobile {display:none;}
-      #Banner-{{ section.id }} .ct-sp-desktop   {display:block;}
+      #Banner-{{ section.id }} .ct-sp-desktop   {display:block; height:auto;}
+      #Banner-{{ section.id }} .content__wrapper{max-width: 615px !important;}
 
     }
   {%- endstyle -%}
