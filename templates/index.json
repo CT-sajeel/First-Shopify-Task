@@ -11,44 +11,12 @@
   "sections": {
     "ct_image_banner_rq6p6d": {
       "type": "ct-image-banner",
-      "blocks": {
-        "heading_wH6Rj8": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "h1"
-          }
-        },
-        "text_3apaPV": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        },
-        "buttons_9zTVbP": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Button label",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "Button label",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_wH6Rj8",
-        "text_3apaPV",
-        "buttons_9zTVbP"
-      ],
       "name": "CT Image Banner",
       "settings": {
         "image": "shopify://shop_images/ct-banner.jpg",
         "image_2": "shopify://shop_images/ct-13.jpg",
         "image_overlay_opacity": 0,
-        "image_height": "medium",
+        "image_height": "adapt",
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
