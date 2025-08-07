@@ -15,6 +15,7 @@
       "settings": {
         "image": "shopify://shop_images/ct-banner.jpg",
         "image_2": "shopify://shop_images/ct-banner-mobile.jpg",
+        "ct_banner_link": "shopify://collections/all",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "image_behavior": "none",
