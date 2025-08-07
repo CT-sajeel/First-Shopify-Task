@@ -1,0 +1,125 @@
+{% schema %}
+{
+  "name": "Skin Needs Grid",
+  "tag": "section",
+  "class": "skin-needs-section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "need",
+      "name": "Skin Need Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Skin Concern"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Skin Needs Grid",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+.skin-needs-section {
+  padding: 40px 20px;
+}
+
+.skin-needs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.skin-need-block {
+  background-color: #fff;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.skin-need-block img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.skin-need-block h3 {
+  font-size: 1.1rem;
+  color: #000;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.skin-need-block p {
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.skin-need-block a {
+  margin-top: auto;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.skin-need-block a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive below 749px */
+@media screen and (max-width: 749px) {
+  .skin-needs-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+{% endstylesheet %}
+
+<div class="skin-needs-section">
+  <div class="skin-needs-grid">
+    {% for block in section.blocks %}
+      <div class="skin-need-block">
+        {% if block.settings.image %}
+          <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title }}">
+        {% endif %}
+        <h3>{{ block.settings.title }}</h3>
+        <p>{{ block.settings.description }}</p>
+        {% if block.settings.link != blank %}
+          <a href="{{ block.settings.link }}">
+            SHOP NOW →
+          </a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
