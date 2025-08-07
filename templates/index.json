@@ -95,6 +95,54 @@
         "padding_bottom": 36
       }
     },
+    "ct_image_with_text_mge7jd": {
+      "type": "ct-image-with-text",
+      "blocks": {
+        "heading_XnNNR9": {
+          "type": "heading",
+          "settings": {
+            "heading": "Take Our Skincare Quiz",
+            "heading_size": "h1"
+          }
+        },
+        "text_A7MCH7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover the key to radiant skin with Lea Black Beauty®’s personalized skincare quiz. In just a few moments, uncover a tailored routine of natural skincare products designed to meet your unique skin needs. Whether you're seeking hydration, anti-aging solutions, or the latest in CBD skincare, we’ll guide you to the perfect products to transform your skin.<br/><br/></p>",
+            "text_style": "subtitle"
+          }
+        },
+        "button_FdNLGL": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/automated-collection",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_XnNNR9",
+        "text_A7MCH7",
+        "button_FdNLGL"
+      ],
+      "name": "CT Image with Text",
+      "settings": {
+        "image": "shopify://shop_images/ct-banner-2.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "disabled": true,
@@ -209,6 +257,7 @@
     "ct_image_banner_rq6p6d",
     "ct_image_banner_LThNDG",
     "ct_image_with_text_RVPba3",
+    "ct_image_with_text_mge7jd",
     "featured_collection",
     "collage_JPP6f6",
     "newsletter_dAJNka",
