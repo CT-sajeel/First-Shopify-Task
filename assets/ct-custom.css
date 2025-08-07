@@ -1,12 +1,17 @@
 /*Desktop Style*/
+
+@media screen and (min-width: 750px) {
+  
+
 /* Homepage - Image with text - Lea Black Beauty */
 
 /* END - Homepage - Image with text - Lea Black Beauty */
-
+}
 
 /*Mobile Style*/
 
-
-/* Homepage - Image with text - Lea Black Beauty */
-
-/* END - Homepage - Image with text - Lea Black Beauty */
+@media screen and (max-width: 749px) {
+  /* Homepage - Image with text - Lea Black Beauty */
+ 
+  /* END - Homepage - Image with text - Lea Black Beauty */
+}
