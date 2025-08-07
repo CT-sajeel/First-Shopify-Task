@@ -62,28 +62,24 @@
   height: 100%;
 }
 
-.skin-need-block img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  margin-bottom: 20px;
+.skin-need-block .content {
+  padding: 20px;
 }
 
 .skin-need-block h3 {
   font-size: 1.1rem;
-  color: #000;
-  font-weight: 500;
+  color: #1a1a1a;
+  font-weight: 600;
   margin-bottom: 10px;
 }
 
 .skin-need-block p {
-  color: #333;
+  color: #444;
   font-size: 1rem;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .skin-need-block a {
-  margin-top: auto;
   font-weight: bold;
   color: #000;
   text-decoration: none;
@@ -96,7 +92,6 @@
   text-decoration: underline;
 }
 
-/* Responsive below 749px */
 @media screen and (max-width: 749px) {
   .skin-needs-grid {
     grid-template-columns: 1fr;
@@ -109,16 +104,41 @@
   <div class="skin-needs-grid">
     {% for block in section.blocks %}
       <div class="skin-need-block">
-        {% if block.settings.image %}
-          <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title }}">
-        {% endif %}
-        <h3>{{ block.settings.title }}</h3>
-        <p>{{ block.settings.description }}</p>
-        {% if block.settings.link != blank %}
-          <a href="{{ block.settings.link }}">
-            SHOP NOW →
-          </a>
-        {% endif %}
+        <!-- Image block using Dawn-compatible layout -->
+        <div class="image-with-text__media-item grid__item">
+          <div
+            class="image-with-text__media image-with-text__media--adapt global-media-settings
+              {% if block.settings.image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}"
+            {% if block.settings.image != blank %}
+              style="padding-bottom: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%;"
+            {% endif %}
+          >
+            {% if block.settings.image != blank %}
+              {% assign widths = '165, 360, 535, 750, 1070, 1500' %}
+              {% capture sizes %}
+                (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 3 }}px,
+                (min-width: 750px) calc((100vw - 130px) / 3),
+                calc((100vw - 50px) / 1)
+              {% endcapture %}
+              {{
+                block.settings.image
+                | image_url: width: 1500
+                | image_tag: sizes: sizes, widths: widths, alt: block.settings.title
+              }}
+            {% else %}
+              {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Text content -->
+        <div class="content">
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.description }}</p>
+          {% if block.settings.link != blank %}
+            <a href="{{ block.settings.link }}">SHOP NOW →</a>
+          {% endif %}
+        </div>
       </div>
     {% endfor %}
   </div>
