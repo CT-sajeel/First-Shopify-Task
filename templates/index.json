@@ -416,6 +416,15 @@
       ],
       "name": "Skin Needs Grid",
       "settings": {}
+    },
+    "ct_newsletter_bdnerB": {
+      "type": "ct-newsletter",
+      "name": "Custom Newsletter",
+      "settings": {
+        "heading": "Subscribe to our newsletter",
+        "subtext": "Be the first to know about new collections and exclusive offers.",
+        "button_text": "Subscribe"
+      }
     }
   },
   "order": [
@@ -429,6 +438,7 @@
     "featured_blog_G6bwEg",
     "ct_special_banner_WmjcF9",
     "ct_trust_banner_6tdzEc",
-    "ct_grid_cards_6QWVX4"
+    "ct_grid_cards_6QWVX4",
+    "ct_newsletter_bdnerB"
   ]
 }
