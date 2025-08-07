@@ -8,6 +8,10 @@
     box-shadow: none !important;
     text-transform: uppercase;
     transition: color .2s ease, background .3s ease;
+    margin-top: 3rem;
+    color: #fff;
+    min-width: 150px;
+    min-height: 57px;
     
 }
 
@@ -17,13 +21,6 @@
   
 
 /* Homepage - Image with text - Lea Black Beauty */
-#lea-black-beauty .button--primary {
-    margin-top: 3rem;
-    color: #fff;
-    background: #121212;
-    min-width: 150px;
-    min-height: 57px;
-}
 /* END - Homepage - Image with text - Lea Black Beauty */
 }
 
