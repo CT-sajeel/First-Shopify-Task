@@ -28,6 +28,25 @@
         "show_text_below": true
       }
     },
+    "ct_image_banner_LThNDG": {
+      "type": "ct-image-banner",
+      "name": "CT Image Banner",
+      "settings": {
+        "image": "shopify://shop_images/Loved_By_Lea_Handbag_Collection_Desktop_3840_x_1528.webp",
+        "image_2": "shopify://shop_images/Handbag_Collection_Mobile_960_x_720_2c05061d-6bfe-454e-8e58-65f5f8622ebf.webp",
+        "ct_banner_link": "shopify://products/gift-card",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "disabled": true,
@@ -187,6 +206,7 @@
   },
   "order": [
     "ct_image_banner_rq6p6d",
+    "ct_image_banner_LThNDG",
     "featured_collection",
     "image_with_text_eLjA7V",
     "collage_JPP6f6",
