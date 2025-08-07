@@ -425,6 +425,96 @@
         "subtext": "Be the first to know about new collections and exclusive offers.",
         "button_text": "Subscribe"
       }
+    },
+    "ct_showcase_Jf6cQN": {
+      "type": "ct-showcase",
+      "blocks": {
+        "icon_block_dGJVWR": {
+          "type": "icon_block",
+          "settings": {
+            "icon_image": "shopify://shop_images/ct-icon-1.png",
+            "icon_heading": "Natural Ingredients"
+          }
+        },
+        "icon_block_xiYRMh": {
+          "type": "icon_block",
+          "settings": {
+            "icon_image": "shopify://shop_images/ct-icon-1.png",
+            "icon_heading": "Natural Ingredients"
+          }
+        },
+        "icon_block_aUCHGA": {
+          "type": "icon_block",
+          "settings": {
+            "icon_image": "shopify://shop_images/ct-icon-3.png",
+            "icon_heading": "Natural Ingredients"
+          }
+        },
+        "icon_block_JzR3DL": {
+          "type": "icon_block",
+          "settings": {
+            "icon_image": "shopify://shop_images/ct-icon-3.png",
+            "icon_heading": "Natural Ingredients"
+          }
+        },
+        "icon_block_gUyaxL": {
+          "type": "icon_block",
+          "settings": {
+            "icon_image": "shopify://shop_images/ct-icon-3.png",
+            "icon_heading": "Natural Ingredients"
+          }
+        },
+        "text_image_block_4twJTA": {
+          "type": "text_image_block",
+          "settings": {
+            "block_image": "shopify://shop_images/ct-18.jpg",
+            "block_heading": "Proven Results",
+            "block_text": "You'll find exactly what you're looking for in our natural skincare products..."
+          }
+        },
+        "text_image_block_GcKeAX": {
+          "type": "text_image_block",
+          "settings": {
+            "block_image": "shopify://shop_images/ct-18.jpg",
+            "block_heading": "Proven Results",
+            "block_text": "You'll find exactly what you're looking for in our natural skincare products..."
+          }
+        },
+        "text_image_block_ANcgia": {
+          "type": "text_image_block",
+          "settings": {
+            "block_image": "shopify://shop_images/ct-18.jpg",
+            "block_heading": "Proven Results",
+            "block_text": "You'll find exactly what you're looking for in our natural skincare products..."
+          }
+        },
+        "text_image_block_RRHDLE": {
+          "type": "text_image_block",
+          "settings": {
+            "block_image": "shopify://shop_images/ct-18.jpg",
+            "block_heading": "Proven Results",
+            "block_text": "You'll find exactly what you're looking for in our natural skincare products..."
+          }
+        }
+      },
+      "block_order": [
+        "icon_block_dGJVWR",
+        "icon_block_xiYRMh",
+        "icon_block_aUCHGA",
+        "icon_block_JzR3DL",
+        "icon_block_gUyaxL",
+        "text_image_block_4twJTA",
+        "text_image_block_GcKeAX",
+        "text_image_block_ANcgia",
+        "text_image_block_RRHDLE"
+      ],
+      "name": "Why Us Section",
+      "settings": {
+        "heading": "Why Us?",
+        "subheading": "To create our natural skincare products, we ethically source the finest raw ingredients from around the world so you can be assured of the quality. Our proprietary formulas are easy to use and clinically proven to produce amazing results. Satisfaction guaranteed!",
+        "button_text": "view",
+        "button_link": ""
+      }
     }
   },
   "order": [
@@ -439,6 +529,7 @@
     "ct_special_banner_WmjcF9",
     "ct_trust_banner_6tdzEc",
     "ct_grid_cards_6QWVX4",
-    "ct_newsletter_bdnerB"
+    "ct_newsletter_bdnerB",
+    "ct_showcase_Jf6cQN"
   ]
 }
