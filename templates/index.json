@@ -404,7 +404,7 @@
       "type": "ct-newsletter",
       "name": "Custom Newsletter",
       "settings": {
-        "heading": "Subscribe to our <br>newsletter",
+        "heading": "Subscribe to<br>our newsletter",
         "subtext": "Be the first to know about new collections and exclusive offers.",
         "button_text": "Subscribe"
       }
