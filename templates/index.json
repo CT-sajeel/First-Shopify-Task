@@ -82,14 +82,14 @@
         "heading_LAmMtx": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "Lea Black Beauty®’s Natural Skincare Products",
             "heading_size": "h1"
           }
         },
         "text_zeWMCq": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "<p>Elevate your skincare routine with results-driven formulas you can trust.</p>",
             "text_style": "body"
           }
         },
@@ -109,6 +109,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "image": "shopify://shop_images/ct-single.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
