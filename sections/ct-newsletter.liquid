@@ -36,7 +36,7 @@
 {% endschema %}
 
 {% stylesheet %}
-.custom-newsletter-section {
+.ct-newsletter-section {
   padding: 60px 20px;
   color: white;
   background-color: #3aaac9;
@@ -125,7 +125,7 @@
 {% endstylesheet %}
 
 <section
-  class="custom-newsletter-section"
+  class="ct-newsletter-section"
   {% if section.settings.background_image != blank %}
     style="background-image: url({{ section.settings.background_image | image_url }});"
   {% endif %}
