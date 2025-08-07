@@ -347,6 +347,75 @@
       ],
       "name": "Feature Highlights",
       "settings": {}
+    },
+    "ct_grid_cards_6QWVX4": {
+      "type": "ct-grid-cards",
+      "blocks": {
+        "need_TayMpQ": {
+          "type": "need",
+          "settings": {
+            "image": "shopify://shop_images/ct-8.jpg",
+            "title": "Skin Concern",
+            "description": "Nourish and replenish your skin with ultra-hydrating natural skincare products that restore moisture and leave your complexion feeling soft and smooth.",
+            "link": "shopify://products/the-3p-fulfilled-snowboard"
+          }
+        },
+        "need_CGmJwh": {
+          "type": "need",
+          "settings": {
+            "image": "shopify://shop_images/ct-8.jpg",
+            "title": "Skin Concern",
+            "description": "Nourish and replenish your skin with ultra-hydrating natural skincare products that restore moisture and leave your complexion feeling soft and smooth.",
+            "link": "shopify://products/the-3p-fulfilled-snowboard"
+          }
+        },
+        "need_YaViap": {
+          "type": "need",
+          "settings": {
+            "image": "shopify://shop_images/ct-8.jpg",
+            "title": "Skin Concern",
+            "description": "Nourish and replenish your skin with ultra-hydrating natural skincare products that restore moisture and leave your complexion feeling soft and smooth.",
+            "link": "shopify://products/the-3p-fulfilled-snowboard"
+          }
+        },
+        "need_JqHCQm": {
+          "type": "need",
+          "settings": {
+            "image": "shopify://shop_images/ct-8.jpg",
+            "title": "Skin Concern",
+            "description": "Nourish and replenish your skin with ultra-hydrating natural skincare products that restore moisture and leave your complexion feeling soft and smooth.",
+            "link": "shopify://products/the-3p-fulfilled-snowboard"
+          }
+        },
+        "need_YTpKww": {
+          "type": "need",
+          "settings": {
+            "image": "shopify://shop_images/ct-8.jpg",
+            "title": "Skin Concern",
+            "description": "Nourish and replenish your skin with ultra-hydrating natural skincare products that restore moisture and leave your complexion feeling soft and smooth.",
+            "link": "shopify://products/the-3p-fulfilled-snowboard"
+          }
+        },
+        "need_8JYiKn": {
+          "type": "need",
+          "settings": {
+            "image": "shopify://shop_images/ct-8.jpg",
+            "title": "Skin Concern",
+            "description": "Nourish and replenish your skin with ultra-hydrating natural skincare products that restore moisture and leave your complexion feeling soft and smooth.",
+            "link": "shopify://products/the-3p-fulfilled-snowboard"
+          }
+        }
+      },
+      "block_order": [
+        "need_TayMpQ",
+        "need_CGmJwh",
+        "need_YaViap",
+        "need_JqHCQm",
+        "need_YTpKww",
+        "need_8JYiKn"
+      ],
+      "name": "Skin Needs Grid",
+      "settings": {}
     }
   },
   "order": [
@@ -359,6 +428,7 @@
     "newsletter_dAJNka",
     "featured_blog_G6bwEg",
     "ct_special_banner_WmjcF9",
-    "ct_trust_banner_6tdzEc"
+    "ct_trust_banner_6tdzEc",
+    "ct_grid_cards_6QWVX4"
   ]
 }
