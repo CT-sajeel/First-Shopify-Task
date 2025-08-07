@@ -14,6 +14,7 @@
       "name": "CT Image Banner",
       "settings": {
         "image": "shopify://shop_images/ct-banner.jpg",
+        "image_2": "shopify://shop_images/ct-1.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "image_behavior": "none",
