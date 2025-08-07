@@ -13,7 +13,6 @@
       "type": "image-banner",
       "settings": {
         "image": "shopify://shop_images/ct-banner.jpg",
-        "image_2": "shopify://shop_images/ct-banner-mobile.jpg",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "image_behavior": "none",
