@@ -297,9 +297,9 @@
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": true,
-        "color_scheme": "",
+        "color_scheme": "scheme-5",
         "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
+        "mobile_content_alignment": "left",
         "show_text_below": true
       }
     }
