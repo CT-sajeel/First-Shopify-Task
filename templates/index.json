@@ -47,6 +47,54 @@
         "show_text_below": true
       }
     },
+    "ct_image_with_text_RVPba3": {
+      "type": "ct-image-with-text",
+      "blocks": {
+        "heading_dH6kXK": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lea Black Beauty®’s Natural Skincare Products",
+            "heading_size": "h1"
+          }
+        },
+        "text_n6GKen": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Elevate your skincare routine with results-driven formulas you can trust.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_MpzxeP": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/automated-collection",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_dH6kXK",
+        "text_n6GKen",
+        "button_MpzxeP"
+      ],
+      "name": "CT Image with Text",
+      "settings": {
+        "image": "shopify://shop_images/ct-single.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "disabled": true,
@@ -73,54 +121,6 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 44,
-        "padding_bottom": 36
-      }
-    },
-    "image_with_text_eLjA7V": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_LAmMtx": {
-          "type": "heading",
-          "settings": {
-            "heading": "Lea Black Beauty®’s Natural Skincare Products",
-            "heading_size": "h1"
-          }
-        },
-        "text_zeWMCq": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Elevate your skincare routine with results-driven formulas you can trust.</p>",
-            "text_style": "body"
-          }
-        },
-        "button_VGgJDg": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_LAmMtx",
-        "text_zeWMCq",
-        "button_VGgJDg"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/ct-single.jpg",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "padding_top": 36,
         "padding_bottom": 36
       }
     },
@@ -208,8 +208,8 @@
   "order": [
     "ct_image_banner_rq6p6d",
     "ct_image_banner_LThNDG",
+    "ct_image_with_text_RVPba3",
     "featured_collection",
-    "image_with_text_eLjA7V",
     "collage_JPP6f6",
     "newsletter_dAJNka",
     "featured_blog_G6bwEg"
