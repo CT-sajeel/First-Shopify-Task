@@ -1,0 +1,146 @@
+{% schema %}
+{
+  "name": "Custom Newsletter Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Subscribe to our newsletter"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Be the first to know about new collections and exclusive offers."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Subscribe"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Newsletter",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+<style>
+.custom-newsletter-section {
+  padding: 60px 20px;
+  color: white;
+  background-color: #3aaac9;
+  background-size: cover;
+  background-position: center;
+}
+
+.custom-newsletter-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.custom-newsletter-text {
+  flex: 1 1 40%;
+}
+
+.custom-newsletter-text h2 {
+  font-size: 42px;
+  margin: 0 0 10px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.custom-newsletter-text p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.custom-newsletter-form {
+  display: flex;
+  flex: 1 1 55%;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.custom-newsletter-form input[type="email"] {
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  flex: 1 1 auto;
+  min-width: 200px;
+}
+
+.custom-newsletter-form button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 20px 30px;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 749px) {
+  .custom-newsletter-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .custom-newsletter-text h2 {
+    font-size: 32px;
+  }
+
+  .custom-newsletter-text,
+  .custom-newsletter-form {
+    width: 100%;
+  }
+
+  .custom-newsletter-form {
+    flex-direction: column;
+  }
+
+  .custom-newsletter-form input[type="email"],
+  .custom-newsletter-form button {
+    width: 100%;
+  }
+}
+</style>
+{% endstylesheet %}
+
+<section
+  class="custom-newsletter-section"
+  {% if section.settings.background_image != blank %}
+    style="background-image: url({{ section.settings.background_image | image_url }});"
+  {% endif %}
+>
+  <div class="custom-newsletter-inner">
+    <div class="custom-newsletter-text">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subtext }}</p>
+    </div>
+    <form class="custom-newsletter-form" method="post" action="{{ routes.newsletter_subscribe_url }}">
+      <input type="hidden" name="form_type" value="customer">
+      <input type="email" name="contact[email]" placeholder="Email Address" required>
+      <button type="submit">{{ section.settings.button_text }}</button>
+    </form>
+  </div>
+</section>
