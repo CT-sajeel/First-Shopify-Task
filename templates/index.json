@@ -140,7 +140,7 @@
         "image_behavior": "none",
         "desktop_content_position": "middle-right",
         "desktop_content_alignment": "left",
-        "show_text_box": true,
+        "show_text_box": false,
         "color_scheme": "scheme-297b61e5-f075-4749-aedc-155be21f5149",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "left",
@@ -404,7 +404,7 @@
       "type": "ct-newsletter",
       "name": "Custom Newsletter",
       "settings": {
-        "heading": "Subscribe to<br>our newsletter",
+        "heading": "Subscribe toour newsletter",
         "subtext": "Be the first to know about new collections and exclusive offers.",
         "button_text": "Subscribe"
       }
