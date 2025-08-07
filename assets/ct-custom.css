@@ -7,7 +7,6 @@
     padding: 0 15px;
     box-shadow: none !important;
     text-transform: uppercase;
-    font-family: var(--font-heading-family);
     transition: color .2s ease, background .3s ease;
 }
 
