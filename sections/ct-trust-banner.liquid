@@ -1,0 +1,128 @@
+{% stylesheet %}
+.custom-features {
+  background: linear-gradient(to right, #ffffff, #eaf9fd);
+  padding: 40px 20px;
+}
+
+.custom-features .features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.custom-features .feature-block {
+  text-align: left;
+  font-family: inherit;
+}
+
+.custom-features .feature-block img {
+  height: 40px;
+  margin-bottom: 15px;
+}
+
+.custom-features .feature-block h3 {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.custom-features .feature-block p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Responsive for mobile devices */
+@media screen and (max-width: 749px) {
+  .custom-features .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .custom-features {
+    padding: 30px 15px;
+  }
+}
+{% endstylesheet %}
+
+<div class="custom-features">
+  <div class="features-grid">
+    {% for block in section.blocks %}
+      <div class="feature-block">
+        {% if block.settings.icon %}
+          <img src="{{ block.settings.icon | image_url: width: 80 }}" alt="{{ block.settings.title }}">
+        {% endif %}
+        <h3>{{ block.settings.title }}</h3>
+        <p>{{ block.settings.description }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "CT Feature Highlights",
+  "tag": "section",
+  "class": "custom-features",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Feature description goes here."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Feature Highlights",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Complimentary Shipping",
+            "description": "Take advantage of free shipping on all orders over $65 (USA shipping only)."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Satisfaction Guarantee",
+            "description": "Our customer happiness team is here to help at hello@leablack.com."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Best Products",
+            "description": "We source the highest quality ingredients and CBD for our natural skincare solutions."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "100% Secure Checkout",
+            "description": "We accept AMEX, MasterCard, and Visa."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
