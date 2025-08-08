@@ -308,14 +308,6 @@
             "block_heading": "Proven Results",
             "block_text": "You'll find exactly what you're looking for in our natural skincare products..."
           }
-        },
-        "text_image_block_RRHDLE": {
-          "type": "text_image_block",
-          "settings": {
-            "block_image": "shopify://shop_images/ct-18.jpg",
-            "block_heading": "Proven Results",
-            "block_text": "You'll find exactly what you're looking for in our natural skincare products..."
-          }
         }
       },
       "block_order": [
@@ -326,8 +318,7 @@
         "icon_block_gUyaxL",
         "text_image_block_4twJTA",
         "text_image_block_GcKeAX",
-        "text_image_block_ANcgia",
-        "text_image_block_RRHDLE"
+        "text_image_block_ANcgia"
       ],
       "name": "Why Us Section",
       "settings": {
