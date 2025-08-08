@@ -109,7 +109,7 @@
         "text_HTakM9": {
           "type": "text",
           "settings": {
-            "text": "Lea Black’s business focus for more than twenty years has at its core the health, beauty, fitness, and wellness of women everywhere. She has an unparalleled track record of success in developing and marketing natural skincare products made with ethically sourced ingredients before she married and started a family in the ‘90s. Her previous beauty company had offices worldwide with global distribution of over 400 products — including the highly successful “<a href=\"https://www.leablack.com/collections/sudden-youth-collection/products/sudden-youth-lift-complete-facial-treatment\">Sudden Youth® Lift Complete Facial Treatment</a>, which still maintains a strong and loyal consumer demand, and the fragrance “Jazz,” which was sold to YSL.   </br></br>Lea Black Beauty® broke boundaries again by developing and launching the hugely popular Lea Black Beauty® <a href=\"https://www.leablack.com/collections/cbd-products\">CBD Collection</a> in 2019, introducing all the benefits of hemp to her already industry-leading luxury skincare and beauty products.</br></br>Experience the results for yourself with premium, natural skincare products from Lea Black Beauty®.",
+            "text": "Lea Black’s business focus for more than twenty years has at its core the health, beauty, fitness, and wellness of women everywhere. She has an unparalleled track record of success in developing and marketing natural skincare products made with ethically sourced ingredients before she married and started a family in the ‘90s. Her previous beauty company had offices worldwide with global distribution of over 400 products — including the highly successful “<a href=\"https://www.leablack.com/collections/sudden-youth-collection/products/sudden-youth-lift-complete-facial-treatment\">Sudden Youth® Lift Complete Facial Treatment</a>, which still maintains a strong and loyal consumer demand, and the fragrance “Jazz,” which was sold to YSL.   Lea Black Beauty® broke boundaries again by developing and launching the hugely popular Lea Black Beauty® <a href=\"https://www.leablack.com/collections/cbd-products\">CBD Collection</a> in 2019, introducing all the benefits of hemp to her already industry-leading luxury skincare and beauty products.Experience the results for yourself with premium, natural skincare products from Lea Black Beauty®.",
             "text_style": "body"
           }
         },
@@ -163,8 +163,8 @@
           "type": "need",
           "settings": {
             "image": "shopify://shop_images/ct-8.jpg",
-            "title": "Skin Concern",
-            "description": "Nourish and replenish your skin with ultra-hydrating natural skincare products that restore moisture and leave your complexion feeling soft and smooth.",
+            "title": "Aging Skin",
+            "description": "Combat fine lines and wrinkles with clinically supported solutions that lift, firm, and promote youthful, radiant skin.",
             "link": "shopify://products/the-3p-fulfilled-snowboard"
           }
         },
@@ -172,8 +172,8 @@
           "type": "need",
           "settings": {
             "image": "shopify://shop_images/ct-8.jpg",
-            "title": "Skin Concern",
-            "description": "Nourish and replenish your skin with ultra-hydrating natural skincare products that restore moisture and leave your complexion feeling soft and smooth.Nourish and replenish your skin with ultra-hydrating natural skincare products that restore moisture and leave your complexion feeling soft and smooth.",
+            "title": "Sensitive Skin",
+            "description": "Soothe and protect your delicate skin with gentle, natural products free from harsh chemicals and synthetic fragrances.",
             "link": "shopify://products/the-3p-fulfilled-snowboard"
           }
         },
@@ -181,8 +181,8 @@
           "type": "need",
           "settings": {
             "image": "shopify://shop_images/ct-8.jpg",
-            "title": "Skin Concern",
-            "description": "Nourish and replenish your skin with ultra-hydrating natural skincare products that restore moisture and leave your complexion feeling soft and smooth.",
+            "title": "Oily/Combination Skin",
+            "description": "Balance oil production and refine your complexion with lightweight, non-greasy products that leave your skin feeling fresh and clean.",
             "link": "shopify://products/the-3p-fulfilled-snowboard"
           }
         },
@@ -190,8 +190,8 @@
           "type": "need",
           "settings": {
             "image": "shopify://shop_images/ct-8.jpg",
-            "title": "Skin Concern",
-            "description": "Nourish and replenish your skin with ultra-hydrating natural skincare products that restore moisture and leave your complexion feeling soft and smooth.",
+            "title": "Redness/Inflammation",
+            "description": "Calm and reduce redness with soothing luxury skincare products enriched with anti-inflammatory ingredients, including our CBD-infused options.",
             "link": "shopify://products/the-3p-fulfilled-snowboard"
           }
         },
@@ -199,8 +199,8 @@
           "type": "need",
           "settings": {
             "image": "shopify://shop_images/ct-8.jpg",
-            "title": "Skin Concern",
-            "description": "Nourish and replenish your skin with ultra-hydrating nat",
+            "title": "Dullness/Lack of Glow",
+            "description": "Revitalize your complexion with brightening products that boost radiance and reveal a healthy, luminous glow.",
             "link": "shopify://products/the-3p-fulfilled-snowboard"
           }
         }
