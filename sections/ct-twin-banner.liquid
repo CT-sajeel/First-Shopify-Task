@@ -1,5 +1,9 @@
     {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
-
+{%- if section.settings.image_height == 'auto' -%}
+    {%- style -%}
+        #Banner-{{ section.id }} .banner__media.media {height:auto !important;}
+    {%- endstyle -%}
+{%- endif -%}   
 {%- if section.settings.image_height == 'adapt' and section.settings.image != blank -%}
   {%- style -%}
     @media screen and (max-width: 749px) {
