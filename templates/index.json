@@ -15,6 +15,7 @@
         "testimonial_Mei3zG": {
           "type": "testimonial",
           "settings": {
+            "heading": "Kindly add heading",
             "quote": "This product is amazing! It completely changed my skincare routine.",
             "author": "C J"
           }
@@ -22,6 +23,7 @@
         "testimonial_tRfhiq": {
           "type": "testimonial",
           "settings": {
+            "heading": "Kindly add heading",
             "quote": "This product is amazing! It completely changed my skincare routine.",
             "author": "C J"
           }
@@ -29,6 +31,7 @@
         "testimonial_wLCkiE": {
           "type": "testimonial",
           "settings": {
+            "heading": "Kindly add heading",
             "quote": "This product is amazing! It completely changed my skincare routine.",
             "author": "C J"
           }
@@ -36,6 +39,7 @@
         "testimonial_j6gyVU": {
           "type": "testimonial",
           "settings": {
+            "heading": "Kindly add heading",
             "quote": "This product is amazing! It completely changed my skincare routine.",
             "author": "C J"
           }
@@ -50,7 +54,7 @@
       "name": "Testimonial Slider",
       "settings": {
         "cta_text": "Write Your Story",
-        "cta_link": ""
+        "cta_link": "shopify://collections/all"
       }
     },
     "ct_product_slider_2_ErWLMj": {
