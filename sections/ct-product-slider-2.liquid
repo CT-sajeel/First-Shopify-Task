@@ -106,6 +106,20 @@
 .swiper-slide {
   width: auto;
 }
+.swiper-product-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+.swiper-slide {
+  max-width: 240px; /* Keeps the slide compact like Lea Black’s */
+}
+@media (min-width: 768px) {
+  .swiper-slide {
+    max-width: 300px;
+  }
+}
 {% endstylesheet %}
 
 {% javascript %}
