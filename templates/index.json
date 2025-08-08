@@ -26,17 +26,18 @@
             "heading_size": "h1"
           }
         },
+        "text_B96brq": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "34343",
+            "text_style": "body"
+          }
+        },
         "text_zbMTCj": {
           "type": "text",
           "settings": {
             "text": "22222",
-            "text_style": "body"
-          }
-        },
-        "text_B96brq": {
-          "type": "text",
-          "settings": {
-            "text": "34343",
             "text_style": "body"
           }
         },
@@ -66,8 +67,8 @@
       "block_order": [
         "heading_gtAfpV",
         "heading_m8kLfC",
-        "text_zbMTCj",
         "text_B96brq",
+        "text_zbMTCj",
         "buttons_QQphdd",
         "buttons_7M8Tm8"
       ],
