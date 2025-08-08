@@ -502,6 +502,14 @@
         "subtext": "Be the first to know about new collections and exclusive offers.",
         "button_text": "Subscribe"
       }
+    },
+    "ct_product_slider_gbYxzV": {
+      "type": "ct-product-slider",
+      "name": "Swiper Product Slider",
+      "settings": {
+        "heading": "Featured Products",
+        "collection": "hydrogen"
+      }
     }
   },
   "order": [
@@ -516,6 +524,7 @@
     "rich_text_3yWyQX",
     "ct_blogs_beGJgM",
     "ct_trust_banner_6tdzEc",
-    "ct_newsletter_bdnerB"
+    "ct_newsletter_bdnerB",
+    "ct_product_slider_gbYxzV"
   ]
 }
