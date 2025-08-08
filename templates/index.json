@@ -153,7 +153,7 @@
         "need_TayMpQ": {
           "type": "need",
           "settings": {
-            "image": "shopify://shop_images/ct-8.jpg",
+            "image": "shopify://shop_images/ct-12.jpg",
             "title": "Skin Concern",
             "description": "Nourish and replenish your skin with ultra-hydrating natural skincare products that restore moisture and leave your complexion feeling soft and smooth.",
             "link": "shopify://products/the-3p-fulfilled-snowboard"
@@ -162,7 +162,7 @@
         "need_CGmJwh": {
           "type": "need",
           "settings": {
-            "image": "shopify://shop_images/ct-8.jpg",
+            "image": "shopify://shop_images/ct-11.jpg",
             "title": "Aging Skin",
             "description": "Combat fine lines and wrinkles with clinically supported solutions that lift, firm, and promote youthful, radiant skin.",
             "link": "shopify://products/the-3p-fulfilled-snowboard"
@@ -171,7 +171,7 @@
         "need_YaViap": {
           "type": "need",
           "settings": {
-            "image": "shopify://shop_images/ct-8.jpg",
+            "image": "shopify://shop_images/ct-10.jpg",
             "title": "Sensitive Skin",
             "description": "Soothe and protect your delicate skin with gentle, natural products free from harsh chemicals and synthetic fragrances.",
             "link": "shopify://products/the-3p-fulfilled-snowboard"
@@ -180,7 +180,7 @@
         "need_JqHCQm": {
           "type": "need",
           "settings": {
-            "image": "shopify://shop_images/ct-8.jpg",
+            "image": "shopify://shop_images/ct-9.jpg",
             "title": "Oily/Combination Skin",
             "description": "Balance oil production and refine your complexion with lightweight, non-greasy products that leave your skin feeling fresh and clean.",
             "link": "shopify://products/the-3p-fulfilled-snowboard"
@@ -198,7 +198,7 @@
         "need_8JYiKn": {
           "type": "need",
           "settings": {
-            "image": "shopify://shop_images/ct-8.jpg",
+            "image": "shopify://shop_images/ct-12.jpg",
             "title": "Dullness/Lack of Glow",
             "description": "Revitalize your complexion with brightening products that boost radiance and reveal a healthy, luminous glow.",
             "link": "shopify://products/the-3p-fulfilled-snowboard"
