@@ -1,0 +1,153 @@
+{% schema %}
+{
+  "name": "Skin Needs Grid",
+  "tag": "section",
+  "class": "ct-skin-needs-section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "need",
+      "name": "Skin Need Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Skin Concern"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Skin Needs Grid",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+.skin-needs-section {
+  padding: 40px 80px;
+}
+
+.skin-needs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.skin-need-block {
+  background-color: #fff;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.skin-need-block .content {
+  padding: 25px;
+  background: #f8f8f8;
+  min-height: 320px;
+}
+
+.skin-need-block h3 {
+    color: #42a7c6;
+    font-weight: 200;
+    line-height: 63px;
+    font-size: 25px;
+    margin-bottom: 2rem;
+    margin-top: 0px;
+}
+
+.skin-need-block p {
+    letter-spacing: normal;
+    color: #000000;
+    font-size: 16px;
+    margin-bottom: 15px;  
+}
+
+.skin-need-block a {
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.skin-need-block a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 749px) {
+  .skin-needs-section {
+  padding: 40px 15px;
+  }
+  .skin-needs-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+{% endstylesheet %}
+
+<div class="skin-needs-section">
+  <div class="skin-needs-grid">
+    {% for block in section.blocks %}
+      <div class="skin-need-block">
+        <!-- Image block using Dawn-compatible layout -->
+        <div class="image-with-text__media-item _grid__item">
+          <div
+            class="image-with-text__media image-with-text__media--adapt global-media-settings
+              {% if block.settings.image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}"
+            {% if block.settings.image != blank %}
+              style="padding-bottom: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%;"
+            {% endif %}
+          >
+            {% if block.settings.image != blank %}
+              {% assign widths = '165, 360, 535, 750, 1070, 1500' %}
+              {% capture sizes %}
+                (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 3 }}px,
+                (min-width: 750px) calc((100vw - 130px) / 3),
+                calc((100vw - 50px) / 1)
+              {% endcapture %}
+              {{
+                block.settings.image
+                | image_url: width: 1500
+                | image_tag: sizes: sizes, widths: widths, alt: block.settings.title
+              }}
+            {% else %}
+              {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Text content -->
+        <div class="content">
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.description }}</p>
+          {% if block.settings.link != blank %}
+            <a href="{{ block.settings.link }}">SHOP NOW →</a>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
