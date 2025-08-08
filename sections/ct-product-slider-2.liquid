@@ -42,7 +42,7 @@
 
                   <a href="{{ product.url }}" class="link link-undecorated">
                    {% if media and media.preview_image %}
-                        {%- assign widths = '165, 360, 535, 720, 940' -%}
+                        {%- assign widths = '165, 360 ' -%}
                         {%- capture sizes -%}
                             (min-width: 1200px) calc((100vw - 130px) / 4),
                             (min-width: 990px) calc((100vw - 130px) / 4),
