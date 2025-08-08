@@ -9,14 +9,6 @@
  */
 {
   "sections": {
-    "ct_product_slider_gbYxzV": {
-      "type": "ct-product-slider",
-      "name": "Swiper Product Slider",
-      "settings": {
-        "heading": "Featured Products",
-        "collection": "automated-collection"
-      }
-    },
     "ct_image_banner_rq6p6d": {
       "type": "ct-image-banner",
       "name": "CT Image Banner",
@@ -521,7 +513,7 @@
     }
   },
   "order": [
-    "ct_product_slider_gbYxzV",
+    "ct_product_slider_2_ErWLMj",
     "ct_image_banner_rq6p6d",
     "ct_image_banner_LThNDG",
     "ct_image_with_text_RVPba3",
@@ -533,7 +525,6 @@
     "rich_text_3yWyQX",
     "ct_blogs_beGJgM",
     "ct_trust_banner_6tdzEc",
-    "ct_newsletter_bdnerB",
-    "ct_product_slider_2_ErWLMj"
+    "ct_newsletter_bdnerB"
   ]
 }
