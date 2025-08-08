@@ -1,0 +1,148 @@
+{% stylesheet %}
+.testimonial-slider {
+  max-width: 100%;
+  margin: auto;
+  padding: 2rem 1rem;
+}
+
+.testimonial-slider .swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.testimonial-slider .quote {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.testimonial-slider .author {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.testimonial-slider .swiper-button-prev,
+.testimonial-slider .swiper-button-next {
+  color: #000;
+  width: 30px;
+  height: 30px;
+}
+
+.testimonial-slider .write-story {
+  margin-top: 1.5rem;
+  background-color: #37b5e8;
+  color: #fff;
+  padding: 0.8rem 1.6rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+}
+
+@media (min-width: 768px) {
+  .testimonial-slider .swiper-slide {
+    max-width: 60%;
+    margin: auto;
+  }
+}
+{% endstylesheet %}
+
+<div class="testimonial-slider-section">
+  <div class="swiper testimonial-slider">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide">
+          <div class="quote">{{ block.settings.quote }}</div>
+          <div class="author">{{ block.settings.author }}</div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Arrows -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  {% if section.settings.cta_text != blank and section.settings.cta_link != blank %}
+    <a href="{{ section.settings.cta_link }}" class="write-story">{{ section.settings.cta_text }}</a>
+  {% endif %}
+</div>
+
+{% javascript %}
+  const initTestimonialSwiper = () => {
+    if (typeof Swiper === 'undefined') return;
+
+    new Swiper('.testimonial-slider', {
+      loop: true,
+      spaceBetween: 20,
+      slidesPerView: 1,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 1
+        }
+      }
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', initTestimonialSwiper);
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Testimonial Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "Write Your Story"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "This product is amazing! It completely changed my skincare routine."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "C J"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Testimonial Slider",
+      "blocks": [
+        {
+          "type": "testimonial"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
