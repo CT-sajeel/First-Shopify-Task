@@ -496,7 +496,7 @@
       "type": "ct-newsletter",
       "name": "Custom Newsletter",
       "settings": {
-        "heading": "Subscribe toour newsletter",
+        "heading": "Subscribe to our newsletter",
         "subtext": "Be the first to know about new collections and exclusive offers.",
         "button_text": "Subscribe"
       }
