@@ -508,7 +508,7 @@
       "name": "Swiper Product Slider",
       "settings": {
         "heading": "Featured Products",
-        "collection": "hydrogen"
+        "collection": "automated-collection"
       }
     }
   },
