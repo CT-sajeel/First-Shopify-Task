@@ -11,74 +11,22 @@
   "sections": {
     "ct_twin_banner_H8cBeW": {
       "type": "ct-twin-banner",
-      "blocks": {
-        "heading_gtAfpV": {
-          "type": "heading",
-          "settings": {
-            "heading": "33333",
-            "heading_size": "h1"
-          }
-        },
-        "heading_m8kLfC": {
-          "type": "heading",
-          "settings": {
-            "heading": "aaaa",
-            "heading_size": "h1"
-          }
-        },
-        "text_B96brq": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "34343",
-            "text_style": "body"
-          }
-        },
-        "text_zbMTCj": {
-          "type": "text",
-          "settings": {
-            "text": "22222",
-            "text_style": "body"
-          }
-        },
-        "buttons_QQphdd": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Button label",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "Button label",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        },
-        "buttons_7M8Tm8": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Button label",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "Button label",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_gtAfpV",
-        "heading_m8kLfC",
-        "text_B96brq",
-        "text_zbMTCj",
-        "buttons_QQphdd",
-        "buttons_7M8Tm8"
-      ],
       "name": "CT Twin Banner",
       "settings": {
         "image": "shopify://shop_images/Mood_Shot_24_169_ffe590e0-cae9-42a7-a774-7f6cdb506fac.webp",
+        "heading": "ssasa",
+        "text": "asasa",
+        "button_label_1": "Button label",
+        "button_link_1": "",
+        "button_style_secondary_1": false,
         "image_2": "shopify://shop_images/Mood_Shot_26_169_f8deadcb-5e06-4a03-982d-3efd7e301a02.webp",
+        "heading_2": "Image banner",
+        "text_2": "Give customers details about the banner image(s) or content on the template.",
         "image_overlay_opacity": 20,
         "image_height": "small",
         "image_behavior": "none",
+        "heading_size": "h1",
+        "text_style": "body",
         "desktop_content_position": "middle-left",
         "desktop_content_alignment": "left",
         "show_text_box": true,
