@@ -598,7 +598,7 @@
         "image": "shopify://shop_images/Mood_Shot_24_169_ffe590e0-cae9-42a7-a774-7f6cdb506fac.webp",
         "image_2": "shopify://shop_images/Mood_Shot_26_169_f8deadcb-5e06-4a03-982d-3efd7e301a02.webp",
         "image_overlay_opacity": 0,
-        "image_height": "adapt",
+        "image_height": "small",
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "left",
