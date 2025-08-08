@@ -9,6 +9,26 @@
  */
 {
   "sections": {
+    "ct_testinomals_j7qUw7": {
+      "type": "ct-testinomals",
+      "blocks": {
+        "testimonial_Mei3zG": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "This product is amazing! It completely changed my skincare routine.",
+            "author": "C J"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_Mei3zG"
+      ],
+      "name": "Testimonial Slider",
+      "settings": {
+        "cta_text": "Write Your Story",
+        "cta_link": ""
+      }
+    },
     "ct_product_slider_2_ErWLMj": {
       "type": "ct-product-slider-2",
       "name": "Swiper2 Product Slider",
@@ -510,29 +530,10 @@
         "subtext": "Be the first to know about new collections and exclusive offers.",
         "button_text": "Subscribe"
       }
-    },
-    "ct_testinomals_j7qUw7": {
-      "type": "ct-testinomals",
-      "blocks": {
-        "testimonial_Mei3zG": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "This product is amazing! It completely changed my skincare routine.",
-            "author": "C J"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_Mei3zG"
-      ],
-      "name": "Testimonial Slider",
-      "settings": {
-        "cta_text": "Write Your Story",
-        "cta_link": ""
-      }
     }
   },
   "order": [
+    "ct_testinomals_j7qUw7",
     "ct_product_slider_2_ErWLMj",
     "ct_image_banner_rq6p6d",
     "ct_image_banner_LThNDG",
@@ -545,7 +546,6 @@
     "rich_text_3yWyQX",
     "ct_blogs_beGJgM",
     "ct_trust_banner_6tdzEc",
-    "ct_newsletter_bdnerB",
-    "ct_testinomals_j7qUw7"
+    "ct_newsletter_bdnerB"
   ]
 }
