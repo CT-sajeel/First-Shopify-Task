@@ -510,6 +510,14 @@
         "subtext": "Be the first to know about new collections and exclusive offers.",
         "button_text": "Subscribe"
       }
+    },
+    "ct_product_slider_2_ErWLMj": {
+      "type": "ct-product-slider-2",
+      "name": "Swiper2 Product Slider",
+      "settings": {
+        "heading": "Featured Products",
+        "collection": ""
+      }
     }
   },
   "order": [
@@ -525,6 +533,7 @@
     "rich_text_3yWyQX",
     "ct_blogs_beGJgM",
     "ct_trust_banner_6tdzEc",
-    "ct_newsletter_bdnerB"
+    "ct_newsletter_bdnerB",
+    "ct_product_slider_2_ErWLMj"
   ]
 }
