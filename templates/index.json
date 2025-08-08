@@ -147,6 +147,37 @@
         "show_text_below": true
       }
     },
+    "rich_text_eLJDGL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_R6YAaY": {
+          "type": "heading",
+          "settings": {
+            "heading": "Shop By Skin Concern",
+            "heading_size": "h1"
+          }
+        },
+        "text_PVxigM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Your skin deserves a routine tailored to its unique needs. Explore our curated collections at Lea Black Beauty® to find solutions designed to target your specific concerns.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_R6YAaY",
+        "text_PVxigM"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "ct_grid_cards_6QWVX4": {
       "type": "ct-grid-cards",
       "blocks": {
@@ -415,6 +446,7 @@
     "ct_image_banner_LThNDG",
     "ct_image_with_text_RVPba3",
     "ct_special_banner_WmjcF9",
+    "rich_text_eLJDGL",
     "ct_grid_cards_6QWVX4",
     "ct_showcase_Jf6cQN",
     "ct_image_with_text_mge7jd",
