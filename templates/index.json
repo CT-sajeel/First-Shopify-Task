@@ -9,28 +9,28 @@
  */
 {
   "sections": {
-    "ct_twin_banner_LFqjDD": {
+    "ct_twin_banner_H8cBeW": {
       "type": "ct-twin-banner",
       "blocks": {
-        "heading_rW3be4": {
+        "heading_aixjFW": {
           "type": "heading",
           "settings": {
             "heading": "Image banner",
             "heading_size": "h1"
           }
         },
-        "text_HJhN9L": {
+        "text_VGBCmj": {
           "type": "text",
           "settings": {
             "text": "Give customers details about the banner image(s) or content on the template.",
             "text_style": "body"
           }
         },
-        "buttons_FaxiAm": {
+        "buttons_krcHkK": {
           "type": "buttons",
           "settings": {
             "button_label_1": "Button label",
-            "button_link_1": "shopify://collections",
+            "button_link_1": "shopify://blogs/news",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -39,19 +39,19 @@
         }
       },
       "block_order": [
-        "heading_rW3be4",
-        "text_HJhN9L",
-        "buttons_FaxiAm"
+        "heading_aixjFW",
+        "text_VGBCmj",
+        "buttons_krcHkK"
       ],
       "name": "CT Twin Banner",
       "settings": {
         "image": "shopify://shop_images/Mood_Shot_24_169_ffe590e0-cae9-42a7-a774-7f6cdb506fac.webp",
         "image_2": "shopify://shop_images/Mood_Shot_26_169_f8deadcb-5e06-4a03-982d-3efd7e301a02.webp",
         "image_overlay_opacity": 0,
-        "image_height": "auto",
+        "image_height": "adapt",
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "left",
+        "desktop_content_alignment": "center",
         "show_text_box": true,
         "color_scheme": "",
         "stack_images_on_mobile": true,
@@ -661,7 +661,7 @@
     }
   },
   "order": [
-    "ct_twin_banner_LFqjDD",
+    "ct_twin_banner_H8cBeW",
     "ct_testinomals_j7qUw7",
     "ct_product_slider_2_ErWLMj",
     "ct_image_banner_rq6p6d",
