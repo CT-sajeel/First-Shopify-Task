@@ -18,10 +18,34 @@
             "quote": "This product is amazing! It completely changed my skincare routine.",
             "author": "C J"
           }
+        },
+        "testimonial_tRfhiq": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "This product is amazing! It completely changed my skincare routine.",
+            "author": "C J"
+          }
+        },
+        "testimonial_wLCkiE": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "This product is amazing! It completely changed my skincare routine.",
+            "author": "C J"
+          }
+        },
+        "testimonial_j6gyVU": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "This product is amazing! It completely changed my skincare routine.",
+            "author": "C J"
+          }
         }
       },
       "block_order": [
-        "testimonial_Mei3zG"
+        "testimonial_Mei3zG",
+        "testimonial_tRfhiq",
+        "testimonial_wLCkiE",
+        "testimonial_j6gyVU"
       ],
       "name": "Testimonial Slider",
       "settings": {
