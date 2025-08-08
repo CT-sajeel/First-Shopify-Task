@@ -320,6 +320,7 @@
         "text_image_block_GcKeAX",
         "text_image_block_ANcgia"
       ],
+      "disabled": true,
       "name": "Why Us Section",
       "settings": {
         "heading": "Why Us?",
@@ -359,6 +360,7 @@
         "text_A7MCH7",
         "button_FdNLGL"
       ],
+      "disabled": true,
       "name": "CT Image with Text",
       "settings": {
         "ct-id": "",
