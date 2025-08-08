@@ -14,10 +14,10 @@
       "name": "CT Twin Banner",
       "settings": {
         "image": "shopify://shop_images/Mood_Shot_24_169_ffe590e0-cae9-42a7-a774-7f6cdb506fac.webp",
-        "heading": "ssasa",
-        "text": "asasa",
+        "heading_1": "Image banner",
+        "text_1": "Give customers details about the banner image(s) or content on the template.",
         "button_label_1": "Button label",
-        "button_link_1": "",
+        "button_link_1": "shopify://products/gift-card",
         "button_style_secondary_1": false,
         "image_2": "shopify://shop_images/Mood_Shot_26_169_f8deadcb-5e06-4a03-982d-3efd7e301a02.webp",
         "heading_2": "Image banner",
