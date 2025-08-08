@@ -64,7 +64,7 @@
                             | image_url: width: 940 
                             | image_tag: widths: widths, sizes: sizes, alt: product.featured_image.alt | default: product.title, loading: 'lazy', class: 'swiper-product-image' }}
                         {% else %}
-                        <img src="{{ 'no-image.png' | asset_url }}" alt="{{ product.title | escape }}" loading="lazy" class="swiper-product-image">
+                          {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
                         {% endif %}
                   </a>
 
