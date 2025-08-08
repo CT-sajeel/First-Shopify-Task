@@ -178,6 +178,37 @@
         "padding_bottom": 16
       }
     },
+    "rich_text_3yWyQX": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_3DkUNg": {
+          "type": "heading",
+          "settings": {
+            "heading": "LBB CBD 101",
+            "heading_size": "h2"
+          }
+        },
+        "text_dnX8pg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We use groundbreaking <a href=\"https://www.leablack.com/pages/cbd-101\"><span style=\"text-decoration:underline\">CBD technology</span></a> with the latest clinical data to produce some of the most sought-after hemp, clean skincare products available without a prescription. Discover the incredible power of using topical CBD as part of your overall health and wellness plan.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_3DkUNg",
+        "text_dnX8pg"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 56,
+        "padding_bottom": 16
+      }
+    },
     "ct_grid_cards_6QWVX4": {
       "type": "ct-grid-cards",
       "blocks": {
@@ -441,6 +472,7 @@
     "ct_grid_cards_6QWVX4",
     "ct_showcase_Jf6cQN",
     "ct_image_with_text_mge7jd",
+    "rich_text_3yWyQX",
     "ct_trust_banner_6tdzEc",
     "ct_newsletter_bdnerB"
   ]
