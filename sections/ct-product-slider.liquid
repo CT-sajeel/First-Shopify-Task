@@ -109,7 +109,7 @@
   width: auto;
 }
 {% endstylesheet %}
-
+   {% comment %}
 {% javascript %}
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 4,
@@ -134,3 +134,27 @@ var swiper = new Swiper(".mySwiper", {
   }
 });
 {% endjavascript %}
+   {% endcomment %}
+<script>
+ new Swiper('.template--19444065730837__08abc852-a482-4fcf-95ee-7d32e50cd99a-slider', {
+        direction: 'horizontal',
+        loop: false,
+        slidesPerView: 1.3,
+        spaceBetween: 20,
+        breakpoints: {
+            0: {
+                slidesPerView: 1.3
+            },
+            600: {
+                slidesPerView: 2
+            },
+            990: {
+                slidesPerView: 3
+            }
+        },
+        navigation: {
+            nextEl: '.swiper-button-next-template--19444065730837__08abc852-a482-4fcf-95ee-7d32e50cd99a',
+            prevEl: '.swiper-button-prev-template--19444065730837__08abc852-a482-4fcf-95ee-7d32e50cd99a'
+        }
+    });
+</script>
