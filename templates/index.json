@@ -17,6 +17,13 @@
         "collection": "automated-collection"
       }
     },
+    "testing_slider_aCFEQc": {
+      "type": "testing-slider",
+      "name": "Test Swiper Product Slider",
+      "settings": {
+        "heading": "Featured Products"
+      }
+    },
     "ct_image_banner_rq6p6d": {
       "type": "ct-image-banner",
       "name": "CT Image Banner",
@@ -514,6 +521,7 @@
   },
   "order": [
     "ct_product_slider_gbYxzV",
+    "testing_slider_aCFEQc",
     "ct_image_banner_rq6p6d",
     "ct_image_banner_LThNDG",
     "ct_image_with_text_RVPba3",
