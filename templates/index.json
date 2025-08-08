@@ -178,37 +178,6 @@
         "padding_bottom": 16
       }
     },
-    "rich_text_3yWyQX": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_3DkUNg": {
-          "type": "heading",
-          "settings": {
-            "heading": "LBB CBD 101",
-            "heading_size": "h2"
-          }
-        },
-        "text_dnX8pg": {
-          "type": "text",
-          "settings": {
-            "text": "<p>We use groundbreaking <a href=\"https://www.leablack.com/pages/cbd-101\"><span style=\"text-decoration:underline\">CBD technology</span></a> with the latest clinical data to produce some of the most sought-after hemp, clean skincare products available without a prescription. Discover the incredible power of using topical CBD as part of your overall health and wellness plan.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_3DkUNg",
-        "text_dnX8pg"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 56,
-        "padding_bottom": 16
-      }
-    },
     "ct_grid_cards_6QWVX4": {
       "type": "ct-grid-cards",
       "blocks": {
@@ -408,6 +377,37 @@
         "padding_bottom": 36
       }
     },
+    "rich_text_3yWyQX": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_3DkUNg": {
+          "type": "heading",
+          "settings": {
+            "heading": "LBB CBD 101",
+            "heading_size": "h2"
+          }
+        },
+        "text_dnX8pg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We use groundbreaking <a href=\"https://www.leablack.com/pages/cbd-101\"><span style=\"text-decoration:underline\">CBD technology</span></a> with the latest clinical data to produce some of the most sought-after hemp, clean skincare products available without a prescription. Discover the incredible power of using topical CBD as part of your overall health and wellness plan.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_3DkUNg",
+        "text_dnX8pg"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 56,
+        "padding_bottom": 16
+      }
+    },
     "ct_trust_banner_6tdzEc": {
       "type": "ct-trust-banner",
       "blocks": {
@@ -461,6 +461,45 @@
         "subtext": "Be the first to know about new collections and exclusive offers.",
         "button_text": "Subscribe"
       }
+    },
+    "ct_blogs_beGJgM": {
+      "type": "ct-blogs",
+      "blocks": {
+        "need_UteWe9": {
+          "type": "need",
+          "settings": {
+            "image": "shopify://shop_images/ct-4.jpg",
+            "title": "7 Myths About CBD Oil",
+            "description": "Over the last few years, CBD has become insanely popular and finds its way into all kinds of industries.",
+            "link": "shopify://blogs/news"
+          }
+        },
+        "need_Cpa8jc": {
+          "type": "need",
+          "settings": {
+            "image": "shopify://shop_images/ct-4.jpg",
+            "title": "7 Myths About CBD Oil",
+            "description": "Over the last few years, CBD has become insanely popular and finds its way into all kinds of industries.",
+            "link": "shopify://blogs/news"
+          }
+        },
+        "need_YYzBrx": {
+          "type": "need",
+          "settings": {
+            "image": "shopify://shop_images/ct-4.jpg",
+            "title": "7 Myths About CBD Oil",
+            "description": "Over the last few years, CBD has become insanely popular and finds its way into all kinds of industries.",
+            "link": "shopify://blogs/news"
+          }
+        }
+      },
+      "block_order": [
+        "need_UteWe9",
+        "need_Cpa8jc",
+        "need_YYzBrx"
+      ],
+      "name": "CT Blogs",
+      "settings": {}
     }
   },
   "order": [
@@ -473,6 +512,7 @@
     "ct_showcase_Jf6cQN",
     "ct_image_with_text_mge7jd",
     "rich_text_3yWyQX",
+    "ct_blogs_beGJgM",
     "ct_trust_banner_6tdzEc",
     "ct_newsletter_bdnerB"
   ]
