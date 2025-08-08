@@ -516,7 +516,7 @@
       "name": "Swiper2 Product Slider",
       "settings": {
         "heading": "Featured Products",
-        "collection": ""
+        "collection": "automated-collection"
       }
     }
   },
