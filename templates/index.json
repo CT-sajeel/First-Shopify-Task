@@ -11,38 +11,6 @@
   "sections": {
     "ct_twin_banner_H8cBeW": {
       "type": "ct-twin-banner",
-      "blocks": {
-        "heading_aixjFW": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "h1"
-          }
-        },
-        "text_VGBCmj": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        },
-        "buttons_krcHkK": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Button label",
-            "button_link_1": "shopify://blogs/news",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_aixjFW",
-        "text_VGBCmj",
-        "buttons_krcHkK"
-      ],
       "name": "CT Twin Banner",
       "settings": {
         "image": "shopify://shop_images/Mood_Shot_24_169_ffe590e0-cae9-42a7-a774-7f6cdb506fac.webp",
