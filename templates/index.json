@@ -11,37 +11,80 @@
   "sections": {
     "ct_twin_banner_H8cBeW": {
       "type": "ct-twin-banner",
+      "blocks": {
+        "heading_gtAfpV": {
+          "type": "heading",
+          "settings": {
+            "heading": "33333",
+            "heading_size": "h1"
+          }
+        },
+        "heading_m8kLfC": {
+          "type": "heading",
+          "settings": {
+            "heading": "aaaa",
+            "heading_size": "h1"
+          }
+        },
+        "text_zbMTCj": {
+          "type": "text",
+          "settings": {
+            "text": "22222",
+            "text_style": "body"
+          }
+        },
+        "text_B96brq": {
+          "type": "text",
+          "settings": {
+            "text": "34343",
+            "text_style": "body"
+          }
+        },
+        "buttons_QQphdd": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "buttons_7M8Tm8": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_gtAfpV",
+        "heading_m8kLfC",
+        "text_zbMTCj",
+        "text_B96brq",
+        "buttons_QQphdd",
+        "buttons_7M8Tm8"
+      ],
       "name": "CT Twin Banner",
       "settings": {
         "image": "shopify://shop_images/Mood_Shot_24_169_ffe590e0-cae9-42a7-a774-7f6cdb506fac.webp",
-        "heading_1": "",
-        "heading_size_1": "h2",
-        "text_1": "",
-        "button_label_1_1": "",
-        "button_link_1_1": "",
-        "button_style_secondary_1_1": false,
-        "button_label_2_1": "",
-        "button_link_2_1": "",
-        "button_style_secondary_2_1": false,
         "image_2": "shopify://shop_images/Mood_Shot_26_169_f8deadcb-5e06-4a03-982d-3efd7e301a02.webp",
-        "heading_2": "",
-        "heading_size_2": "h1",
-        "text_2": "",
-        "button_label_1_2": "",
-        "button_link_1_2": "",
-        "button_style_secondary_1_2": false,
-        "button_label_2_2": "",
-        "button_link_2_2": "",
-        "button_style_secondary_2_2": false,
         "image_overlay_opacity": 20,
         "image_height": "small",
+        "image_behavior": "none",
         "desktop_content_position": "middle-left",
         "desktop_content_alignment": "left",
+        "show_text_box": true,
         "color_scheme": "scheme-07fd4627-4e87-43e6-a1aa-091ca09b170c",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "left",
-        "show_text_below": true,
-        "show_text_box": true
+        "show_text_below": true
       }
     },
     "ct_testinomals_j7qUw7": {
