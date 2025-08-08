@@ -162,43 +162,14 @@
         </div>
 
 
-
+        {% if section.settings.cta_text != blank and section.settings.cta_link != blank %} 
         <div class="button__wrapper text-center">
-            <a href="/pages/testimonials" aria-label="WRITE YOUR STORY" class="button button--primary">
-                WRITE YOUR STORY
-            </a>
+           <a href="{{ section.settings.cta_link }}" class="button button--primary">{{ section.settings.cta_text }}</a>
         </div>
+      {% endif %}
  
 </div>
 
-
-
-
-
-
-
-
-
-
-
-<div class="testimonial-slider-section">
-  <div class="swiper __testimonial-slider">
-    <div class="swiper-wrapper">
-      {% for block in section.blocks %}
-        <div class="swiper-slide">
-          <div class="quote">{{ block.settings.quote }}</div>
-          <div class="author">{{ block.settings.author }}</div>
-        </div>
-      {% endfor %}
-    </div>
-
-   
-  </div>
-
-  {% if section.settings.cta_text != blank and section.settings.cta_link != blank %}
-    <a href="{{ section.settings.cta_link }}" class="write-story">{{ section.settings.cta_text }}</a>
-  {% endif %}
-</div>
 
 {% javascript %}
   const initTestimonialSwiper = () => {
