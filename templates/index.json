@@ -9,14 +9,6 @@
  */
 {
   "sections": {
-    "ct_product_slider_2_ErWLMj": {
-      "type": "ct-product-slider-2",
-      "name": "Swiper2 Product Slider",
-      "settings": {
-        "heading": "Featured Products",
-        "collection": "automated-collection"
-      }
-    },
     "ct_image_banner_rq6p6d": {
       "type": "ct-image-banner",
       "name": "CT Image Banner",
@@ -52,6 +44,36 @@
         "color_scheme": "",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "ct_twin_banner_H8cBeW": {
+      "type": "ct-twin-banner",
+      "name": "CT Twin Banner",
+      "settings": {
+        "image": "shopify://shop_images/Mood_Shot_24_169_ffe590e0-cae9-42a7-a774-7f6cdb506fac.webp",
+        "heading_1": "Image banner 2",
+        "text_1": "Give customers details about the banner image(s) or content on the template.",
+        "button_label_1": "Button label2",
+        "button_link_1": "shopify://products/the-3p-fulfilled-snowboard",
+        "button_style_secondary_1": false,
+        "image_2": "shopify://shop_images/Mood_Shot_26_169_f8deadcb-5e06-4a03-982d-3efd7e301a02.webp",
+        "heading_2": "Image banner 2",
+        "text_2": "Give customers details about the banner image(s) or content on the template.",
+        "button_label_2": "Button label 3",
+        "button_link_2": "shopify://products/the-collection-snowboard-liquid",
+        "button_style_secondary_2": false,
+        "image_overlay_opacity": 20,
+        "image_height": "small",
+        "image_behavior": "none",
+        "heading_size": "h0",
+        "text_style": "body",
+        "desktop_content_position": "bottom-right",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-07fd4627-4e87-43e6-a1aa-091ca09b170c",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "left",
         "show_text_below": true
       }
     },
@@ -104,36 +126,6 @@
         "padding_bottom": 36
       }
     },
-    "ct_twin_banner_H8cBeW": {
-      "type": "ct-twin-banner",
-      "name": "CT Twin Banner",
-      "settings": {
-        "image": "shopify://shop_images/Mood_Shot_24_169_ffe590e0-cae9-42a7-a774-7f6cdb506fac.webp",
-        "heading_1": "Image banner 2",
-        "text_1": "Give customers details about the banner image(s) or content on the template.",
-        "button_label_1": "Button label2",
-        "button_link_1": "shopify://products/the-3p-fulfilled-snowboard",
-        "button_style_secondary_1": false,
-        "image_2": "shopify://shop_images/Mood_Shot_26_169_f8deadcb-5e06-4a03-982d-3efd7e301a02.webp",
-        "heading_2": "Image banner 2",
-        "text_2": "Give customers details about the banner image(s) or content on the template.",
-        "button_label_2": "Button label 3",
-        "button_link_2": "shopify://products/the-collection-snowboard-liquid",
-        "button_style_secondary_2": false,
-        "image_overlay_opacity": 20,
-        "image_height": "small",
-        "image_behavior": "none",
-        "heading_size": "h0",
-        "text_style": "body",
-        "desktop_content_position": "bottom-right",
-        "desktop_content_alignment": "left",
-        "show_text_box": true,
-        "color_scheme": "scheme-07fd4627-4e87-43e6-a1aa-091ca09b170c",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "left",
-        "show_text_below": true
-      }
-    },
     "ct_special_banner_WmjcF9": {
       "type": "ct-special-banner",
       "blocks": {
@@ -183,6 +175,14 @@
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "left",
         "show_text_below": true
+      }
+    },
+    "ct_product_slider_2_ErWLMj": {
+      "type": "ct-product-slider-2",
+      "name": "Swiper2 Product Slider",
+      "settings": {
+        "heading": "Featured Products",
+        "collection": "automated-collection"
       }
     },
     "rich_text_eLJDGL": {
@@ -463,6 +463,57 @@
         "padding_bottom": 36
       }
     },
+    "ct_special_banner_8zEbaK": {
+      "type": "ct-special-banner",
+      "blocks": {
+        "heading_txirWw": {
+          "type": "heading",
+          "settings": {
+            "heading": "Take Our Skincare Quiz",
+            "heading_size": "h1"
+          }
+        },
+        "text_madBE8": {
+          "type": "text",
+          "settings": {
+            "text": "Discover the key to radiant skin with Lea Black Beauty®’s personalized skincare quiz. In just a few moments, uncover a tailored routine of natural skincare products designed to meet your unique skin needs. Whether you're seeking hydration, anti-aging solutions, or the latest in CBD skincare, we’ll guide you to the perfect products to transform your skin.",
+            "text_style": "body"
+          }
+        },
+        "buttons_yPJAUL": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Take A Quiz",
+            "button_link_1": "shopify://pages/contact",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_txirWw",
+        "text_madBE8",
+        "buttons_yPJAUL"
+      ],
+      "name": "CT Special Banner",
+      "settings": {
+        "image": "shopify://shop_images/ct-banner-2_c3d15186-be6b-4d0c-be78-1da2b333a17e.jpg",
+        "image_2": "shopify://shop_images/ct-banner-3_d2701ce2-9e79-4aa2-8fcb-6c0f2b9bdb8a.jpg",
+        "ct_banner_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "top-right",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-297b61e5-f075-4749-aedc-155be21f5149",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "left",
+        "show_text_below": true
+      }
+    },
     "rich_text_3yWyQX": {
       "type": "rich-text",
       "blocks": {
@@ -650,6 +701,7 @@
     "ct_testinomals_j7qUw7",
     "ct_showcase_Jf6cQN",
     "ct_image_with_text_mge7jd",
+    "ct_special_banner_8zEbaK",
     "rich_text_3yWyQX",
     "ct_blogs_beGJgM",
     "ct_trust_banner_6tdzEc",
