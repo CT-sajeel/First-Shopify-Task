@@ -9,54 +9,6 @@
  */
 {
   "sections": {
-    "ct_testinomals_j7qUw7": {
-      "type": "ct-testinomals",
-      "blocks": {
-        "testimonial_Mei3zG": {
-          "type": "testimonial",
-          "settings": {
-            "heading": "Kindly add heading",
-            "quote": "This product is amazing! It completely changed my skincare routine.",
-            "author": "C J"
-          }
-        },
-        "testimonial_tRfhiq": {
-          "type": "testimonial",
-          "settings": {
-            "heading": "Kindly add heading",
-            "quote": "This product is amazing! It completely changed my skincare routine.",
-            "author": "C J"
-          }
-        },
-        "testimonial_wLCkiE": {
-          "type": "testimonial",
-          "settings": {
-            "heading": "Kindly add heading",
-            "quote": "This product is amazing! It completely changed my skincare routine.",
-            "author": "C J"
-          }
-        },
-        "testimonial_j6gyVU": {
-          "type": "testimonial",
-          "settings": {
-            "heading": "Kindly add heading",
-            "quote": "This product is amazing! It completely changed my skincare routine.",
-            "author": "C J"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_Mei3zG",
-        "testimonial_tRfhiq",
-        "testimonial_wLCkiE",
-        "testimonial_j6gyVU"
-      ],
-      "name": "Testimonial Slider",
-      "settings": {
-        "cta_text": "Write Your Story",
-        "cta_link": "shopify://collections/all"
-      }
-    },
     "ct_product_slider_2_ErWLMj": {
       "type": "ct-product-slider-2",
       "name": "Swiper2 Product Slider",
@@ -333,6 +285,54 @@
       "name": "Skin Needs Grid",
       "settings": {}
     },
+    "ct_testinomals_j7qUw7": {
+      "type": "ct-testinomals",
+      "blocks": {
+        "testimonial_Mei3zG": {
+          "type": "testimonial",
+          "settings": {
+            "heading": "Kindly add heading",
+            "quote": "This product is amazing! It completely changed my skincare routine.",
+            "author": "C J"
+          }
+        },
+        "testimonial_tRfhiq": {
+          "type": "testimonial",
+          "settings": {
+            "heading": "Kindly add heading",
+            "quote": "This product is amazing! It completely changed my skincare routine.",
+            "author": "C J"
+          }
+        },
+        "testimonial_wLCkiE": {
+          "type": "testimonial",
+          "settings": {
+            "heading": "Kindly add heading",
+            "quote": "This product is amazing! It completely changed my skincare routine.",
+            "author": "C J"
+          }
+        },
+        "testimonial_j6gyVU": {
+          "type": "testimonial",
+          "settings": {
+            "heading": "Kindly add heading",
+            "quote": "This product is amazing! It completely changed my skincare routine.",
+            "author": "C J"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_Mei3zG",
+        "testimonial_tRfhiq",
+        "testimonial_wLCkiE",
+        "testimonial_j6gyVU"
+      ],
+      "name": "Testimonial Slider",
+      "settings": {
+        "cta_text": "Write Your Story",
+        "cta_link": "shopify://collections/all"
+      }
+    },
     "ct_showcase_Jf6cQN": {
       "type": "ct-showcase",
       "blocks": {
@@ -406,7 +406,6 @@
         "text_image_block_GcKeAX",
         "text_image_block_ANcgia"
       ],
-      "disabled": true,
       "name": "Why Us Section",
       "settings": {
         "heading": "Why Us?",
@@ -446,7 +445,6 @@
         "text_A7MCH7",
         "button_FdNLGL"
       ],
-      "disabled": true,
       "name": "CT Image with Text",
       "settings": {
         "ct-id": "",
@@ -641,15 +639,15 @@
     }
   },
   "order": [
-    "ct_testinomals_j7qUw7",
-    "ct_product_slider_2_ErWLMj",
     "ct_image_banner_rq6p6d",
     "ct_image_banner_LThNDG",
-    "ct_image_with_text_RVPba3",
     "ct_twin_banner_H8cBeW",
+    "ct_image_with_text_RVPba3",
     "ct_special_banner_WmjcF9",
+    "ct_product_slider_2_ErWLMj",
     "rich_text_eLJDGL",
     "ct_grid_cards_6QWVX4",
+    "ct_testinomals_j7qUw7",
     "ct_showcase_Jf6cQN",
     "ct_image_with_text_mge7jd",
     "rich_text_3yWyQX",
