@@ -21,6 +21,7 @@ p > a {color: #42a7c6 !important;}
     line-height: 63px;
     margin-bottom: 25px;
 }
+
 .button {
     font-size: 14px;
     font-weight: 700;
@@ -46,7 +47,7 @@ p > a {color: #42a7c6 !important;}
 /*Mobile Style*/
 
 @media screen and (max-width: 749px) {
-  /* Homepage - Image with text - Lea Black Beauty */
- 
-  /* END - Homepage - Image with text - Lea Black Beauty */
+  .section-main-heading {
+    font-size: 36px;
+  }
 }
