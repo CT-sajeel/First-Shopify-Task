@@ -126,8 +126,17 @@
         "padding_bottom": 36
       }
     },
+    "ct_product_slider_R7FF6G": {
+      "type": "ct-product-slider",
+      "name": "CT Swiper Product",
+      "settings": {
+        "heading": "Featured Products",
+        "collection": ""
+      }
+    },
     "ct_product_slider_2_ErWLMj": {
       "type": "ct-product-slider-2",
+      "disabled": true,
       "name": "Swiper2 Product Slider",
       "settings": {
         "heading": "Featured Products",
@@ -589,6 +598,7 @@
     "ct_image_banner_LThNDG",
     "ct_twin_banner_H8cBeW",
     "ct_image_with_text_RVPba3",
+    "ct_product_slider_R7FF6G",
     "ct_product_slider_2_ErWLMj",
     "ct_special_banner_WmjcF9",
     "rich_text_eLJDGL",
