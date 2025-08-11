@@ -64,7 +64,7 @@
         "button_link_2": "shopify://products/the-collection-snowboard-liquid",
         "button_style_secondary_2": false,
         "image_overlay_opacity": 20,
-        "image_height": "adapt",
+        "image_height": "small",
         "image_behavior": "none",
         "heading_size": "h0",
         "text_style": "body",
