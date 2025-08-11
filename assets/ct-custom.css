@@ -9,7 +9,7 @@
 }
 
 /* General CSS*/
-p > a {color: #42a7c6;}
+p > a {color: #42a7c6 !important;}
 .button {
     font-size: 14px;
     font-weight: 700;
