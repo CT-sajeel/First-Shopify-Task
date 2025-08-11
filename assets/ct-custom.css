@@ -1,4 +1,12 @@
 
+/*Adding Font*/
+
+@font-face {
+  font-family: 'Poppins Medium';
+  src: url('https://cdn.shopify.com/s/files/1/0764/4282/9037/files/Poppins-Medium.ttf?v=1754933299') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
 
 /* General CSS*/
 .button {
