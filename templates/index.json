@@ -68,13 +68,13 @@
         "image_behavior": "none",
         "heading_size": "h0",
         "text_style": "body",
-        "desktop_content_position": "bottom-right",
+        "desktop_content_position": "middle-left",
         "desktop_content_alignment": "left",
         "show_text_box": true,
         "color_scheme": "scheme-07fd4627-4e87-43e6-a1aa-091ca09b170c",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "left",
-        "show_text_below": true
+        "show_text_below": false
       }
     },
     "ct_image_with_text_RVPba3": {
