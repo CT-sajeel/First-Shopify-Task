@@ -70,25 +70,39 @@
                       </div>
                     </div>
 
+                    <div class="card__content">
+                      <div class="product__box-details">
+                        <div class="product__title--price d-flex justify-between">
+                          <div class="product__title">
+                            <a href="{{ product.url }}" class="link link-undecorated">
+                              <h3>{{ product.title }}</h3>
+                            </a>
+                            
+                          </div>
+                          <div class="product__price">
+                            {{ product.price | money }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
 
-<div class="product-block">
-  <div class="product-info">
-    <div class="product-title">Lea Black Beauty® CBD<br>Lip Balm Treatment</div>
-    <div class="product-reviews">
-      <div class="stars">
-        ★ ★ ★ ★ ★
-      </div>
-      <span>10 Reviews</span>
-    </div>
-  </div>
-  <div class="product-price">
-    <span style="font-size: 14px; margin-right: 2px;">$</span>15.00
-  </div>
-</div>
+                    <div class="product-block">
+                    <div class="product-info">
+                      <div class="product-title">{{ product.title }}</div>
+                      <div class="product-reviews">
+                        <div class="stars">
+                          ★ ★ ★ ★ ★
+                        </div>
+                        <span>10 Reviews</span>
+                      </div>
+                    </div>
+                    <div class="product-price">
+                      <span style="font-size: 14px; margin-right: 2px;">$</span>{{ product.price | money }}
+                    </div>
+                  </div>
 
-
-
+                    
                   </div>
                 </div>
               </div>
@@ -180,10 +194,10 @@
 }   
 @media screen and (max-width: 749px) {
 #shopify-section-{{ section.id }}  .slider-button__mobile {
-        gap: 50px;
+        gap: 20px;
         align-items: center;
         display: flex;
-        justify-content: center;
+        justify-content: end;
  }
 #shopify-section-{{ section.id }}  .slider-arrow{
     transform: unset !important;
@@ -192,7 +206,6 @@
     height: 49px !important;
  }
 }
-
 
 .product-block {
   display: flex;
@@ -230,7 +243,6 @@
   color: #000;
   white-space: nowrap;
 }
-
 {% endstyle %}
 
 {% javascript %}
