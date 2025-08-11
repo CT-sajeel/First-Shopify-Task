@@ -112,7 +112,7 @@
         </div>
       </div>
 </div>
-{% stylesheet %}
+{% style%}
 .swiper-section {
   padding: 20px;
 }
@@ -143,7 +143,69 @@
     max-width: 300px;
   }
 }
-{% endstylesheet %}
+
+#shopify-section-{{ section.id }} .testimonial__heading {
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 15px;
+  font-family: var(--font-heading-family);
+}
+#shopify-section-{{ section.id }} .testimonial__content {
+  margin-bottom: 20px;
+}
+#shopify-section-{{ section.id }} .section__testimonial .button__wrapper {
+  margin-top: 30px;
+}
+#shopify-section-{{ section.id }} .section__testimonial .button__wrapper .button {
+  padding: 0 30px;
+}
+#shopify-section-{{ section.id }} .section__testimonial .section__heading-icon {
+  margin-bottom: 15px;
+}
+#shopify-section-{{ section.id }} .section__heading-primary { font-size: 42px;
+
+}
+#shopify-section-{{ section.id }} .ct-test-container {
+      max-width: 1040px !important;
+      text-align: center;
+}
+#shopify-section-{{ section.id }} .ct-test-container .slider-arrow-prev {
+    left :-20px;
+}
+#shopify-section-{{ section.id }} .ct-test-container .slider-arrow-next{ right :-20px;}
+#shopify-section-{{ section.id }} .testimonial__heading h2{font-size: 18px;font-weight:bold;}
+#shopify-section-{{ section.id }} .button__wrapper {margin-top: 3.5rem;}
+#shopify-section-{{ section.id }} .swiper-slide {
+  max-width: 100%;
+}
+#shopify-section-{{ section.id }} .ct-test-container .slider-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        }
+#shopify-section-{{ section.id }} .ct-test-container .slider-arrow svg {
+    width: 50px;
+    height: 40px;
+}
+#shopify-section-{{ section.id }} .ct-test-container .slider-arrow-prev svg {
+    transform: rotate(180deg);
+
+}   
+@media screen and (max-width: 749px) {
+#shopify-section-{{ section.id }} .ct-test-container .slider-button__mobile {
+        gap: 50px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+ }
+#shopify-section-{{ section.id }} .ct-test-container .slider-arrow{
+    transform: unset !important;
+    display: block !important;
+    position: unset !important;
+    height: 49px !important;
+ }
+}
+{% endstyle %}
 
 {% javascript %}
 var swiper = new Swiper(".mySwiper", {
