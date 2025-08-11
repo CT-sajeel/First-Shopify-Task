@@ -160,6 +160,7 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        z-index: 99;
         }
 #shopify-section-{{ section.id }} .slider-arrow svg {
     width: 50px;
@@ -190,8 +191,8 @@ var swiper = new Swiper(".mySwiper", {
   slidesPerView: 4,
   spaceBetween: 20,
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".slider-arrow-next",
+    prevEl: ".slider-arrow-prev",
   },
   breakpoints: {
     320: {
