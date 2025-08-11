@@ -79,14 +79,10 @@
   id="Banner-{{ section.id }}"
   class="banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.image != blank and section.settings.image_2 != blank %} banner--stacked{% endif %}{% if section.settings.image_height == 'adapt' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
 >
-
-
-
-
-
-
-
+  {% comment %} Left Banner {% endcomment %}
   {%- if section.settings.image != blank -%}
+
+    {% comment %}Left Banner Image {% endcomment %}
     <div class="banner__media media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {%- liquid
         assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
@@ -112,71 +108,55 @@
           widths: widths,
           fetchpriority: fetch_priority
       }}
-
-
-
- <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
-   
-        {% if section.settings.heading_1  %}
-            <h2
-              class="banner__heading inline-richtext " {{ section.settings.heading_size }}
-              {{ section.shopify_attributes }}
-            >
-              {{ section.settings.heading_1 }}
-            </h2>
-        {% endif %} 
-          {% if section.settings.text_1  %}
-            <div class="banner__text rte {{ section.settings.text_style }}" {{ section.shopify_attributes }}>
-              <p>{{ section.settings.text_1 }}</p>
-            </div>
-          {% endif %}   
-           {% if section.settings.button_label_1  %}
-            <div
-              class="banner__buttons{% if section.settings.button_label_1 != blank and section.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
-              {{ section.shopify_attributes }}
-            >
-              {%- if section.settings.button_label_1 != blank -%}
-                <a
-                  {% if section.settings.button_link_1 == blank %}
-                    role="link" aria-disabled="true"
-                  {% else %}
-                    href="{{ section.settings.button_link_1 }}"
-                  {% endif %}
-                  class="button{% if section.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
+    {% comment %} Left Banner Content {% endcomment %}
+    <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
+      
+            {% if section.settings.heading_1  %}
+                <h2
+                  class="banner__heading inline-richtext " {{ section.settings.heading_size }}
+                  {{ section.shopify_attributes }}
                 >
-                  {{- section.settings.button_label_1 | escape -}}
-                </a>
-              {%- endif -%}
-            </div>
-        {% endif %} 
+                  {{ section.settings.heading_1 }}
+                </h2>
+            {% endif %} 
+              {% if section.settings.text_1  %}
+                <div class="banner__text rte {{ section.settings.text_style }}" {{ section.shopify_attributes }}>
+                  <p>{{ section.settings.text_1 }}</p>
+                </div>
+              {% endif %}   
+              {% if section.settings.button_label_1  %}
+                <div
+                  class="banner__buttons{% if section.settings.button_label_1 != blank and section.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
+                  {{ section.shopify_attributes }}
+                >
+                  {%- if section.settings.button_label_1 != blank -%}
+                    <a
+                      {% if section.settings.button_link_1 == blank %}
+                        role="link" aria-disabled="true"
+                      {% else %}
+                        href="{{ section.settings.button_link_1 }}"
+                      {% endif %}
+                      class="button{% if section.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
+                    >
+                      {{- section.settings.button_label_1 | escape -}}
+                    </a>
+                  {%- endif -%}
+                </div>
+            {% endif %} 
+        </div>
+      </div>
     </div>
-  </div>
-  
+    {%- elsif section.settings.image_2 == blank -%}
+      <div class="banner__media media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      </div>
+    {%- endif -%}
+  {% comment %} End - Left Banner{% endcomment %}
 
-    </div>
-  {%- elsif section.settings.image_2 == blank -%}
-    <div class="banner__media media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-    </div>
-  {%- endif -%}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  {% comment %} Right Banner {% endcomment %}
   {%- if section.settings.image_2 != blank -%}
+    {% comment %} Right Banner Image {% endcomment %}
     <div class="banner__media media{% if section.settings.image != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {%- liquid
         assign image_height_2 = section.settings.image_2.width | divided_by: section.settings.image_2.aspect_ratio
@@ -203,48 +183,48 @@
           fetchpriority: fetch_priority
       }}
 
-
- <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
-     {% if section.settings.heading_2  %}
-            <h2
-              class="banner__heading inline-richtext " {{ section.settings.heading_size }}
-              {{ section.shopify_attributes }}
-            >
-              {{ section.settings.heading_2 }}
-            </h2>
-        {% endif %} 
-          {% if section.settings.text_2  %}
-            <div class="banner__text rte {{ section.settings.text_style }}" {{ section.shopify_attributes }}>
-              <p>{{ section.settings.text_2 }}</p>
-            </div>
-          {% endif %}   
-           {% if section.settings.button_label_2  %}
-            <div
-              class="banner__buttons{% if section.settings.button_label_2 != blank and section.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
-              {{ section.shopify_attributes }}
-            >
-              {%- if section.settings.button_label_2 != blank -%}
-                <a
-                  {% if section.settings.button_link_2== blank %}
-                    role="link" aria-disabled="true"
-                  {% else %}
-                    href="{{ section.settings.button_link_2 }}"
-                  {% endif %}
-                  class="button{% if section.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"
+    {% comment %} Right Banner Content {% endcomment %}
+    <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
+        {% if section.settings.heading_2  %}
+                <h2
+                  class="banner__heading inline-richtext " {{ section.settings.heading_size }}
+                  {{ section.shopify_attributes }}
                 >
-                  {{- section.settings.button_label_2 | escape -}}
-                </a>
-              {%- endif -%}
-            </div>
-        {% endif %} 
-    </div>
-  </div>
+                  {{ section.settings.heading_2 }}
+                </h2>
+            {% endif %} 
+              {% if section.settings.text_2  %}
+                <div class="banner__text rte {{ section.settings.text_style }}" {{ section.shopify_attributes }}>
+                  <p>{{ section.settings.text_2 }}</p>
+                </div>
+              {% endif %}   
+              {% if section.settings.button_label_2  %}
+                <div
+                  class="banner__buttons{% if section.settings.button_label_2 != blank and section.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
+                  {{ section.shopify_attributes }}
+                >
+                  {%- if section.settings.button_label_2 != blank -%}
+                    <a
+                      {% if section.settings.button_link_2== blank %}
+                        role="link" aria-disabled="true"
+                      {% else %}
+                        href="{{ section.settings.button_link_2 }}"
+                      {% endif %}
+                      class="button{% if section.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"
+                    >
+                      {{- section.settings.button_label_2 | escape -}}
+                    </a>
+                  {%- endif -%}
+                </div>
+            {% endif %} 
+        </div>
+      </div>
   
 
     </div>
   {%- endif -%}
-
+  {% comment %} End - Right Banner {% endcomment %}
 
 
 </div>
