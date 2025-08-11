@@ -68,7 +68,7 @@
   <div class="skin-needs-grid">
     {% for block in section.blocks %}     
       <div class="ct-blogs">
-        <!-- Image block using Dawn-compatible layout -->
+       {% comment %} Image block using Dawn-compatible layout {% endcomment %}
         <div class="image-with-text__media-item _grid__item">
           <div
             class="image-with-text__media image-with-text__media--adapt global-media-settings
@@ -95,7 +95,7 @@
           </div>
         </div>
 
-        <!-- Text content -->
+       {% comment %}Text content {% endcomment %}
         <div class="content">
           <h3>{{ block.settings.title }}</h3>
           <p>{{ block.settings.description }}</p>
