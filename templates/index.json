@@ -293,15 +293,8 @@
           "settings": {
             "heading": "Kindly add heading",
             "quote": "This product is amazing! It completely changed my skincare routine.",
-            "author": "C J"
-          }
-        },
-        "testimonial_tRfhiq": {
-          "type": "testimonial",
-          "settings": {
-            "heading": "Kindly add heading",
-            "quote": "This product is amazing! It completely changed my skincare routine.",
-            "author": "C J"
+            "author": "C J",
+            "review_link": ""
           }
         },
         "testimonial_wLCkiE": {
@@ -309,7 +302,8 @@
           "settings": {
             "heading": "Kindly add heading",
             "quote": "This product is amazing! It completely changed my skincare routine.",
-            "author": "C J"
+            "author": "C J",
+            "review_link": ""
           }
         },
         "testimonial_j6gyVU": {
@@ -317,13 +311,13 @@
           "settings": {
             "heading": "Kindly add heading",
             "quote": "This product is amazing! It completely changed my skincare routine.",
-            "author": "C J"
+            "author": "C J",
+            "review_link": ""
           }
         }
       },
       "block_order": [
         "testimonial_Mei3zG",
-        "testimonial_tRfhiq",
         "testimonial_wLCkiE",
         "testimonial_j6gyVU"
       ],
