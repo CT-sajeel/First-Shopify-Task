@@ -139,13 +139,6 @@
         <div class="swiper mySwiper_">
           <div class="swiper-wrapper">
             {% comment %} Product data displaying in slider {% endcomment %}
-            {% assign products = collections[section.settings.collection].products %}
-            {% for product in products %}
-              <div class="swiper-slide">
-                <div class="card-wrapper product-card-wrapper">
-                  <div class="card card--media color-background-1 gradient" >
-                      
-                    
                     <div class="text-image-blocks desktop-grid">
                       {% for block in section.blocks %}
                         {% if block.type == 'text_image_block' %}
@@ -158,12 +151,6 @@
                         {% endif %}
                       {% endfor %}
                     </div>
-                      
-
-                  </div>
-                </div>
-              </div>
-            {% endfor %}
           </div>
         </div>
         {% comment %} Slider Arrow Buttons {% endcomment %}
