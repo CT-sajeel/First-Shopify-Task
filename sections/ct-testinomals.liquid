@@ -68,6 +68,7 @@
 
 
 <div class="page-width isolate ct-test-container">
+     {% comment %} Heading for the Section {% endcomment %}
     <div class="section__heading text-center">
       <h2 class="section__heading-primary">Testimonials</h2>
     </div>
@@ -79,6 +80,7 @@
         </g>
       </svg>
     </div>
+        {% comment %} Sliding Content {% endcomment %}
         <div class="swiper testimonial-slider_2">
             <ul class="list-unstyled swiper-wrapper text-center" role="none">
                   {% for block in section.blocks %}
@@ -96,7 +98,8 @@
                   {% endfor %}  
             </ul>
         </div>
-        
+
+        {% comment %} Slider Arrow Buttons {% endcomment %}
          <div class="slider-button__mobile d-flex arrow-show align-center justify-center">
               <div class="slider-arrow-prev slider-arrow ">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.36 40.707" class="icon">
@@ -113,9 +116,9 @@
                   </g>
               </svg>
               </div>
-        </div>
+          </div>
 
-
+        {% comment %} Slider Block Button {% endcomment %}
         {% if section.settings.cta_text != blank and section.settings.cta_link != blank %} 
         <div class="button__wrapper text-center">
            <a href="{{ section.settings.cta_link }}" class="button button--primary">{{ section.settings.cta_text }}</a>
@@ -124,7 +127,7 @@
  
 </div>
 
-
+{% comment %} Slider rendening js using swiper.js {% endcomment %}
 {% javascript %}
   const initTestimonialSwiper = () => {
     if (typeof Swiper === 'undefined') return;
