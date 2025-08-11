@@ -1,47 +1,11 @@
-{% schema %}
-{
-  "name": "Skin Needs Grid",
-  "tag": "section",
-  "class": "ct-skin-needs-section",
-  "settings": [],
-  "blocks": [
-    {
-      "type": "need",
-      "name": "Skin Need Block",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Skin Concern"
-        },
-        {
-          "type": "textarea",
-          "id": "description",
-          "label": "Description"
-        },
-        {
-          "type": "url",
-          "id": "link",
-          "label": "Button Link"
-        }
-      ]
-    }
-  ],
-  "max_blocks": 6,
-  "presets": [
-    {
-      "name": "Skin Needs Grid",
-      "blocks": []
-    }
-  ]
-}
-{% endschema %}
+{%- comment -%}
+  File Name: ct-grid-cards
+  Section Name: CT Skin Needs Grid
+  Author: Sajeel Shafqat
+  Created: 07-08-2025
+  Description: This is a grid section to add content in each block. In each block can add image
+  text and  link.
+{%- endcomment -%}  
 
 {% stylesheet %}
 .skin-needs-section {
@@ -112,7 +76,7 @@
   <div class="skin-needs-grid">
     {% for block in section.blocks %}
       <div class="skin-need-block">
-        <!-- Image block using Dawn-compatible layout -->
+        {% comment %} Image block {% endcomment %}
         <div class="image-with-text__media-item _grid__item">
           <div
             class="image-with-text__media image-with-text__media--adapt global-media-settings
@@ -139,7 +103,7 @@
           </div>
         </div>
 
-        <!-- Text content -->
+        {% comment %} Text content {% endcomment %}
         <div class="content">
           <h3>{{ block.settings.title }}</h3>
           <p>{{ block.settings.description }}</p>
@@ -151,3 +115,50 @@
     {% endfor %}
   </div>
 </div>
+
+
+{% schema %}
+{
+  "name": "CT Skin Needs Grid",
+  "tag": "section",
+  "class": "ct-skin-needs-section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "need",
+      "name": "Skin Need Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Skin Concern"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "CT Skin Needs Grid",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}
+
