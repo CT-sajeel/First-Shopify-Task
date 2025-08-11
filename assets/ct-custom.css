@@ -17,10 +17,9 @@
 /* General CSS*/
 p > a {color: #42a7c6 !important;}
 .section-main-heading {
-  font-size: 18px;
-  line-height: 24px;
-  margin-bottom: 15px;
-  font-family: var(--font-heading-family);
+    font-size: 42px;
+    line-height: 63px;
+    margin-bottom: 25px;
 }
 .button {
     font-size: 14px;
