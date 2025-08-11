@@ -1,6 +1,5 @@
 
 <div class="page-width isolate">
-
       <div class="swiper-section">
         {% if section.settings.heading != blank %}
           <h2 class="swiper-heading section-main-heading">{{ section.settings.heading }}</h2>
@@ -8,78 +7,48 @@
 
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
+            {% comment %} Product data displaying in slider {% endcomment %}
             {% assign products = collections[section.settings.collection].products %}
             {% for product in products %}
               <div class="swiper-slide">
                 <div class="card-wrapper product-card-wrapper">
                   <div class="card card--media color-background-1 gradient" >
-                     <div class="card__inner ratio" >
-                         {% render "ct-slider-image" , product : product %}
-                     </div>
-
-                      <div class="product-block">
-                        <div class="product-info">
-                          <a href="{{ product.url }}" class="link link-undecorated">
-                            <div class="product-title">{{ product.title }}</div>
-                          </a>
-                          <div class="product-reviews">
-                            <div class="stars">
-                              ★ ★ ★ ★ ★
-                            </div>
-                            <span>10 Reviews</span>
-                          </div>
-                        </div>
-                        <div class="product-price">
-                          <span style="font-size: 14px; margin-right: 2px;">$</span>{{ product.price | money }}
-                        </div>
-                      </div>
-
-                    
+                      {% render "ct-slider-image" , product : product %}
                   </div>
                 </div>
               </div>
             {% endfor %}
           </div>
-
-
-
         </div>
-
-          {% comment %} Slider Arrow Buttons {% endcomment %}
-          {% render "ct-slider-button" %}
+        {% comment %} Slider Arrow Buttons {% endcomment %}
+        {% render "ct-slider-button" %}
 
       </div>
 </div>
+
+
 {% style%}
-.swiper-section {
-  padding: 20px;
-}
-.swiper-heading {
+#shopify-section-{{ section.id }} .swiper-heading {
   text-align: center;
   margin-bottom: 20px;
 }
-.swiper-slide {
+#shopify-section-{{ section.id }} .swiper-slide {
   width: auto;
 }
-.swiper-product-image {
+#shopify-section-{{ section.id }} .swiper-product-image {
   width: 100%;
   height: auto;
   display: block;
   object-fit: contain;
 }
-.swiper-slide {
+#shopify-section-{{ section.id }} .swiper-slide {
   max-width: 240px; /* Keeps the slide compact like Lea Black’s */
 } 
-.swiper-product-image {
+#shopify-section-{{ section.id }} .swiper-product-image {
   width: 100%;
   height: auto;
   display: block;
   object-fit: contain;
-}
-@media (min-width: 768px) {
-  .swiper-slide {
-    max-width: 300px;
-  }
 }
 
 #shopify-section-{{ section.id }} .slider-arrow-prev {
@@ -104,6 +73,43 @@
     transform: rotate(180deg);
 
 }   
+
+#shopify-section-{{ section.id }} .product-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+}
+
+#shopify-section-{{ section.id }} .product-info {
+  max-width: 70%;
+}
+
+#shopify-section-{{ section.id }} .product-title {
+  font-size: 18px;
+  color: #336;
+  margin-bottom: 10px;
+}
+
+#shopify-section-{{ section.id }} .product-reviews {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+#shopify-section-{{ section.id }} .product-reviews .stars {
+  color: #32b6e5; /* star color */
+  margin-right: 5px;
+}
+
+#shopify-section-{{ section.id }} .product-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  white-space: nowrap;
+}
+
 @media screen and (max-width: 749px) {
 #shopify-section-{{ section.id }}  .slider-button__mobile {
         gap: 20px;
@@ -117,42 +123,9 @@
     position: unset !important;
     height: 49px !important;
  }
-}
-
-.product-block {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  font-family: 'Poppins', sans-serif;
-  padding: 20px;
-}
-
-.product-info {
-  max-width: 70%;
-}
-
-.product-title {
-  font-size: 18px;
-  color: #336;
-  margin-bottom: 10px;
-}
-
-.product-reviews {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-}
-
-.product-reviews .stars {
-  color: #32b6e5; /* star color */
-  margin-right: 5px;
-}
-
-.product-price {
-  font-size: 20px;
-  font-weight: bold;
-  color: #000;
-  white-space: nowrap;
+  #shopify-section-{{ section.id }} .swiper-slide {
+    max-width: 300px;
+  }
 }
 {% endstyle %}
 
@@ -182,7 +155,7 @@ var swiper = new Swiper(".mySwiper", {
 {% endjavascript %}
 {% schema %}
 {
-  "name": "Swiper2 Product Slider",
+  "name": "CT Product Slide",
   "settings": [
     {
       "type": "text",
@@ -198,7 +171,7 @@ var swiper = new Swiper(".mySwiper", {
   ],
   "presets": [
     {
-      "name": "Swiper2 Product Slider",
+      "name": "CT Product Slide",
       "category": "Custom"
     }
   ]
