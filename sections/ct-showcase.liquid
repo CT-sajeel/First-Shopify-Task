@@ -96,7 +96,7 @@
       {% if block.type == 'icon_block' %}
         <div class="icon-block">
           {% if block.settings.icon_image %}
-           {{ block.settings.icon_image | image_url: width: 100 | image_tag: alt: block.settings.icon_heading }}
+           {{ block.settings.icon_image | image_url: width: 73 | image_tag: alt: block.settings.icon_heading }}
           {% endif %}
           <p>{{ block.settings.icon_heading }}</p>
         </div>
@@ -161,7 +161,7 @@
 .icon-blocks {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   gap: 30px;
   margin: 30px 0;
 }
