@@ -31,7 +31,7 @@
 
 
 <div class="swiper mySwiper">
-   <ul class="swiper-wrapper d-flex" role="none">
+   <ul class="swiper-wrapper" role="none">
         <li class="product__box swiper-slide isolate">
             <div class="card-wrapper product-card-wrapper underline-links-hover">
                 <div class=" card card--card card--media color-background-1 gradient " style="--ratio-percent: 125.0%;">
@@ -282,14 +282,19 @@
   text-align: center;
   margin-bottom: 20px;
 }
-.swiper-slide {
-  width: auto;
-}
 .mySwiper {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   overflow: hidden;
+}
+.swiper-wrapper {
+  display: flex !important; /* Required for Swiper */
+}
+
+.swiper-slide {
+  width: auto; /* Swiper handles this based on slidesPerView */
+  flex-shrink: 0; /* Prevent squishing */
 }
 {% endstylesheet %}
 
