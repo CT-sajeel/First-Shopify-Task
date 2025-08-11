@@ -25,7 +25,7 @@
 <div class="page-width isolate">
       <div class="swiper-section">
         {% if section.settings.heading != blank %}
-          <h2 class="swiper-heading">{{ section.settings.heading }}</h2>
+          <h2 class="swiper-heading section-main-heading">{{ section.settings.heading }}</h2>
         {% endif %}
 
         <div class="swiper mySwiper">
@@ -38,52 +38,57 @@
                     <div class="card__inner ratio" style="--ratio-percent: 125%;">
                       <div class="card__media">
                         
-        {% assign media = product.featured_media | default: product.media.first %}
+                          {% assign media = product.featured_media | default: product.media.first %}
 
-                <a href="{{ product.url }}" class="link link-undecorated">
-                  {% if media and media.preview_image %}
-                    <img 
-                      src="{{ media.preview_image | img_url: '720x' }}"
-                      alt="{{ media.preview_image.alt | default: product.title | escape }}"
-                      class="swiper-product-image"
-                      loading="lazy"
-                    >
-                  {% elsif product.featured_image %}
-                    <img 
-                      src="{{ product.featured_image | img_url: '720x' }}"
-                      alt="{{ product.featured_image.alt | default: product.title | escape }}"
-                      class="swiper-product-image"
-                      loading="lazy"
-                    >
-                  {% else %}
-                    <img 
-                      src="{{ 'no-image.png' | asset_url }}"
-                      alt="{{ product.title | escape }}"
-                      class="swiper-product-image"
-                      loading="lazy"
-                    >
-                  {% endif %}
-                </a>
+                                  <a href="{{ product.url }}" class="link link-undecorated">
+                                    {% if media and media.preview_image %}
+                                      <img 
+                                        src="{{ media.preview_image | img_url: '720x' }}"
+                                        alt="{{ media.preview_image.alt | default: product.title | escape }}"
+                                        class="swiper-product-image"
+                                        loading="lazy"
+                                      >
+                                    {% elsif product.featured_image %}
+                                      <img 
+                                        src="{{ product.featured_image | img_url: '720x' }}"
+                                        alt="{{ product.featured_image.alt | default: product.title | escape }}"
+                                        class="swiper-product-image"
+                                        loading="lazy"
+                                      >
+                                    {% else %}
+                                      <img 
+                                        src="{{ 'no-image.png' | asset_url }}"
+                                        alt="{{ product.title | escape }}"
+                                        class="swiper-product-image"
+                                        loading="lazy"
+                                      >
+                                    {% endif %}
+                                  </a>
 
 
 
                       </div>
                     </div>
-                    <div class="card__content">
-                      <div class="product__box-details">
-                        <div class="product__title--price d-flex justify-between">
-                          <div class="product__title">
-                            <a href="{{ product.url }}" class="link link-undecorated">
-                              <h3>{{ product.title }}</h3>
-                            </a>
-                            
-                          </div>
-                          <div class="product__price">
-                            {{ product.price | money }}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+
+
+
+<div class="product-block">
+  <div class="product-info">
+    <div class="product-title">Lea Black Beauty® CBD<br>Lip Balm Treatment</div>
+    <div class="product-reviews">
+      <div class="stars">
+        ★ ★ ★ ★ ★
+      </div>
+      <span>10 Reviews</span>
+    </div>
+  </div>
+  <div class="product-price">
+    <span style="font-size: 14px; margin-right: 2px;">$</span>15.00
+  </div>
+</div>
+
+
+
                   </div>
                 </div>
               </div>
@@ -187,6 +192,45 @@
     height: 49px !important;
  }
 }
+
+
+.product-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.product-info {
+  max-width: 70%;
+}
+
+.product-title {
+  font-size: 18px;
+  color: #336;
+  margin-bottom: 10px;
+}
+
+.product-reviews {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.product-reviews .stars {
+  color: #32b6e5; /* star color */
+  margin-right: 5px;
+}
+
+.product-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  white-space: nowrap;
+}
+
 {% endstyle %}
 
 {% javascript %}
