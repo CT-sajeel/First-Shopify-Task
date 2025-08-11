@@ -128,6 +128,7 @@
     },
     "ct_product_slider_R7FF6G": {
       "type": "ct-product-slider",
+      "disabled": true,
       "name": "CT Swiper Product",
       "settings": {
         "heading": "Featured Products",
@@ -136,7 +137,6 @@
     },
     "ct_product_slider_2_ErWLMj": {
       "type": "ct-product-slider-2",
-      "disabled": true,
       "name": "Swiper2 Product Slider",
       "settings": {
         "heading": "Featured Products",
