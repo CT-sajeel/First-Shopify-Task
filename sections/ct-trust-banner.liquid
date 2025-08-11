@@ -1,43 +1,14 @@
-{% schema %}
-{
-  "name": "Feature Highlights",
-  "tag": "section",
-  "class": "ct-custom-features",
-  "settings": [],
-  "blocks": [
-    {
-      "type": "feature",
-      "name": "Feature",
-      "settings": [
-        {
-          "type": "html",
-          "id": "icon_svg",
-          "label": "SVG Icon"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "textarea",
-          "id": "description",
-          "label": "Description"
-        }
-      ]
-    }
-  ],
-  "max_blocks": 4,
-  "presets": [
-    {
-      "name": "Feature Highlights",
-      "blocks": []
-    }
-  ]
-}
-{% endschema %}
+{%- comment -%}
+  File Name: ct-trust-banner
+  Section Name: CT Skin Needs Grid
+  Author: Sajeel Shafqat
+  Created: 07-08-2025
+  Description: This is a grid section to add content in each block. In each block can add image
+  text and  link.
+{%- endcomment -%}  
 
-{% stylesheet %}
+
+{% style %}
 .custom-features {
   background: linear-gradient(to right, #ffffff, #eaf9fd);
   padding: 40px 80px;
@@ -83,7 +54,7 @@
     padding: 30px 15px;
   }
 }
-{% endstylesheet %}
+{% endstyle %}
 
 <div class="custom-features">
   <div class="features-grid">
@@ -98,3 +69,41 @@
     {% endfor %}
   </div>
 </div>
+{% schema %}
+{
+  "name": "CT Trust Badges",
+  "tag": "section",
+  "class": "ct-custom-features",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "SVG Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "CT Trust Badges",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}
