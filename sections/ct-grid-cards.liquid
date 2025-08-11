@@ -7,18 +7,18 @@
   text and  link.
 {%- endcomment -%}  
 
-{% stylesheet %}
-.skin-needs-section {
+{% style %}
+#shopify-section-{{ section.id }} .skin-needs-section {
   padding: 40px 80px;
 }
 
-.skin-needs-grid {
+#shopify-section-{{ section.id }} .skin-needs-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
 
-.skin-need-block {
+#shopify-section-{{ section.id }} .skin-need-block {
   background-color: #fff;
   text-align: left;
   display: flex;
@@ -26,13 +26,13 @@
   height: 100%;
 }
 
-.skin-need-block .content {
+#shopify-section-{{ section.id }} .skin-need-block .content {
   padding: 25px;
   background: #f8f8f8;
   min-height: 320px;
 }
 
-.skin-need-block h3 {
+#shopify-section-{{ section.id }} .skin-need-block h3 {
     color: #42a7c6;
     font-weight: 200;
     line-height: 63px;
@@ -41,14 +41,14 @@
     margin-top: 0px;
 }
 
-.skin-need-block p {
+#shopify-section-{{ section.id }} .skin-need-block p {
     letter-spacing: normal;
     color: #000000;
     font-size: 16px;
     margin-bottom: 15px;  
 }
 
-.skin-need-block a {
+#shopify-section-{{ section.id }} .skin-need-block a {
   font-weight: bold;
   color: #000;
   text-decoration: none;
@@ -57,20 +57,20 @@
   gap: 5px;
 }
 
-.skin-need-block a:hover {
+#shopify-section-{{ section.id }} .skin-need-block a:hover {
   text-decoration: underline;
 }
 
 @media screen and (max-width: 749px) {
-  .skin-needs-section {
+  #shopify-section-{{ section.id }} .skin-needs-section {
   padding: 40px 15px;
   }
-  .skin-needs-grid {
+  #shopify-section-{{ section.id }} .skin-needs-grid {
     grid-template-columns: 1fr;
     gap: 25px;
   }
 }
-{% endstylesheet %}
+{% endstyle %}
 
 <div class="skin-needs-section">
   <div class="skin-needs-grid">
