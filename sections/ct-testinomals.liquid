@@ -1,3 +1,11 @@
+{%- comment -%}
+  File Name: ct-testinomals
+  Section Name: CT Testimonial Slider
+  Author: Sajeel Shafqat
+  Created: 08-08-2025
+  Description: This is a testinomal section which show reviews and can add reviews from block section.
+{%- endcomment -%}  
+ 
 {% stylesheet %}
 .testimonial__heading {
   font-size: 18px;
@@ -32,8 +40,6 @@
     height: 49px !important;
  }
 }
-
-
 .ct-test-container {
       max-width: 940px !important;
       text-align: center;
@@ -57,16 +63,13 @@
 .ct-test-container .slider-arrow-prev {
   left :0;
 }
-
 .ct-test-container .slider-arrow-next{ right :0;}
 {% endstylesheet %}
 
 
 <div class="page-width isolate ct-test-container">
     <div class="section__heading text-center">
-      <h2 class="section__heading-primary">
-          Testimonials
-      </h2>
+      <h2 class="section__heading-primary">Testimonials</h2>
     </div>
     <div class="section__heading-icon text-center">
       <svg xmlns="http://www.w3.org/2000/svg" width="50.996" height="28.871" viewBox="0 0 50.996 28.871">
@@ -147,7 +150,7 @@
 
 {% schema %}
 {
-  "name": "Testimonial Slider",
+  "name": "CT Testimonial Slider",
   "class" : "section__testimonial",
   "settings": [
     {
@@ -191,7 +194,7 @@
   "max_blocks": 10,
   "presets": [
     {
-      "name": "Testimonial Slider",
+      "name": "CT Testimonial Slider",
       "blocks": [
         {
           "type": "testimonial"
