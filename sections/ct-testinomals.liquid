@@ -6,14 +6,14 @@
   Description: This is a testinomal section which show reviews and can add reviews from block section.
 {%- endcomment -%}  
  
-{% stylesheet %}
+{% style %}
 .testimonial__heading {
   font-size: 18px;
   line-height: 24px;
   margin-bottom: 15px;
   font-family: var(--font-heading-family);
 }
-.testimonial__content {
+#section-{{ section.id }} .testimonial__content {
   margin-bottom: 20px;
 }
 .section__testimonial .button__wrapper {
@@ -27,6 +27,11 @@
 }
 .section__heading-primary { font-size: 42px;
 
+}
+h2{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Poppins Medium';
 }
 @media screen and (max-width: 749px) {
  .ct-test-container .slider-button__mobile {
@@ -66,7 +71,7 @@
   left :0;
 }
 .ct-test-container .slider-arrow-next{ right :0;}
-{% endstylesheet %}
+{% endstyle %}
 
 
 <div class="page-width isolate ct-test-container">
@@ -156,6 +161,7 @@
 {% schema %}
 {
   "name": "CT Testimonial Slider",
+   "tag": "section",
   "class" : "section__testimonial",
   "settings": [
     {
