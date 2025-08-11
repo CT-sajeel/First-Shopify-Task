@@ -7,7 +7,7 @@
 {%- endcomment -%}  
  
 {% style %}
-.testimonial__heading {
+#shopify-section-{{ section.id }} .testimonial__heading {
   font-size: 18px;
   line-height: 24px;
   margin-bottom: 15px;
@@ -16,61 +16,60 @@
 #shopify-section-{{ section.id }} .testimonial__content {
   margin-bottom: 20px;
 }
-.section__testimonial .button__wrapper {
+#shopify-section-{{ section.id }} .section__testimonial .button__wrapper {
   margin-top: 30px;
 }
-.section__testimonial .button__wrapper .button {
+#shopify-section-{{ section.id }} .section__testimonial .button__wrapper .button {
   padding: 0 30px;
 }
-.section__testimonial .section__heading-icon {
+#shopify-section-{{ section.id }} .section__testimonial .section__heading-icon {
   margin-bottom: 15px;
 }
-.section__heading-primary { font-size: 42px;
+#shopify-section-{{ section.id }} .section__heading-primary { font-size: 42px;
 
 }
-h2{
+#shopify-section-{{ section.id }} h2{
     font-size: 18px;
     font-weight: bold;
-    font-family: 'Poppins Medium';
 }
 @media screen and (max-width: 749px) {
- .ct-test-container .slider-button__mobile {
+#shopify-section-{{ section.id }} .ct-test-container .slider-button__mobile {
         gap: 50px;
         align-items: center;
         display: flex;
         justify-content: center;
  }
- .ct-test-container .slider-arrow{
+#shopify-section-{{ section.id }} .ct-test-container .slider-arrow{
     transform: unset !important;
     display: block !important;
     position: unset !important;
     height: 49px !important;
  }
 }
-.ct-test-container {
+#shopify-section-{{ section.id }} .ct-test-container {
       max-width: 940px !important;
       text-align: center;
 }
-.swiper-slide {
+#shopify-section-{{ section.id }} .swiper-slide {
   max-width: 100%;
 }
-.ct-test-container .slider-arrow {
+#shopify-section-{{ section.id }} .ct-test-container .slider-arrow {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
         }
-.ct-test-container .slider-arrow svg {
+#shopify-section-{{ section.id }} .ct-test-container .slider-arrow svg {
     width: 50px;
     height: 40px;
 }
-.ct-test-container .slider-arrow-prev svg {
+#shopify-section-{{ section.id }} .ct-test-container .slider-arrow-prev svg {
     transform: rotate(180deg);
 
 }   
-.ct-test-container .slider-arrow-prev {
+#shopify-section-{{ section.id }} .ct-test-container .slider-arrow-prev {
   left :0;
 }
-.ct-test-container .slider-arrow-next{ right :0;}
+#shopify-section-{{ section.id }} .ct-test-container .slider-arrow-next{ right :0;}
 {% endstyle %}
 
 
