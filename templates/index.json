@@ -172,7 +172,7 @@
       "settings": {
         "image": "shopify://shop_images/ct-banner-4.jpg",
         "image_2": "shopify://shop_images/ct-banner-humble.jpg",
-        "ct_banner_link": "",
+        "ct_banner_link": "shopify://products/the-inventory-not-tracked-snowboard",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "image_behavior": "none",
