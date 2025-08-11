@@ -138,8 +138,7 @@
 
         <div class="swiper mySwiper_">
           <div class="swiper-wrapper">
-            {% comment %} Product data displaying in slider {% endcomment %}
-                    <div class="text-image-blocks desktop-grid">
+                    <div class="text-image-blocks _desktop-grid">
                       {% for block in section.blocks %}
                         {% if block.type == 'text_image_block' %}
                           <div class="text-image-block" style="background-image: url('{{ block.settings.block_image | image_url: width: 600 }}')">
