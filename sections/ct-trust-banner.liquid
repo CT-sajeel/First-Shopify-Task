@@ -1,43 +1,43 @@
 {%- comment -%}
   File Name: ct-trust-banner
-  Section Name: CT Skin Needs Grid
+  Section Name: CT Trust Badges
   Author: Sajeel Shafqat
   Created: 07-08-2025
-  Description: This is a grid section to add content in each block. In each block can add image
+  Description: This is a trust Banner where can add icons and text.
   text and  link.
 {%- endcomment -%}  
 
 
 {% style %}
-.custom-features {
+#shopify-section-{{ section.id }} .custom-features {
   background: linear-gradient(to right, #ffffff, #eaf9fd);
   padding: 40px 80px;
 }
 
-.custom-features .features-grid {
+#shopify-section-{{ section.id }} .custom-features .features-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
 }
 
-.custom-features .feature-block {
+#shopify-section-{{ section.id }} .custom-features .feature-block {
   text-align: left;
   font-family: inherit;
 }
 
-.custom-features .feature-block .svg-icon {
+#shopify-section-{{ section.id }} .custom-features .feature-block .svg-icon {
   height: 40px;
   margin-bottom: 15px;
 }
 
-.custom-features .feature-block h4 {
+#shopify-section-{{ section.id }} .custom-features .feature-block h4 {
     font-size: 16px;
     line-height: 24px;
     font-weight: 700;
     margin-bottom: 10px;
 }
 
-.custom-features .feature-block p {
+#shopify-section-{{ section.id }} .custom-features .feature-block p {
     font-size: 16px;
     margin: 0;
     line-height: 24px;
@@ -45,12 +45,12 @@
 
 /* Mobile styles */
 @media screen and (max-width: 749px) {
-  .custom-features .features-grid {
+  #shopify-section-{{ section.id }} .custom-features .features-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
 
-  .custom-features {
+  #shopify-section-{{ section.id }} .custom-features {
     padding: 30px 15px;
   }
 }
