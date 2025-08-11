@@ -104,35 +104,6 @@
     {% endfor %}
   </div>
   
-  {% comment %}
-  <div class="text-image-blocks desktop-grid">
-    {% for block in section.blocks %}
-      {% if block.type == 'text_image_block' %}
-        <div class="text-image-block" style="background-image: url('{{ block.settings.block_image | image_url: width: 600 }}')">
-          <div class="text-overlay">
-            <h3>{{ block.settings.block_heading }}</h3>
-            <p>{{ block.settings.block_text }}</p>
-          </div>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-
-  <div class="text-image-slider mobile-carousel">
-    {% for block in section.blocks %}
-      {% if block.type == 'text_image_block' %}
-        <div class="text-image-slide" style="background-image: url('{{ block.settings.block_image | image_url: width: 600 }}')">
-          <div class="text-overlay">
-            <h3>{{ block.settings.block_heading }}</h3>
-            <p>{{ block.settings.block_text }}</p>
-          </div>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-   {% endcomment %}
-
-  
 
 <div class="swiper-section">
   <div class="swiper mySwiper_">
