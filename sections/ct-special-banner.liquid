@@ -1,3 +1,12 @@
+{%- comment -%}
+  File Name: ct-special-banner
+  Section Name: CT Special Banner
+  Author: Sajeel Shafqat
+  Created: 07-08-2025
+  Description: This is special Banner that create a specfic design. Image for desktop and mobile can be added
+  and content can also be places from editor.
+{%- endcomment -%}  
+ 
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
 
 {%- if section.settings.image_height == 'adapt' and section.settings.image != blank -%}
@@ -60,11 +69,12 @@
     assign fetch_priority = 'high'
   endif
 -%}
-
+{% comment %} Special Banner HTML {% endcomment %}
 <div
   id="Banner-{{ section.id }}"
   class="banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.image != blank and section.settings.image_2 != blank %} banner--stacked{% endif %}{% if section.settings.image_height == 'adapt' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
 >
+   {% comment %} Desktop Image {% endcomment %}
   {%- if section.settings.image != blank -%}
     <div class="ct-sp-desktop banner__media media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {%- liquid
@@ -85,6 +95,7 @@
       }}
     </div>
   {%- endif -%}
+   {% comment %} Mobile Image {% endcomment %}
   {%- if section.settings.image_2 != blank -%}
     <div class="ct-sp-mobile banner__media media{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {%- liquid
@@ -105,6 +116,7 @@
       }}
     </div>
   {%- endif -%}
+   {% comment %} Content for Banner {% endcomment %}
   <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
       {%- for block in section.blocks -%}
@@ -154,8 +166,9 @@
       {%- endfor -%}
     </div>
   </div>
+   {% comment %} End - Content for Banner {% endcomment %}
 </div>
-
+ {% comment %} End - Special Banner HTML  {% endcomment %}
 {% schema %}
 {
   "name": "CT Special Banner",
