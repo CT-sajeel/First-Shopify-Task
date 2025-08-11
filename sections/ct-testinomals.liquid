@@ -89,7 +89,7 @@
                             <h2>{{ block.settings.heading }}</h2>
                         </div>
                         <div class="testimonial__content">
-                            <p>{{ block.settings.quote }} <a href="/pages/testimonials" title="Testimonials">Read more</a></p>
+                            <p>{{ block.settings.quote }} {% if block.settings.review_link %}<a href="{{ block.settings.review_link }}" title="Testimonials">Read more</a>{% endif %}</p>
                         </div>
                         <div class="testimonial__author weight-bold">
                           {{ block.settings.author }}
@@ -190,6 +190,11 @@
           "id": "author",
           "label": "Author",
           "default": "C J"
+        },
+        {
+          "type": "url",
+          "id": "review_link",
+          "label": "Read More Link"
         }
       ]
     }
