@@ -129,7 +129,82 @@
       {% endif %}
     {% endfor %}
   </div>
+
+
+  
+<div class="page-width isolate">
+      <div class="swiper-section">
+        {% if section.settings.heading != blank %}
+          <h2 class="swiper-heading section-main-heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            {% comment %} Product data displaying in slider {% endcomment %}
+            {% assign products = collections[section.settings.collection].products %}
+            {% for product in products %}
+              <div class="swiper-slide">
+                <div class="card-wrapper product-card-wrapper">
+                  <div class="card card--media color-background-1 gradient" >
+                      {% render "ct-slider-image" , product : product %}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% comment %} Slider Arrow Buttons {% endcomment %}
+        {% render "ct-slider-button" %}
+
+      </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+{% javascript %}
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 4,
+  spaceBetween: 20,
+  navigation: {
+    nextEl: ".slider-arrow-next",
+    prevEl: ".slider-arrow-prev",
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1.2,
+      spaceBetween: 10
+    },
+    768: {
+      slidesPerView: 2.2,
+      spaceBetween: 15
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 20
+    }
+  }
+});
+{% endjavascript %}
 
 <style>
 .why-us-wrapper {
