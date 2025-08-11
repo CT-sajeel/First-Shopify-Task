@@ -1,49 +1,4 @@
-{% schema %}
-{
-  "name": "CT Blogs",
-  "tag": "section",
-  "class": "ct-skin-needs-section",
-  "settings": [],
-  "blocks": [
-    {
-      "type": "need",
-      "name": "Skin Need Block",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Skin Concern"
-        },
-        {
-          "type": "textarea",
-          "id": "description",
-          "label": "Description"
-        },
-        {
-          "type": "url",
-          "id": "link",
-          "label": "Button Link"
-        }
-      ]
-    }
-  ],
-  "max_blocks": 6,
-  "presets": [
-    {
-      "name": "CT Blogs",
-      "blocks": []
-    }
-  ]
-}
-{% endschema %}
-
-{% stylesheet %}
+{% style %}
 .skin-needs-section {
   padding: 40px 80px;
 }
@@ -107,11 +62,11 @@
     gap: 25px;
   }
 }
-{% endstylesheet %}
+{% endstyle %}
 
 <div class="skin-needs-section">
   <div class="skin-needs-grid">
-    {% for block in section.blocks %}
+    {% for block in section.blocks %}     
       <div class="ct-blogs">
         <!-- Image block using Dawn-compatible layout -->
         <div class="image-with-text__media-item _grid__item">
@@ -152,3 +107,48 @@
     {% endfor %}
   </div>
 </div>
+
+{% schema %}
+{
+  "name": "CT Blogs",
+  "tag": "section",
+  "class": "ct-skin-needs-section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "need",
+      "name": "Skin Need Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Skin Concern"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "CT Blogs",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}
