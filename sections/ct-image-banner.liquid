@@ -1,3 +1,13 @@
+{%- comment -%}
+  File Name: ct-image-banner
+  Section Name: ct-image-banner
+  Author: Sajeel Shafqat
+  Created: 07-08-2025
+  Description: Renders a single product card with image, title, price, and quick-add button.
+{%- endcomment -%}
+
+
+
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
 
 {%- if section.settings.image_height == 'adapt' and section.settings.image != blank -%}
