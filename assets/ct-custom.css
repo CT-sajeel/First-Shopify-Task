@@ -22,6 +22,11 @@ p > a {color: #42a7c6 !important;}
     margin-bottom: 25px;
     letter-spacing: normal;
 }
+section-secondary-heading{
+   font-size: 28px;
+    line-height: 24px;
+    letter-spacing: normal; 
+}
 
 .button {
     font-size: 14px;
