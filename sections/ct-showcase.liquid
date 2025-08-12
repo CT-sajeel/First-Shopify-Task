@@ -186,6 +186,7 @@
 
 
 <div class="why-us-wrapper">
+  {% comment %} Heading and subheading {% endcomment %}
   <div class="why-us-heading-container">
     <h2 class="why-us-title section-main-heading">{{ section.settings.heading }}</h2>
     <p class="why-us-description">{{ section.settings.subheading }}</p>
@@ -195,7 +196,7 @@
       </a>
     {% endif %}
   </div>
-
+  {% comment %}Icon block that show icons with text {% endcomment %}
   <div class="icon-blocks">
     {% for block in section.blocks %}
       {% if block.type == 'icon_block' %}
@@ -208,7 +209,7 @@
       {% endif %}
     {% endfor %}
   </div>
-  
+  {% comment %} Image with text slider  {% endcomment %}
   <div class="swiper-section">
     <div class="swiper mySwiper_showcase">
       <div class="swiper-wrapper">
