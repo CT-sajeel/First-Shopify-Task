@@ -1,6 +1,4 @@
-
 /*Adding Font*/
-
 @font-face {
   font-family: 'Poppins Medium';
   src: url('https://cdn.shopify.com/s/files/1/0764/4282/9037/files/Poppins-Medium.ttf?v=1754933299') format('truetype');
@@ -27,7 +25,6 @@ section-secondary-heading{
     line-height: 24px;
     letter-spacing: normal; 
 }
-
 .button {
     font-size: 14px;
     font-weight: 700;
@@ -41,17 +38,8 @@ section-secondary-heading{
     
 }
 
-/*Desktop Style*/
-
-@media screen and (min-width: 750px) {
-  
-
-/* Homepage - Image with text - Lea Black Beauty */
-/* END - Homepage - Image with text - Lea Black Beauty */
-}
 
 /*Mobile Style*/
-
 @media screen and (max-width: 749px) {
   .section-main-heading {
     font-size: 36px;
