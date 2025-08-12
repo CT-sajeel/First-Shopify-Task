@@ -579,7 +579,7 @@
       "type": "ct-product-slider",
       "name": "CT Product Slide",
       "settings": {
-        "heading": "Featured Products",
+        "heading": "Best Selling",
         "collection": "automated-collection"
       }
     }
