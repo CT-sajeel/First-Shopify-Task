@@ -90,9 +90,15 @@
 }
 
 #shopify-section-{{ section.id }} .product-title {
-  font-size: 18px;
-  color: #336;
+    text-decoration: none;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 24px;
   margin-bottom: 10px;
+}
+#shopify-section-{{ section.id }} .product-title::hover {
+ color: #42a7c6;
 }
 
 #shopify-section-{{ section.id }} .product-reviews {
