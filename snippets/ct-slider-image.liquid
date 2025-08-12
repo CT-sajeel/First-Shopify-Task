@@ -28,11 +28,11 @@
     </div>
 </div>
 
-<a href="{{ product.url }}" class="link link-undecorated">
+
     <div class="product-block">
         <div class="product-info">
             
-            <div class="product-title">{{ product.title }}</div>
+            <div class="product-title"><a href="{{ product.url }}" class="link link-undecorated">{{ product.title }} </a></div>
         
             <div class="product-reviews">
             <div class="stars">
@@ -45,4 +45,3 @@
             <span style="font-size: 14px; margin-right: 2px;">$</span>{{ product.price | money }}
         </div>
     </div>
- </a>
