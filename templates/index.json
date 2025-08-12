@@ -126,6 +126,14 @@
         "padding_bottom": 36
       }
     },
+    "ct_product_slider_tLCaFP": {
+      "type": "ct-product-slider",
+      "name": "CT Product Slide",
+      "settings": {
+        "heading": "Shop Bundles",
+        "collection": "hydrogen"
+      }
+    },
     "ct_special_banner_WmjcF9": {
       "type": "ct-special-banner",
       "blocks": {
@@ -575,14 +583,6 @@
         "button_text": "Subscribe"
       }
     },
-    "ct_product_slider_tLCaFP": {
-      "type": "ct-product-slider",
-      "name": "CT Product Slide",
-      "settings": {
-        "heading": "Shop Bundles",
-        "collection": "hydrogen"
-      }
-    },
     "ct_product_slider_jL3fCY": {
       "type": "ct-product-slider",
       "name": "CT Product Slide",
@@ -597,7 +597,9 @@
     "ct_image_banner_LThNDG",
     "ct_twin_banner_H8cBeW",
     "ct_image_with_text_RVPba3",
+    "ct_product_slider_jL3fCY",
     "ct_special_banner_WmjcF9",
+    "ct_product_slider_tLCaFP",
     "rich_text_eLJDGL",
     "ct_grid_cards_6QWVX4",
     "ct_testinomals_j7qUw7",
@@ -606,8 +608,6 @@
     "rich_text_3yWyQX",
     "ct_blogs_beGJgM",
     "ct_trust_banner_6tdzEc",
-    "ct_newsletter_bdnerB",
-    "ct_product_slider_tLCaFP",
-    "ct_product_slider_jL3fCY"
+    "ct_newsletter_bdnerB"
   ]
 }
