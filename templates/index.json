@@ -579,6 +579,14 @@
       "type": "ct-product-slider",
       "name": "CT Product Slide",
       "settings": {
+        "heading": "Shop Bundles",
+        "collection": "hydrogen"
+      }
+    },
+    "ct_product_slider_jL3fCY": {
+      "type": "ct-product-slider",
+      "name": "CT Product Slide",
+      "settings": {
         "heading": "Best Selling",
         "collection": "automated-collection"
       }
@@ -599,6 +607,7 @@
     "ct_blogs_beGJgM",
     "ct_trust_banner_6tdzEc",
     "ct_newsletter_bdnerB",
-    "ct_product_slider_tLCaFP"
+    "ct_product_slider_tLCaFP",
+    "ct_product_slider_jL3fCY"
   ]
 }
