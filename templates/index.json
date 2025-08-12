@@ -574,6 +574,14 @@
         "subtext": "Be the first to know about new collections and exclusive offers.",
         "button_text": "Subscribe"
       }
+    },
+    "ct_product_slider_tLCaFP": {
+      "type": "ct-product-slider",
+      "name": "CT Product Slide",
+      "settings": {
+        "heading": "Featured Products",
+        "collection": "automated-collection"
+      }
     }
   },
   "order": [
@@ -590,6 +598,7 @@
     "rich_text_3yWyQX",
     "ct_blogs_beGJgM",
     "ct_trust_banner_6tdzEc",
-    "ct_newsletter_bdnerB"
+    "ct_newsletter_bdnerB",
+    "ct_product_slider_tLCaFP"
   ]
 }
