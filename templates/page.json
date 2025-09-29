@@ -61,7 +61,7 @@
         "max_width": "narrow",
         "alignment": "center",
         "alignment_text": "center",
-        "type_preset": "rte",
+        "type_preset": "paragraph",
         "color": "#000000",
         "type_preset_text": "paragraph",
         "underline_text": "none",
