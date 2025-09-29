@@ -63,7 +63,7 @@
         "alignment_text": "center",
         "type_preset": "rte",
         "color": "#000000",
-        "type_preset_text": "rte",
+        "type_preset_text": "paragraph",
         "underline_text": "none",
         "link_style": "none",
         "text_color": "#000000",
