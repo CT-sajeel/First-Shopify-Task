@@ -34,8 +34,8 @@
   "
   style="
     color: {{  section.settings.color }} !important; 
-    --width: {{ text_width }};
-    --max-width: var(--max-width--{{ type }}-{{ section.settings.max_width }});
+    width: {{ text_width }};
+    max-width: var(--max-width--{{ type }}-{{ section.settings.max_width }});
     {% if text_width == "100%" %}
       text-align: {{ section.settings.alignment }};
     {% endif %}
@@ -57,8 +57,8 @@
   style="
     text-decoration: {{  section.settings.underline_text }} !important;
     color: {{ section.settings.text_color }} !important;
-    --width: {{ text_width }};
-    --max-width: var(--max-width--{{ type }}-{{ section.settings.max_width }});
+    width: {{ text_width }};
+    max-width: var(--max-width--{{ type }}-{{ section.settings.max_width }});
     {% if text_width == "100%" %}
       text-align: {{ section.settings.alignment_text }};
     {% endif %}
