@@ -40,9 +40,9 @@
       text-align: {{ section.settings.alignment }};
     {% endif %}
     {% if section.settings.background %}
-      --text-background-color: {{ section.settings.background_color | default: 'rgb(255 255 255 / 1.0)' }};
-      --text-corner-radius: {{ section.settings.corner_radius }}px;
-      --text-padding: max(var(--padding-2xs), calc((var(--text-corner-radius) + var(--padding-xs)) * (1 - cos(45deg))));
+      background-color: {{ section.settings.background_color | default: 'rgb(255 255 255 / 1.0)' }};
+      corner-radius: {{ section.settings.corner_radius }}px;
+      padding: max(var(--padding-2xs), calc((var(--text-corner-radius) + var(--padding-xs)) * (1 - cos(45deg))));
     {% endif %}
   "
 
