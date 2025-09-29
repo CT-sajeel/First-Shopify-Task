@@ -57,10 +57,10 @@
       ],
       "name": "CT Sitemap",
       "settings": {
-        "width": "fit-content",
+        "width": "100%",
         "max_width": "normal",
         "alignment": "left",
-        "alignment_text": "left",
+        "alignment_text": "right",
         "type_preset": "rte",
         "color": "#000000",
         "type_preset_text": "rte",
@@ -71,7 +71,7 @@
         "background_color": "#42a7c6",
         "corner_radius": 14,
         "padding-block-top": 24,
-        "padding-block-bottom": 0
+        "padding-block-bottom": 26
       }
     }
   },
