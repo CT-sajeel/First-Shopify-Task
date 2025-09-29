@@ -17,31 +17,31 @@
         "padding_bottom": 28
       }
     },
-    "sitemap_HpJ3ph": {
+    "sitemap_g93JeG": {
       "type": "sitemap",
       "blocks": {
-        "pages_4PAMq9": {
-          "type": "pages",
-          "settings": {
-            "title": "Pages",
-            "pages_gap": 20
-          }
-        },
-        "collections_hRaHHG": {
+        "collections_JNUK8k": {
           "type": "collections",
           "settings": {
             "title": "Collections",
             "collections_gap": 100
           }
         },
-        "products_ANfPKc": {
+        "pages_grazzx": {
+          "type": "pages",
+          "settings": {
+            "title": "Pages",
+            "pages_gap": 20
+          }
+        },
+        "products_UQKU6t": {
           "type": "products",
           "settings": {
             "title": "Products",
-            "products_gap": 250
+            "products_gap": 30
           }
         },
-        "blogs_NDNBHm": {
+        "blogs_TY7QEq": {
           "type": "blogs",
           "settings": {
             "title": "Blogs",
@@ -50,33 +50,33 @@
         }
       },
       "block_order": [
-        "pages_4PAMq9",
-        "collections_hRaHHG",
-        "products_ANfPKc",
-        "blogs_NDNBHm"
+        "collections_JNUK8k",
+        "pages_grazzx",
+        "products_UQKU6t",
+        "blogs_TY7QEq"
       ],
       "name": "CT Sitemap",
       "settings": {
         "width": "100%",
-        "max_width": "none",
-        "alignment": "left",
-        "alignment_text": "left",
+        "max_width": "normal",
+        "alignment": "center",
+        "alignment_text": "center",
         "type_preset": "h2",
-        "color": "#000000",
+        "color": "#ffffff",
         "type_preset_text": "paragraph",
         "underline_text": "none",
-        "link_style": "disc",
+        "link_style": "none",
         "text_color": "#000000",
-        "background": false,
-        "background_color": "#5532c5",
+        "background": true,
+        "background_color": "#42a7c6",
         "corner_radius": 0,
         "padding-block-top": 24,
-        "padding-block-bottom": 26
+        "padding-block-bottom": 0
       }
     }
   },
   "order": [
     "main",
-    "sitemap_HpJ3ph"
+    "sitemap_g93JeG"
   ]
 }
