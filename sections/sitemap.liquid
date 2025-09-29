@@ -62,7 +62,7 @@
      max-width: {% if section.settings.max_width == 'narrow' %} 60% {% elsif section.settings.max_width == 'normal' %} 80% {% else %} 100% {% endif %};
     {% if text_width == "100%" %}
       text-align: {{ section.settings.alignment_text }};
-    {% endif %} margin:auto;
+    {% endif %} margin:auto; display:block;
   "
 
   {{ section.shopify_attributes_link }}
