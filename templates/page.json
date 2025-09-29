@@ -19,6 +19,42 @@
     },
     "sitemap_HpJ3ph": {
       "type": "sitemap",
+      "blocks": {
+        "pages_4PAMq9": {
+          "type": "pages",
+          "settings": {
+            "title": "Pages",
+            "pages_gap": 20
+          }
+        },
+        "collections_hRaHHG": {
+          "type": "collections",
+          "settings": {
+            "title": "Collections",
+            "collections_gap": 100
+          }
+        },
+        "products_ANfPKc": {
+          "type": "products",
+          "settings": {
+            "title": "Products",
+            "products_gap": 30
+          }
+        },
+        "blogs_NDNBHm": {
+          "type": "blogs",
+          "settings": {
+            "title": "Blogs",
+            "blogs_gap": 20
+          }
+        }
+      },
+      "block_order": [
+        "pages_4PAMq9",
+        "collections_hRaHHG",
+        "products_ANfPKc",
+        "blogs_NDNBHm"
+      ],
       "name": "CT Sitemap",
       "settings": {
         "width": "fit-content",
