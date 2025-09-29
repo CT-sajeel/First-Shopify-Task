@@ -38,7 +38,7 @@
           "type": "products",
           "settings": {
             "title": "Products",
-            "products_gap": 30
+            "products_gap": 250
           }
         },
         "blogs_NDNBHm": {
