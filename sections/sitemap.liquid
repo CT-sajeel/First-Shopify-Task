@@ -35,7 +35,7 @@
   style="
     color: {{  section.settings.color }} !important; 
     width: {{ text_width }};
-    max-width: var(--max-width--{{ type }}-{{ section.settings.max_width }});
+    max-width: {% if section.settings.max_width == 'narrow' %} 60% {% elsif section.settings.max_width == 'normal' %} 80% {% else %} 100% {% endif %};
     {% if text_width == "100%" %}
       text-align: {{ section.settings.alignment }};
     {% endif %}
