@@ -67,9 +67,9 @@
         "underline_text": "none",
         "link_style": "none",
         "text_color": "#000000",
-        "background": false,
-        "background_color": "#00000026",
-        "corner_radius": 0,
+        "background": true,
+        "background_color": "#42a7c6",
+        "corner_radius": 14,
         "padding-block-top": 24,
         "padding-block-bottom": 0
       }
