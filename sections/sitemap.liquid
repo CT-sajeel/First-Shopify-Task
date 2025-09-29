@@ -41,9 +41,10 @@
     {% endif %}
     {% if section.settings.background %}
       background-color: {{ section.settings.background_color | default: 'rgb(255 255 255 / 1.0)' }};
-      corner-radius: {{ section.settings.corner_radius }}px;
+      border-radius: {{ section.settings.corner_radius }}px;
       padding: max(var(--padding-2xs), calc((var(--text-corner-radius) + var(--padding-xs)) * (1 - cos(45deg))));
     {% endif %}
+    margin:auto;
   "
 
   {{ section.shopify_attributes }}
