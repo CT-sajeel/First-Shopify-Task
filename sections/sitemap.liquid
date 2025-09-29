@@ -34,7 +34,7 @@
 %}
 
 {% capture attributes %}
-  # Capture HTML attributes for headings/blocks
+
   class="{{ class }} spacing-style text-block text-block--{{ section.id }} {{ section.settings.type_preset }}
     {{ text_block_classes }}"
   style="
@@ -55,7 +55,7 @@
 {% endcapture %}
 
 {% capture attributes_link %}
-  # Capture HTML attributes for links inside blocks
+  
   class="{{ class }} spacing-style text-block text-block--{{ section.id }} {{ section.settings.type_preset_text }}
     {{ text_block_classes }}"
   style="
