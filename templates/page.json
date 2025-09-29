@@ -59,9 +59,9 @@
       "settings": {
         "width": "100%",
         "max_width": "narrow",
-        "alignment": "center",
-        "alignment_text": "center",
-        "type_preset": "h2",
+        "alignment": "left",
+        "alignment_text": "left",
+        "type_preset": "paragraph",
         "color": "#000000",
         "type_preset_text": "paragraph",
         "underline_text": "none",
