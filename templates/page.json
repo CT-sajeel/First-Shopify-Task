@@ -61,7 +61,7 @@
         "max_width": "none",
         "alignment": "left",
         "alignment_text": "left",
-        "type_preset": "paragraph",
+        "type_preset": "h2",
         "color": "#000000",
         "type_preset_text": "paragraph",
         "underline_text": "none",
