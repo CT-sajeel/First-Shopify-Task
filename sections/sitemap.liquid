@@ -1,8 +1,6 @@
 {% liquid
-  # Set default text width or use the section's width setting
   assign text_width = width | default: section.settings.width
 
-  # Determine type of heading or body text based on font size setting
   if section.settings.font_size contains 'heading-lg' or section.settings.font_size contains 'heading-xl'
     assign type = 'display'
   elsif section.settings.font_size contains 'heading'
@@ -10,13 +8,10 @@
   else
     assign type = 'body'
   endif
-
-  # Check if the text is rich text or paragraph
   if section.settings.type_preset == 'rte' or section.settings.type_preset == 'paragraph'
     assign is_rte = true
   endif
 
-  # Build classes for the text block
   capture text_block_classes
     if text_width == '100%'
       echo 'text-block--align-' | append: section.settings.alignment
@@ -34,9 +29,9 @@
 %}
 
 {% capture attributes %}
-
   class="{{ class }} spacing-style text-block text-block--{{ section.id }} {{ section.settings.type_preset }}
-    {{ text_block_classes }}"
+    {{ text_block_classes }}
+  "
   style="
     color: {{  section.settings.color }} !important; 
     width: {{ text_width }};
@@ -51,40 +46,48 @@
     {% endif %}
     margin:auto;
   "
+
   {{ section.shopify_attributes }}
 {% endcapture %}
 
+
 {% capture attributes_link %}
-  
   class="{{ class }} spacing-style text-block text-block--{{ section.id }} {{ section.settings.type_preset_text }}
-    {{ text_block_classes }}"
+    {{ text_block_classes }}
+  "
   style="
     text-decoration: {{  section.settings.underline_text }} !important;
     color: {{ section.settings.text_color }} !important;
     width: {{ text_width }};
-    max-width: {% if section.settings.max_width == 'narrow' %} 60% {% elsif section.settings.max_width == 'normal' %} 80% {% else %} 100% {% endif %};
+     max-width: {% if section.settings.max_width == 'narrow' %} 60% {% elsif section.settings.max_width == 'normal' %} 80% {% else %} 100% {% endif %};
     {% if text_width == "100%" %}
       text-align: {{ section.settings.alignment_text }};
-    {% endif %} 
-    margin:auto; display:block;
+    {% endif %} margin:auto; display:block;
   "
+
   {{ section.shopify_attributes_link }}
 {% endcapture %}
 
 <style>
-  /* Custom padding based on section settings */
-  .ct-top-padding { padding-top: {{ section.settings.padding-block-top }}px; }
-  .ct-bottom-padding { padding-bottom: {{ section.settings.padding-block-bottom }}px; }
-  .ct-right-padding { padding-right: {{ section.settings.padding-block-right }}px; }
-  .ct-left-padding { padding-left: {{ section.settings.padding-block-left }}px; }
+.ct-top-padding{
+   padding-top: {{ section.settings.padding-block-top }}px;
+}
+.ct-bottom-padding {
+    padding-bottom: {{ section.settings.padding-block-bottom }}px;
+}
+.ct-right-padding{
+   padding-right: {{ section.settings.padding-block-right }}px;
+}
+.ct-left-padding {
+    padding-left: {{ section.settings.padding-block-left }}px;
+}
 
-  /* Link list style */
-  .link_style { list-style-type: {{section.settings.link_style }} !important; }
-  .sitemap ul { padding:0px; }
+.link_style {
+  list-style-type : {{section.settings.link_style }} !important;
+}
+.sitemap ul { padding:0px;}
 </style>
-
 {% liquid
-  # Determine HTML element for heading/title
   assign element = 'div'
   if section.settings.type_preset == 'h1'
     assign element = 'h1'
@@ -93,20 +96,19 @@
   elsif section.settings.type_preset == 'h3'
     assign element = 'h3'
   elsif section.settings.type_preset == 'h4'
-    assign element = 'h4'
+    assign element = 'h4'  
   elsif section.settings.type_preset == 'h5'
-    assign element = 'h5'
+    assign element = 'h5'  
   elsif section.settings.type_preset == 'h6'
-    assign element = 'h6'
+    assign element = 'h6'  
   elsif section.settings.type_preset == 'paragraph'
-    assign element = 'p'
+    assign element = 'p'    
   else is_rte
     assign element = 'rte-formatter'
   endif
 %}
 
 {% liquid
-  # Determine HTML element for link text
   assign element_text = 'div'
   if section.settings.type_preset_text == 'h1'
     assign element_text = 'h1'
@@ -115,199 +117,588 @@
   elsif section.settings.type_preset_text == 'h3'
     assign element_text = 'h3'
   elsif section.settings.type_preset_text == 'h4'
-    assign element_text = 'h4'
+    assign element_text = 'h4'  
   elsif section.settings.type_preset_text == 'h5'
-    assign element_text = 'h5'
+    assign element_text = 'h5'  
   elsif section.settings.type_preset_text == 'h6'
-    assign element_text = 'h6'
+    assign element_text = 'h6'  
   elsif section.settings.type_preset_text == 'paragraph'
-    assign element_text = 'p'
+    assign element_text = 'p'      
   else is_rte
     assign element_text = 'rte-formatter'
   endif
 %}
+{% comment %} Liquid/HTML {% endcomment %}
+<section class="section page-width sitemap ct-top-padding ct-bottom-padding wt-page   wt-page--compact">
 
-{% comment %} 
-  Main Sitemap Section 
-{% endcomment %}
-<section class="section page-width sitemap ct-top-padding ct-bottom-padding wt-page wt-page--compact">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when 'pages' -%}
-        {% assign page_limit = block.settings.pages_gap %}
-        <{{ element }} {{ attributes }}>
-          {% if block.settings.title %} {{block.settings.title}} {% else %} Pages {% endif %}
-        </{{ element }}>
-        <div class="pages-sitemap">
-          <ul>
-            {% for page in pages limit: page_limit %}
-              <li class="link_style"><a {{ attributes_link }} href="/pages/{{page.handle}}"><{{ element_text }}>{{page.title}}</{{ element_text }}></a></li>
-            {% endfor %}
-          </ul>
-        </div>
-      {%- when 'collections' -%}
-        {% assign collection_limit = block.settings.collections_gap %}
-        <{{ element }} {{ attributes }}>
-          {% if block.settings.title %} {{block.settings.title}} {% else %} Collections {% endif %}
-        </{{ element }}>
-        <div class="collections-sitemap"></div>
-      {%- when 'products' -%}
-        {% assign product_limit = block.settings.products_gap %}
-        <{{ element }} {{ attributes }}>
-          {% if block.settings.title %} {{block.settings.title}} {% else %} Products {% endif %}
-        </{{ element }}>
-        <div class="products-sitemap"></div>
-      {%- when 'blogs' -%}
-        {% assign blog_limit = block.settings.blogs_gap %}
-        <{{ element }} {{ attributes }}>
-          {% if block.settings.title %} {{block.settings.title}} {% else %} Blogs {% endif %}
-        </{{ element }}>
-        <div class="blogs-sitemap"></div>
-    {%- endcase -%}
+          {% assign page_limit = block.settings.pages_gap %}  
+            <{{ element }} {{ attributes }}>
+                {%  if block.settings.title %} {{block.settings.title}} {% else %} Pages {% endif %}
+            </{{ element }}>
+          <div class="pages-sitemap">
+              <ul>
+              {% for page in pages limit: page_limit %}
+                  <li class="link_style" ><a  {{ attributes_link }}  href="/pages/{{page.handle}}"><{{ element_text }}>{{page.title}}</{{ element_text }}></a></li>
+              {% endfor %}
+              </ul>
+          </div>
+          {%- when 'collections' -%}
+              {% assign collection_limit = block.settings.collections_gap %}
+              <{{ element }} {{ attributes }}>
+                {%  if block.settings.title %} {{block.settings.title}} {% else %} Collections {% endif %}
+              </{{ element }}>
+              <div class="collections-sitemap"></div>
+          {%- when 'products' -%}
+              {% assign product_limit = block.settings.products_gap %}
+              <{{ element }} {{ attributes }}>
+               {%  if block.settings.title %} {{block.settings.title}} {% else %} Products {% endif %}
+              </{{ element }}>
+              <div class="products-sitemap"></div>
+          {%- when 'blogs' -%}
+              {% assign blog_limit = block.settings.blogs_gap %}
+              <{{ element }} {{ attributes }}>
+               {%  if block.settings.title %} {{block.settings.title}} {% else %} Blogs {% endif %}
+              </{{ element }}>
+              <div class="blogs-sitemap"></div>
+      {%- endcase -%}
   {%- endfor -%}
+  
 </section>
 
+
 <script>
-  // Shopify GraphQL config
-  const SHOPIFY_DOMAIN = 'moxologie1.myshopify.com';
-  const STOREFRONT_ACCESS_TOKEN = '4648ab1cb4b278f3459fabc3b835da99';
-  const apiUrl = `https://${SHOPIFY_DOMAIN}/api/2025-07/graphql.json`;
+// Basic config
+const SHOPIFY_DOMAIN = 'moxologie1.myshopify.com';
+const STOREFRONT_ACCESS_TOKEN = '4648ab1cb4b278f3459fabc3b835da99';
+const apiUrl = `https://${SHOPIFY_DOMAIN}/api/2025-07/graphql.json`;
 
-  // Helper function to fetch data from Shopify Storefront API
-  async function shopifyFetch(query, variables = {}) {
-    try {
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Shopify-Storefront-Access-Token': STOREFRONT_ACCESS_TOKEN
-        },
-        body: JSON.stringify({ query, variables })
-      });
-      return await response.json();
-      console.log('successfull');
-    } catch (error) {
-      console.error('Error:', error);
-      return { errors: [{ message: error.message }] };
-    }
+// Helper function for GraphQL queries
+async function shopifyFetch(query, variables = {}) {
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': STOREFRONT_ACCESS_TOKEN
+      },
+      body: JSON.stringify({ query, variables })
+    });
+
+    return await response.json();
+    console.log('successfull');
+  } catch (error) {
+    console.error('Error:', error);
+    return { errors: [{ message: error.message }] };
   }
+}
 
-  // Fetch all collections and append to collections-sitemap
-  async function GetAllCollections() {
+
+//Collection fetch
+async function GetAllCollections(){
     console.log("Loading: GetAllCollection");
     const query = `query GetCollections {
-      collections(first: {{collection_limit}}) {
-        nodes { id title handle }
-      }
+    collections(first: {{collection_limit}}) {
+        nodes {
+        id
+        title
+        handle
+        }
+    }
     }`;
     const variables = {};
     const fetchResult = await shopifyFetch(query, variables);
     const collections = fetchResult.data.collections.nodes;
+    console.log(collections);
 
     var collection_list = ``;
-    collections.forEach((n) => {
-      collection_list += `<li class="link_style"><a {{ attributes_link }} href="/collections/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
+    collections.forEach((n, i) => {
+        collection_list += `<li class="link_style" ><a {{ attributes_link }}    href="/collections/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
     });
 
+    // Now create the <ul> and append it to the <div class="products-sitemap">
     var ulElement = document.createElement('ul');
-    ulElement.innerHTML = collection_list;
-    document.querySelector('.collections-sitemap').appendChild(ulElement);
-  }
+    ulElement.innerHTML = collection_list; // Add the list items to the <ul>
 
-  // Fetch all products and append to products-sitemap
-  async function GetRangeProducts() {
+    document.querySelector('.collections-sitemap').appendChild(ulElement); // Append the <ul> to the div
+}
+
+async function GetRangeProducts(){
     console.log("Loading: GetAllProducts");
     const query = `query GetProducts {
-      products(first: {{product_limit}}) {
-        nodes { id title handle }
-      }
+    products(first: {{product_limit}}) {
+        nodes {
+        id
+        title
+        handle
+        }
+    }
     }`;
     const variables = {};
     const fetchResult = await shopifyFetch(query, variables);
     const products = fetchResult.data.products.nodes;
+    console.log(products);
 
     var product_list = ``;
-    products.forEach((n) => {
-      product_list += `<li class="link_style"><a {{ attributes_link }} href="/products/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
+    products.forEach((n, i) => {
+        product_list += `<li class="link_style" ><a  {{ attributes_link }}  href="/products/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
     });
 
+    // Now create the <ul> and append it to the <div class="products-sitemap">
     var ulElement = document.createElement('ul');
-    ulElement.innerHTML = product_list;
-    document.querySelector('.products-sitemap').appendChild(ulElement);
-  }
+    ulElement.innerHTML = product_list; // Add the list items to the <ul>
 
-  // Fetch all blog posts and append to blogs-sitemap
-  async function GetAllBlogPosts() {
+    document.querySelector('.products-sitemap').appendChild(ulElement); // Append the <ul> to the div
+
+}
+
+//Article fetch
+async function GetAllBlogPosts(){
     console.log("Loading: GetAllBlogs");
     const query = `query GetBlogs{
-      blogs(first: {{blog_limit}}) {
-        nodes { id title handle }
-      }
+    blogs(first: {{blog_limit}}) {
+        nodes {
+        id
+        title
+        handle
+        }
+    }
     }`;
     const variables = {};
     const fetchResult = await shopifyFetch(query, variables);
     const blogs = fetchResult.data.blogs.nodes;
+    console.log(blogs);
 
     var blog_list = ``;
-    blogs.forEach((n) => {
-      blog_list += `<li class="link_style"><a {{ attributes_link }} href="/blogs/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
+    blogs.forEach((n, i) => {
+        blog_list += `<li class="link_style" ><a  {{ attributes_link }}  href="/blogs/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
     });
 
+    // Now create the <ul> and append it to the <div class="products-sitemap">
     var ulElement = document.createElement('ul');
-    ulElement.innerHTML = blog_list;
-    document.querySelector('.blogs-sitemap').appendChild(ulElement);
-  }
+    ulElement.innerHTML = blog_list; // Add the list items to the <ul>
 
-  // Fetch all products with pagination for large stores
-  async function GetAllProducts(product_limit) {
+    document.querySelector('.blogs-sitemap').appendChild(ulElement); // Append the <ul> to the div
+}
+
+async function GetAllProducts(product_limit) {
     console.log("Loading: GetAllProducts");
     let hasNextPage = true;
     let endCursor = null;
     let allProducts = [];
 
     while (hasNextPage && allProducts.length < product_limit) {
-      const batchSize = Math.min(250, product_limit - allProducts.length);
-      const query = `
-        query GetProducts($cursor: String) {
-          products(first: ${batchSize}, after: $cursor) {
-            nodes { id title handle }
-            pageInfo { hasNextPage endCursor }
-          }
-        }
-      `;
-      const variables = { cursor: endCursor };
-      const fetchResult = await shopifyFetch(query, variables);
-      const products = fetchResult.data.products.nodes;
-      allProducts = allProducts.concat(products);
+        const batchSize = Math.min(250, product_limit - allProducts.length);
+        const query = `
+            query GetProducts($cursor: String) {
+                products(first: ${batchSize}, after: $cursor) {
+                    nodes {
+                        id
+                        title
+                        handle
+                    }
+                    pageInfo {
+                        hasNextPage
+                        endCursor
+                    }
+                }
+            }
+        `;
+        const variables = { cursor: endCursor };
+        const fetchResult = await shopifyFetch(query, variables);
+        const products = fetchResult.data.products.nodes;
+        allProducts = allProducts.concat(products);
 
-      hasNextPage = fetchResult.data.products.pageInfo.hasNextPage;
-      endCursor = fetchResult.data.products.pageInfo.endCursor;
+        hasNextPage = fetchResult.data.products.pageInfo.hasNextPage;
+        endCursor = fetchResult.data.products.pageInfo.endCursor;
     }
 
     var product_list = ``;
-    allProducts.forEach((n) => {
-      product_list += `<li class="link_style"><a {{ attributes_link }} href="/products/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
+    allProducts.forEach((n, i) => {
+        product_list += `<li class="link_style" ><a  {{ attributes_link }} href="/products/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
+        
     });
 
     var ulElement = document.createElement('ul');
     ulElement.innerHTML = product_list;
     document.querySelector('.products-sitemap').appendChild(ulElement);
-  }
+}
 
-  // Initialize fetching if sitemap divs exist
-  if (document.querySelector('.products-sitemap')) {
-    let product_limit = 0;
-    {% for block in section.blocks %}
-      {% if block.type == 'products' %}
-        product_limit = {{ block.settings.products_gap | json }};
-      {% endif %}
-    {% endfor %}
-    GetAllProducts(product_limit);
-  }
-  if (document.querySelector('.collections-sitemap')) {
-       GetAllCollections();
-  }
-  if (document.querySelector('.blogs-sitemap')) {
-      GetAllBlogPosts();
-  }
+if (document.querySelector('.products-sitemap')) {
+  let product_limit = 0;
+  {% for block in section.blocks %}
+    {% if block.type == 'products' %}
+      product_limit = {{ block.settings.products_gap | json }};
+    {% endif %}
+  {% endfor %}
+  GetAllProducts(product_limit);
+}
+if (document.querySelector('.collections-sitemap')) {
+     GetAllCollections();
+}
+if (document.querySelector('.blogs-sitemap')) {
+    GetAllBlogPosts();
+}
 </script>
+
+
+
+{% schema %}
+{
+  "name": "CT Sitemap",
+  "class": "ct-sitemap",
+  "settings" :[
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "fit-content",
+          "label": "Fit"
+        },
+        {
+          "value": "100%",
+          "label": "Fill"
+        }
+      ],
+      "default": "fit-content"
+    },
+    {
+      "type": "select",
+      "id": "max_width",
+      "label": "Max width",
+      "options": [
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Heading Alignment",
+      "default": "left",
+      "visible_if": "{{ section.settings.width == '100%' }}"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment_text",
+      "label": "Text Alignment",
+      "default": "left",
+      "visible_if": "{{ section.settings.width == '100%' }}"
+    },
+    {
+      "type": "header",
+      "content": "Heading Typography"
+    },
+    {
+      "type": "select",
+      "id": "type_preset",
+      "label": "Heading Tag",
+      "options": [
+        {
+          "value": "paragraph",
+          "label": "Paragraph"
+        },
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        }
+      ],
+      "default": "h2",
+      "info": "Edit presets in Theme"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Heading Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Link Typography"
+    },
+    {
+      "type": "select",
+      "id": "type_preset_text",
+      "label": "Link Tag",
+      "options": [
+        {
+          "value": "paragraph",
+          "label": "Paragraph"
+        },
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        }
+      ],
+      "default": "paragraph",
+      "info": "Edit presets in Theme"
+    },
+    {
+      "type": "select",
+      "id": "underline_text",
+      "label": "Link Underline",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "underline",
+          "label": "Underline"
+        }
+      ],
+      "default": "none",
+      "info": "Underline link"
+    },
+     {
+      "type": "select",
+      "id": "link_style",
+      "label": "Link Style",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "disc",
+          "label": "Disc"
+        },
+        {
+          "value": "decimal",
+          "label": "Number"
+        }
+      ],
+      "default": "none",
+      "info": "Add number, dic or keep links empty"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "checkbox",
+      "id": "background",
+      "label": "Background",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "alpha": true,
+      "default": "#00000026"
+    },
+    {
+      "type": "range",
+      "id": "corner_radius",
+      "label": "Corner Radius",
+      "default": 0,
+      "min": 0,
+      "max": 50,
+      "step": 1
+    },
+     {
+      "type": "header",
+      "content": "Padding "
+    },
+    {
+      "type": "range",
+      "id": "padding-block-top",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding-block-bottom",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+    
+   ],
+    "blocks": [
+    {
+      "name": "Pages",
+      "type": "pages",
+      "limit": 1,
+      "settings": [
+          {
+            "type": "header",
+            "content": "Pages"
+          },
+          {
+          "type":"text",
+          "label": "Pages Title",
+          "id":"title",
+          "default":"Pages"
+          },  
+          {
+            "type": "range",
+            "id": "pages_gap",
+            "label": "Number of Pages to Show",
+            "min": 0,
+            "max": 1000,
+            "step": 10,
+            "default": 20
+          }
+      ]
+    },
+    {
+      "name": "Collections",
+      "type": "collections",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Collections"
+        },
+        {
+          "type":"text",
+          "label": "Collections Title",
+          "id":"title",
+          "default":"Collections"
+        },                  
+        {
+          "type": "range",
+          "id": "collections_gap",
+          "label": "Number of Collections to Show",
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "default": 100
+        }
+      ]
+    },  
+    {
+      "name": "Blogs",
+      "type": "blogs",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Blogs"
+        },
+        {
+            "type":"text",
+            "label": "Blogs Title",
+            "id":"title",
+            "default":"Blogs"
+        },
+        {
+          "type": "range",
+          "id": "blogs_gap",
+          "label": "Number of Blogs to Show",
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "default": 20
+        }
+      ]
+    },  
+    {
+      "name": "Products",
+      "type": "products",
+      "limit": 1,
+      "settings": [
+          {
+            "type": "header",
+            "content": "Products"
+          },
+          {
+            "type":"text",
+            "label": "Products Title",
+            "id":"title",
+            "default":"Products"
+          },
+          {
+            "type": "range",
+            "id": "products_gap",
+            "label": "Number of Products to Show",
+            "min": 0,
+            "max": 250,
+            "step": 5,
+            "default": 30,
+            "info": "To show all products set value as 250"
+          }
+      ]
+    },  
+  ],
+  "presets": [
+    {
+      "name": "CT Sitemap"
+    }
+  ]
+}
+{% endschema %}
