@@ -58,9 +58,9 @@
       "name": "CT Sitemap",
       "settings": {
         "width": "100%",
-        "max_width": "normal",
-        "alignment": "left",
-        "alignment_text": "right",
+        "max_width": "narrow",
+        "alignment": "center",
+        "alignment_text": "center",
         "type_preset": "rte",
         "color": "#000000",
         "type_preset_text": "rte",
