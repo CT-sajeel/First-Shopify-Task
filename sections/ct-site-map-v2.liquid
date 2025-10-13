@@ -800,6 +800,12 @@ async function GetAllCollections(collection_limit, activeOnly = false) {
           "max": 1000,
           "step": 10,
           "default": 100
+        },
+        {
+        "type": "checkbox",
+        "id": "collections_active",
+        "label": "Active Collections Only",
+        "default": false
         }
       ]
     },
