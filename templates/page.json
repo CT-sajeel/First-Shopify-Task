@@ -82,36 +82,37 @@
           "type": "articles",
           "settings": {
             "title": "Articles",
-            "articles_gap": 250,
-            "articles_active": false
+            "articles_gap": 50,
+            "articles_active": true
           }
         },
         "pages_TnCeUU": {
           "type": "pages",
           "settings": {
             "title": "Pages",
-            "pages_gap": 20
+            "pages_gap": 130
           }
         },
         "blogs_gFWEFp": {
           "type": "blogs",
           "settings": {
             "title": "Blogs",
-            "blogs_gap": 20
+            "blogs_gap": 40
           }
         },
         "collections_Ybwhar": {
           "type": "collections",
           "settings": {
             "title": "Collections",
-            "collections_gap": 100
+            "collections_gap": 70,
+            "collections_active": true
           }
         },
         "products_3EmBCr": {
           "type": "products",
           "settings": {
             "title": "Products",
-            "products_gap": 250,
+            "products_gap": 35,
             "products_active": true
           }
         }
