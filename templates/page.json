@@ -106,13 +106,22 @@
             "products_gap": 250,
             "products_active": true
           }
+        },
+        "articles_mmMeNe": {
+          "type": "articles",
+          "settings": {
+            "title": "Articles",
+            "articles_gap": 30,
+            "articles_active": false
+          }
         }
       },
       "block_order": [
         "pages_TnCeUU",
         "blogs_gFWEFp",
         "collections_Ybwhar",
-        "products_3EmBCr"
+        "products_3EmBCr",
+        "articles_mmMeNe"
       ],
       "name": "CT Sitemap v2",
       "settings": {
