@@ -421,7 +421,7 @@ async function GetAllArticlesFromAllBlogs(article_limit_per_blog = 250, publishe
   // Render the article list
   var article_list = ``;
   allArticles.forEach((n, i) => {
-    article_list += `<li class="link_style" ><a  {{ attributes_link }} href="/products/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
+    article_list += `<li class="link_style" ><a  {{ attributes_link }} href="/blogs/blog/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
   });
 
   var ulElement = document.createElement('ul');
