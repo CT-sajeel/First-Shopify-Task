@@ -200,94 +200,6 @@
       return { errors: [{ message: error.message }] };
     }
   }
-  
-  
-  //Collection fetch
-  async function GetAllCollections(){
-      console.log("Loading: GetAllCollection");
-      const query = `query GetCollections {
-      collections(first: {{collection_limit}}) {
-          nodes {
-          id
-          title
-          handle
-          }
-      }
-      }`;
-      const variables = {};
-      const fetchResult = await shopifyFetch(query, variables);
-      const collections = fetchResult.data.collections.nodes;
-      console.log(collections);
-  
-      var collection_list = ``;
-      collections.forEach((n, i) => {
-          collection_list += `<li class="link_style" ><a {{ attributes_link }}    href="/collections/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
-      });
-  
-      // Now create the <ul> and append it to the <div class="products-sitemap">
-      var ulElement = document.createElement('ul');
-      ulElement.innerHTML = collection_list; // Add the list items to the <ul>
-  
-      document.querySelector('.collections-sitemap').appendChild(ulElement); // Append the <ul> to the div
-  }
-  
-  async function GetRangeProducts(){
-      console.log("Loading: GetAllProducts");
-      const query = `query GetProducts {
-      products(first: {{product_limit}}) {
-          nodes {
-          id
-          title
-          handle
-          }
-      }
-      }`;
-      const variables = {};
-      const fetchResult = await shopifyFetch(query, variables);
-      const products = fetchResult.data.products.nodes;
-      console.log(products);
-  
-      var product_list = ``;
-      products.forEach((n, i) => {
-          product_list += `<li class="link_style" ><a  {{ attributes_link }}  href="/products/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
-      });
-  
-      // Now create the <ul> and append it to the <div class="products-sitemap">
-      var ulElement = document.createElement('ul');
-      ulElement.innerHTML = product_list; // Add the list items to the <ul>
-  
-      document.querySelector('.products-sitemap').appendChild(ulElement); // Append the <ul> to the div
-  
-  }
-  
-  //Article fetch
-  async function GetAllBlogPosts(){
-      console.log("Loading: GetAllBlogs");
-      const query = `query GetBlogs{
-      blogs(first: {{blog_limit}}) {
-          nodes {
-          id
-          title
-          handle
-          }
-      }
-      }`;
-      const variables = {};
-      const fetchResult = await shopifyFetch(query, variables);
-      const blogs = fetchResult.data.blogs.nodes;
-      console.log(blogs);
-  
-      var blog_list = ``;
-      blogs.forEach((n, i) => {
-          blog_list += `<li class="link_style" ><a  {{ attributes_link }}  href="/blogs/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
-      });
-  
-      // Now create the <ul> and append it to the <div class="products-sitemap">
-      var ulElement = document.createElement('ul');
-      ulElement.innerHTML = blog_list; // Add the list items to the <ul>
-  
-      document.querySelector('.blogs-sitemap').appendChild(ulElement); // Append the <ul> to the div
-  }
 
 // Product Fetching Function
   async function GetAllProducts(product_limit, activeOnly = false) {
@@ -351,6 +263,8 @@
     GetAllProducts(product_limit, products_active);
   }
 
+
+// Fetch all artilces  
 async function GetAllArticlesFromAllBlogs(article_limit_per_blog = 250, publishedOnly = false) {
   // 1. Fetch all blogs (paginated if you have many blogs)
   let blogs = [];
@@ -503,9 +417,41 @@ async function GetAllCollections(collection_limit, activeOnly = false) {
         {% endfor %}
         GetAllCollections(collections_limit, collections_active);
   }
-  if (document.querySelector('.blogs-sitemap')) {
-      GetAllBlogPosts();
-  }
+
+
+
+//Blog fetch
+async function GetAllBlogPosts(){
+    console.log("Loading: GetAllBlogs");
+    const query = `query GetBlogs{
+    blogs(first: {{blog_limit}}) {
+        nodes {
+        id
+        title
+        handle
+        }
+    }
+    }`;
+    const variables = {};
+    const fetchResult = await shopifyFetch(query, variables);
+    const blogs = fetchResult.data.blogs.nodes;
+    console.log(blogs);
+
+    var blog_list = ``;
+    blogs.forEach((n, i) => {
+        blog_list += `<li class="link_style" ><a  {{ attributes_link }}  href="/blogs/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
+    });
+
+    // Now create the <ul> and append it to the <div class="products-sitemap">
+    var ulElement = document.createElement('ul');
+    ulElement.innerHTML = blog_list; // Add the list items to the <ul>
+
+    document.querySelector('.blogs-sitemap').appendChild(ulElement); // Append the <ul> to the div
+}
+
+if (document.querySelector('.blogs-sitemap')) {
+    GetAllBlogPosts();
+}
 </script>
 
 {% schema %}
