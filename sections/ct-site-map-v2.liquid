@@ -360,7 +360,7 @@ async function GetAllProducts() {
 
     var product_list = ``;
     allProducts.forEach((n, i) => {
-        product_list += `<li><a href="/products/${n.handle}">${n.title}</a></li>`;
+        product_list += `<li class="link_style" ><a  {{ attributes_link }} href="/products/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
     });
 
     var ulElement = document.createElement('ul');
