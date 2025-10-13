@@ -55,6 +55,7 @@
         "products_UQKU6t",
         "blogs_TY7QEq"
       ],
+      "disabled": true,
       "name": "CT Sitemap",
       "settings": {
         "width": "100%",
@@ -73,10 +74,32 @@
         "padding-block-top": 24,
         "padding-block-bottom": 0
       }
+    },
+    "ct_site_map_v2_k9Ch6X": {
+      "type": "ct-site-map-v2",
+      "name": "CT Sitemap v2",
+      "settings": {
+        "width": "fit-content",
+        "max_width": "normal",
+        "alignment": "left",
+        "alignment_text": "left",
+        "type_preset": "h2",
+        "color": "#000000",
+        "type_preset_text": "paragraph",
+        "underline_text": "none",
+        "link_style": "none",
+        "text_color": "#000000",
+        "background": false,
+        "background_color": "#00000026",
+        "corner_radius": 0,
+        "padding-block-top": 24,
+        "padding-block-bottom": 0
+      }
     }
   },
   "order": [
     "main",
-    "sitemap_g93JeG"
+    "sitemap_g93JeG",
+    "ct_site_map_v2_k9Ch6X"
   ]
 }
