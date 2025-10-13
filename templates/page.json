@@ -77,6 +77,42 @@
     },
     "ct_site_map_v2_k9Ch6X": {
       "type": "ct-site-map-v2",
+      "blocks": {
+        "pages_TnCeUU": {
+          "type": "pages",
+          "settings": {
+            "title": "Pages",
+            "pages_gap": 20
+          }
+        },
+        "blogs_gFWEFp": {
+          "type": "blogs",
+          "settings": {
+            "title": "Blogs",
+            "blogs_gap": 20
+          }
+        },
+        "collections_Ybwhar": {
+          "type": "collections",
+          "settings": {
+            "title": "Collections",
+            "collections_gap": 100
+          }
+        },
+        "products_3EmBCr": {
+          "type": "products",
+          "settings": {
+            "title": "Products",
+            "products_gap": 30
+          }
+        }
+      },
+      "block_order": [
+        "pages_TnCeUU",
+        "blogs_gFWEFp",
+        "collections_Ybwhar",
+        "products_3EmBCr"
+      ],
       "name": "CT Sitemap v2",
       "settings": {
         "width": "fit-content",
