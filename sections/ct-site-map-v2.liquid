@@ -327,54 +327,45 @@
   }
   
 
-async function GetAllProducts(product_limit) {
-  console.log("Loading: GetAllProducts");
-  let hasNextPage = true;
-  let endCursor = null;
-  let allProducts = [];
+async function GetAllProducts() {
+    console.log("Loading: GetAllProducts");
+    let hasNextPage = true;
+    let endCursor = null;
+    let allProducts = [];
 
-  while (hasNextPage && allProducts.length < product_limit) {
-    const batchSize = Math.min(250, product_limit - allProducts.length);
-    const query = `
-      query GetProducts($cursor: String) {
-        products(first: ${batchSize}${endCursor ? ', after: $cursor' : ''}) {
-          edges {
-            cursor
-            node {
-              id
-              title
-              handle
+    while (hasNextPage) {
+        const query = `
+            query GetProducts($cursor: String) {
+                products(first: 250, after: $cursor) {
+                    nodes {
+                        id
+                        title
+                        handle
+                    }
+                    pageInfo {
+                        hasNextPage
+                        endCursor
+                    }
+                }
             }
-          }
-          pageInfo {
-            hasNextPage
-            endCursor
-          }
-        }
-      }
-    `;
-    const variables = endCursor ? { cursor: endCursor } : {};
-    const fetchResult = await shopifyFetch(query, variables);
+        `;
+        const variables = { cursor: endCursor };
+        const fetchResult = await shopifyFetch(query, variables);
+        const products = fetchResult.data.products.nodes;
+        allProducts = allProducts.concat(products);
 
-    if (!fetchResult.data || !fetchResult.data.products) break;
+        hasNextPage = fetchResult.data.products.pageInfo.hasNextPage;
+        endCursor = fetchResult.data.products.pageInfo.endCursor;
+    }
 
-    const edges = fetchResult.data.products.edges;
-    const products = edges.map(edge => edge.node);
-    allProducts = allProducts.concat(products);
+    var product_list = ``;
+    allProducts.forEach((n, i) => {
+        product_list += `<li><a href="/products/${n.handle}">${n.title}</a></li>`;
+    });
 
-    hasNextPage = fetchResult.data.products.pageInfo.hasNextPage;
-    endCursor = fetchResult.data.products.pageInfo.endCursor;
-  }
-
-  // Render the product list
-  var product_list = ``;
-  allProducts.forEach((n, i) => {
-    product_list += `<li class="link_style"><a href="/products/${n.handle}">${n.title}</a></li>`;
-  });
-
-  var ulElement = document.createElement('ul');
-  ulElement.innerHTML = product_list;
-  document.querySelector('.products-sitemap').appendChild(ulElement);
+    var ulElement = document.createElement('ul');
+    ulElement.innerHTML = product_list;
+    document.querySelector('.products-sitemap').appendChild(ulElement);
 }
 
   if (document.querySelector('.products-sitemap')) {
@@ -384,7 +375,7 @@ async function GetAllProducts(product_limit) {
         product_limit = {{ block.settings.products_gap | json }};
       {% endif %}
     {% endfor %}
-    GetAllProducts(1000);
+    GetAllProducts();
   }
   if (document.querySelector('.collections-sitemap')) {
        GetAllCollections();
