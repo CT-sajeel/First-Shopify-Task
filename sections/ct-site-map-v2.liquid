@@ -251,17 +251,17 @@
   document.querySelector('.products-sitemap').appendChild(ulElement);
 }
   
-  if (document.querySelector('.products-sitemap')) {
-    let product_limit = 0;
-    let products_active = false;
-    {% for block in section.blocks %}
-      {% if block.type == 'products' %}
-        product_limit = {{ block.settings.products_gap | json }};
-        products_active = {{ block.settings.products_active }};
-      {% endif %}
-    {% endfor %}
-    GetAllProducts(product_limit, products_active);
-  }
+if (document.querySelector('.products-sitemap')) {
+let product_limit = 0;
+let products_active = false;
+{% for block in section.blocks %}
+    {% if block.type == 'products' %}
+    product_limit = {{ block.settings.products_gap | json }};
+    products_active = {{ block.settings.products_active }};
+    {% endif %}
+{% endfor %}
+GetAllProducts(product_limit, products_active);
+}
 
 
 // Fetch all artilces  
@@ -343,17 +343,17 @@ async function GetAllArticlesFromAllBlogs(article_limit_per_blog = 250, publishe
   document.querySelector('.articles-sitemap').appendChild(ulElement);
 }
 
-  if (document.querySelector('.articles-sitemap')) {
-    let articles_limit = 0;
-    let articles_active = false;
-    {% for block in section.blocks %}
-      {% if block.type == 'articles' %}
-        articles_limit = {{ block.settings.articles_gap | json }};
-        articles_active = {{ block.settings.articles_active }};
-      {% endif %}
-    {% endfor %}
-    GetAllArticlesFromAllBlogs(articles_limit, articles_active);
-  }
+if (document.querySelector('.articles-sitemap')) {
+let articles_limit = 0;
+let articles_active = false;
+{% for block in section.blocks %}
+    {% if block.type == 'articles' %}
+    articles_limit = {{ block.settings.articles_gap | json }};
+    articles_active = {{ block.settings.articles_active }};
+    {% endif %}
+{% endfor %}
+GetAllArticlesFromAllBlogs(articles_limit, articles_active);
+}
 
 // Collection Pages
 async function GetAllCollections(collection_limit, activeOnly = false) {
