@@ -165,6 +165,12 @@
           {% if block.settings.title %} {{ block.settings.title }} {% else %} Blogs {% endif %}
         </{{ element }}>
         <div class="blogs-sitemap"></div>
+      {%- when 'articles' -%}
+        {% assign blog_limit = block.settings.articles_gap %}
+        <{{ element }} {{ attributes }}>
+          {% if block.settings.title %} {{ block.settings.title }} {% else %} Articles {% endif %}
+        </{{ element }}>
+        <div class="articles-sitemap"></div>  
     {%- endcase -%}
   {%- endfor -%}
 </section>
