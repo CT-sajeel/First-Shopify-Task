@@ -406,19 +406,17 @@ async function GetAllCollections(collection_limit, activeOnly = false) {
   document.querySelector('.collections-sitemap').appendChild(ulElement);
 }
 
-  if (document.querySelector('.collections-sitemap')) {
-       let collections_limit = 0;
-        let collections_active = false;
-        {% for block in section.blocks %}
-        {% if block.type == 'collections' %}
-            collections_limit = {{ block.settings.collections_gap | json }};
-            collections_active = {{ block.settings.collections_active }};
-        {% endif %}
-        {% endfor %}
-        GetAllCollections(collections_limit, collections_active);
-  }
-
-
+if (document.querySelector('.collections-sitemap')) {
+    let collections_limit = 0;
+    let collections_active = false;
+    {% for block in section.blocks %}
+    {% if block.type == 'collections' %}
+        collections_limit = {{ block.settings.collections_gap | json }};
+        collections_active = {{ block.settings.collections_active }};
+    {% endif %}
+    {% endfor %}
+    GetAllCollections(collections_limit, collections_active);
+}
 
 //Blog fetch
 async function GetAllBlogPosts(){
