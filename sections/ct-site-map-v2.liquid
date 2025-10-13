@@ -73,7 +73,7 @@
    section.sitemap{
     display: grid;
     grid-template-columns: repeat({{section.settings.grid}}, 1fr);
-    gap: 15px;
+    gap: {{section.settings.grid-gap}}px;
    }  
    @media (max-width: 749px) {
     .section.sitemap {
@@ -507,6 +507,16 @@ if (document.querySelector('.blogs-sitemap')) {
       "max": 5,
       "step": 1,
       "default": 1
+    },
+    {
+      "type": "range",
+      "id": "grid-gap",
+      "label": "Grid Gap",
+      "min": 1,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 15
     },
     {
       "type": "select",
