@@ -129,7 +129,7 @@
         "width": "100%",
         "grid": 3,
         "max_width": "none",
-        "alignment": "left",
+        "alignment": "center",
         "alignment_text": "left",
         "type_preset": "h2",
         "color": "#000000",
