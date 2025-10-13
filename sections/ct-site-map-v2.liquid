@@ -132,45 +132,55 @@
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when 'pages' -%}
-        {% assign page_limit = block.settings.pages_gap %}
-        <{{ element }} {{ attributes }}>
-          {% if block.settings.title %} {{ block.settings.title }} {% else %} Pages {% endif %}
-        </{{ element }}>
-        <div class="pages-sitemap">
-          <ul>
-            {% for page in pages limit: page_limit %}
-              <li class="link_style">
-                <a {{ attributes_link }} href="/pages/{{page.handle}}"
-                  ><{{ element_text }}>{{ page.title }}</{{ element_text }}></a
-                >
-              </li>
-            {% endfor %}
-          </ul>
+        <div class="ct-pages">
+            {% assign page_limit = block.settings.pages_gap %}
+            <{{ element }} {{ attributes }}>
+            {% if block.settings.title %} {{ block.settings.title }} {% else %} Pages {% endif %}
+            </{{ element }}>
+            <div class="pages-sitemap">
+            <ul>
+                {% for page in pages limit: page_limit %}
+                <li class="link_style">
+                    <a {{ attributes_link }} href="/pages/{{page.handle}}"
+                    ><{{ element_text }}>{{ page.title }}</{{ element_text }}></a
+                    >
+                </li>
+                {% endfor %}
+            </ul>
+            </div>
         </div>
       {%- when 'collections' -%}
+        <div class="ct-collections">
         {% assign collection_limit = block.settings.collections_gap %}
         <{{ element }} {{ attributes }}>
           {% if block.settings.title %} {{ block.settings.title }} {% else %} Collections {% endif %}
         </{{ element }}>
         <div class="collections-sitemap"></div>
+        </div>
       {%- when 'products' -%}
+        <div class="ct-products">
         {% assign product_limit = block.settings.products_gap %}
         <{{ element }} {{ attributes }}>
           {% if block.settings.title %} {{ block.settings.title }} {% else %} Products {% endif %}
         </{{ element }}>
         <div class="products-sitemap"></div>
+        </div>
       {%- when 'blogs' -%}
+        <div class="ct-blogs">
         {% assign blog_limit = block.settings.blogs_gap %}
         <{{ element }} {{ attributes }}>
           {% if block.settings.title %} {{ block.settings.title }} {% else %} Blogs {% endif %}
         </{{ element }}>
         <div class="blogs-sitemap"></div>
+        </div>
       {%- when 'articles' -%}
+        <div class="ct-articles">
         {% assign blog_limit = block.settings.articles_gap %}
         <{{ element }} {{ attributes }}>
           {% if block.settings.title %} {{ block.settings.title }} {% else %} Articles {% endif %}
         </{{ element }}>
         <div class="articles-sitemap"></div>  
+        </div>
     {%- endcase -%}
   {%- endfor -%}
 </section>
