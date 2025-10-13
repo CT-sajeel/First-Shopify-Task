@@ -78,6 +78,14 @@
     "ct_site_map_v2_k9Ch6X": {
       "type": "ct-site-map-v2",
       "blocks": {
+        "articles_mmMeNe": {
+          "type": "articles",
+          "settings": {
+            "title": "Articles",
+            "articles_gap": 70,
+            "articles_active": true
+          }
+        },
         "pages_TnCeUU": {
           "type": "pages",
           "settings": {
@@ -106,22 +114,14 @@
             "products_gap": 250,
             "products_active": true
           }
-        },
-        "articles_mmMeNe": {
-          "type": "articles",
-          "settings": {
-            "title": "Articles",
-            "articles_gap": 30,
-            "articles_active": false
-          }
         }
       },
       "block_order": [
+        "articles_mmMeNe",
         "pages_TnCeUU",
         "blogs_gFWEFp",
         "collections_Ybwhar",
-        "products_3EmBCr",
-        "articles_mmMeNe"
+        "products_3EmBCr"
       ],
       "name": "CT Sitemap v2",
       "settings": {
