@@ -128,7 +128,7 @@
       "settings": {
         "width": "100%",
         "grid": 3,
-        "max_width": "normal",
+        "max_width": "none",
         "alignment": "left",
         "alignment_text": "left",
         "type_preset": "h2",
