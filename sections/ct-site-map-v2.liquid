@@ -333,7 +333,7 @@
         product_limit = {{ block.settings.products_gap | json }};
       {% endif %}
     {% endfor %}
-    GetAllProducts(400);
+    GetAllProducts(1000);
   }
   if (document.querySelector('.collections-sitemap')) {
        GetAllCollections();
