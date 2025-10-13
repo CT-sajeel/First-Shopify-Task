@@ -68,6 +68,18 @@
   {% endcapture %}
 
 <style>
+
+
+   section.sitemap{
+    display: grid;
+    grid-template-columns: repeat({{section.settings.grid}}, 1fr);
+    gap: 10px;
+   }  
+   @media (max-width: 749px) {
+    .section.sitemap {
+        grid-template-columns: repeat(1, 1fr);
+    }
+   } 
   .ct-top-padding{
      padding-top: {{ section.settings.padding-block-top }}px;
   }
@@ -486,6 +498,15 @@ if (document.querySelector('.blogs-sitemap')) {
         }
       ],
       "default": "fit-content"
+    },
+    {
+      "type": "range",
+      "id": "grid",
+      "label": "Grid Column",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 1
     },
     {
       "type": "select",
