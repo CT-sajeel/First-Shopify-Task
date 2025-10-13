@@ -377,12 +377,14 @@
   
   if (document.querySelector('.products-sitemap')) {
     let product_limit = 0;
+    let products_active = false;
     {% for block in section.blocks %}
       {% if block.type == 'products' %}
         product_limit = {{ block.settings.products_gap | json }};
+        products_active = {{ block.settings.products_active }};
       {% endif %}
     {% endfor %}
-    GetAllProducts(product_limit, true);
+    GetAllProducts(product_limit, products_active);
   }
   if (document.querySelector('.collections-sitemap')) {
        GetAllCollections();
