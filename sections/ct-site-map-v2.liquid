@@ -344,6 +344,98 @@
     {% endfor %}
     GetAllProducts(product_limit, products_active);
   }
+
+async function GetAllArticlesFromAllBlogs(article_limit_per_blog = 250, publishedOnly = false) {
+  // 1. Fetch all blogs (paginated if you have many blogs)
+  let blogs = [];
+  let blogsHasNextPage = true;
+  let blogsEndCursor = null;
+
+  while (blogsHasNextPage) {
+    const blogsQuery = `
+      query GetBlogs($cursor: String) {
+        blogs(first: 50, after: $cursor) {
+          nodes {
+            id
+            handle
+            title
+          }
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
+        }
+      }
+    `;
+    const blogsVariables = { cursor: blogsEndCursor };
+    const blogsResult = await shopifyFetch(blogsQuery, blogsEndCursor ? blogsVariables : {});
+    if (!blogsResult.data || !blogsResult.data.blogs) break;
+    blogs = blogs.concat(blogsResult.data.blogs.nodes);
+    blogsHasNextPage = blogsResult.data.blogs.pageInfo.hasNextPage;
+    blogsEndCursor = blogsResult.data.blogs.pageInfo.endCursor;
+  }
+
+  // 2. For each blog, fetch articles
+  let allArticles = [];
+  for (const blog of blogs) {
+    let hasNextPage = true;
+    let endCursor = null;
+    let blogArticles = [];
+    while (hasNextPage && blogArticles.length < article_limit_per_blog) {
+      const batchSize = Math.min(250, article_limit_per_blog - blogArticles.length);
+      const query = `
+        query GetArticles($blogId: ID!, $cursor: String) {
+          blog(id: $blogId) {
+            articles(first: ${batchSize}, after: $cursor${publishedOnly ? ', query: "published_status:PUBLISHED"' : ''}) {
+              nodes {
+                id
+                title
+                handle
+                publishedAt
+              }
+              pageInfo {
+                hasNextPage
+                endCursor
+              }
+            }
+          }
+        }
+      `;
+      const variables = { blogId: blog.id, cursor: endCursor };
+      const fetchResult = await shopifyFetch(query, endCursor ? variables : { blogId: blog.id });
+      if (!fetchResult.data || !fetchResult.data.blog || !fetchResult.data.blog.articles) break;
+      const articles = fetchResult.data.blog.articles.nodes.map(a => ({ ...a, blogHandle: blog.handle }));
+      blogArticles = blogArticles.concat(articles);
+      hasNextPage = fetchResult.data.blog.articles.pageInfo.hasNextPage;
+      endCursor = fetchResult.data.blog.articles.pageInfo.endCursor;
+    }
+    allArticles = allArticles.concat(blogArticles);
+  }
+
+  // Render the article list
+  var article_list = ``;
+  allArticles.forEach((n, i) => {
+    article_list += `<li class="link_style"><a href="/blogs/${n.blogHandle}/articles/${n.handle}">${n.title}</a></li>`;
+  });
+
+  var ulElement = document.createElement('ul');
+  ulElement.innerHTML = article_list;
+  document.querySelector('.articles-sitemap').appendChild(ulElement);
+}
+
+  if (document.querySelector('.articles-sitemap')) {
+    let articles_limit = 0;
+    let articles_active = false;
+    {% for block in section.blocks %}
+      {% if block.type == 'articles' %}
+        articles_limit = {{ block.settings.articles_gap | json }};
+        articles_active = {{ block.settings.articles_active }};
+      {% endif %}
+    {% endfor %}
+    GetAllArticlesFromAllBlogs(articles_limit, articles_active);
+  }
+
+
   if (document.querySelector('.collections-sitemap')) {
        GetAllCollections();
   }
