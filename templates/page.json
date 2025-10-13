@@ -103,7 +103,8 @@
           "type": "products",
           "settings": {
             "title": "Products",
-            "products_gap": 250
+            "products_gap": 250,
+            "products_active": true
           }
         }
       },
