@@ -327,47 +327,54 @@
   }
   
 
-async function GetAllProducts() {
-    console.log("Loading: GetAllProducts");
-    let hasNextPage = true;
-    let endCursor = null;
-    let allProducts = [];
+  async function GetAllProducts(product_limit) {
+  console.log("Loading: GetAllProducts");
+  let hasNextPage = true;
+  let endCursor = null;
+  let allProducts = [];
 
-    while (hasNextPage) {
-        const query = `
-            query GetProducts($cursor: String) {
-                products(first: 250, after: $cursor) {
-                    nodes {
-                        id
-                        title
-                        handle
-                    }
-                    pageInfo {
-                        hasNextPage
-                        endCursor
-                    }
-                }
-            }
-        `;
-        const variables = { cursor: endCursor };
-        const fetchResult = await shopifyFetch(query, variables);
-        const products = fetchResult.data.products.nodes;
-        allProducts = allProducts.concat(products);
+  while (hasNextPage && allProducts.length < product_limit) {
+    const batchSize = Math.min(250, product_limit - allProducts.length);
 
-        hasNextPage = fetchResult.data.products.pageInfo.hasNextPage;
-        endCursor = fetchResult.data.products.pageInfo.endCursor;
-    }
+    // Only include 'after: $cursor' if endCursor is not null
+    const afterClause = endCursor ? ', after: $cursor' : '';
+    const query = `
+      query GetProducts($cursor: String) {
+        products(first: ${batchSize}${afterClause}) {
+          nodes {
+            id
+            title
+            handle
+          }
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
+        }
+      }
+    `;
+    const variables = endCursor ? { cursor: endCursor } : {};
+    const fetchResult = await shopifyFetch(query, variables);
 
-    var product_list = ``;
-    allProducts.forEach((n, i) => {
-        product_list += `<li class="link_style" ><a  {{ attributes_link }} href="/products/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
-    });
+    if (!fetchResult.data || !fetchResult.data.products) break;
 
-    var ulElement = document.createElement('ul');
-    ulElement.innerHTML = product_list;
-    document.querySelector('.products-sitemap').appendChild(ulElement);
+    const products = fetchResult.data.products.nodes;
+    allProducts = allProducts.concat(products);
+
+    hasNextPage = fetchResult.data.products.pageInfo.hasNextPage;
+    endCursor = fetchResult.data.products.pageInfo.endCursor;
+  }
+
+  // Render the product list
+  var product_list = ``;
+  allProducts.forEach((n, i) => {
+    product_list += `<li class="link_style"><a href="/products/${n.handle}">${n.title}</a></li>`;
+  });
+
+  var ulElement = document.createElement('ul');
+  ulElement.innerHTML = product_list;
+  document.querySelector('.products-sitemap').appendChild(ulElement);
 }
-
   if (document.querySelector('.products-sitemap')) {
     let product_limit = 0;
     {% for block in section.blocks %}
@@ -375,7 +382,7 @@ async function GetAllProducts() {
         product_limit = {{ block.settings.products_gap | json }};
       {% endif %}
     {% endfor %}
-    GetAllProducts();
+    GetAllProducts(product_limit);
   }
   if (document.querySelector('.collections-sitemap')) {
        GetAllCollections();
