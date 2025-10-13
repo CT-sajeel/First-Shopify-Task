@@ -327,7 +327,7 @@
   }
   
 
-  async function GetAllProducts(product_limit) {
+async function GetAllProducts(product_limit) {
   console.log("Loading: GetAllProducts");
   let hasNextPage = true;
   let endCursor = null;
@@ -335,16 +335,16 @@
 
   while (hasNextPage && allProducts.length < product_limit) {
     const batchSize = Math.min(250, product_limit - allProducts.length);
-
-    // Only include 'after: $cursor' if endCursor is not null
-    const afterClause = endCursor ? ', after: $cursor' : '';
     const query = `
       query GetProducts($cursor: String) {
-        products(first: ${batchSize}${afterClause}) {
-          nodes {
-            id
-            title
-            handle
+        products(first: ${batchSize}${endCursor ? ', after: $cursor' : ''}) {
+          edges {
+            cursor
+            node {
+              id
+              title
+              handle
+            }
           }
           pageInfo {
             hasNextPage
@@ -358,7 +358,8 @@
 
     if (!fetchResult.data || !fetchResult.data.products) break;
 
-    const products = fetchResult.data.products.nodes;
+    const edges = fetchResult.data.products.edges;
+    const products = edges.map(edge => edge.node);
     allProducts = allProducts.concat(products);
 
     hasNextPage = fetchResult.data.products.pageInfo.hasNextPage;
