@@ -82,7 +82,7 @@
           "type": "articles",
           "settings": {
             "title": "Articles",
-            "articles_gap": 70,
+            "articles_gap": 250,
             "articles_active": false
           }
         },
