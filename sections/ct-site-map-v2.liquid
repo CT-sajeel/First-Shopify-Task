@@ -283,7 +283,7 @@
       document.querySelector('.blogs-sitemap').appendChild(ulElement); // Append the <ul> to the div
   }
   
-  async function GetAllProducts(product_limit) {
+  async function ___GetAllProducts(product_limit) {
       console.log("Loading: GetAllProducts");
       let hasNextPage = true;
       let endCursor = null;
@@ -325,6 +325,55 @@
       ulElement.innerHTML = product_list;
       document.querySelector('.products-sitemap').appendChild(ulElement);
   }
+
+  async function GetAllProducts(product_limit, activeOnly = false) {
+  console.log("Loading: GetAllProducts");
+  let hasNextPage = true;
+  let endCursor = null;
+  let allProducts = [];
+
+  // If product_limit is 250, treat it as "fetch all products"
+  if (product_limit === 250) {
+    product_limit = Number.MAX_SAFE_INTEGER;
+  }
+
+  while (hasNextPage && allProducts.length < product_limit) {
+    const batchSize = Math.min(250, product_limit - allProducts.length);
+    // Add query argument if activeOnly is true
+    const query = `
+      query GetProducts($cursor: String) {
+        products(first: ${batchSize}, after: $cursor${activeOnly ? ', query: "status:ACTIVE"' : ''}) {
+          nodes {
+            id
+            title
+            handle
+          }
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
+        }
+      }
+    `;
+    const variables = { cursor: endCursor };
+    const fetchResult = await shopifyFetch(query, variables);
+    if (!fetchResult.data || !fetchResult.data.products) break;
+    const products = fetchResult.data.products.nodes;
+    allProducts = allProducts.concat(products);
+
+    hasNextPage = fetchResult.data.products.pageInfo.hasNextPage;
+    endCursor = fetchResult.data.products.pageInfo.endCursor;
+  }
+
+  var product_list = ``;
+  allProducts.forEach((n, i) => {
+    product_list += `<li class="link_style"><a href="/products/${n.handle}">${n.title}</a></li>`;
+  });
+
+  var ulElement = document.createElement('ul');
+  ulElement.innerHTML = product_list;
+  document.querySelector('.products-sitemap').appendChild(ulElement);
+}
   
   if (document.querySelector('.products-sitemap')) {
     let product_limit = 0;
