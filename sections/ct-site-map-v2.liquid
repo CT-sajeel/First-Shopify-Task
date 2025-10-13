@@ -441,9 +441,67 @@ async function GetAllArticlesFromAllBlogs(article_limit_per_blog = 250, publishe
     GetAllArticlesFromAllBlogs(articles_limit, articles_active);
   }
 
+// Collection Pages
+async function GetAllCollections(collection_limit, activeOnly = false) {
+  console.log("Loading: GetAllCollections");
+  let hasNextPage = true;
+  let endCursor = null;
+  let allCollections = [];
+
+  // If collection_limit is 250, treat it as "fetch all collections"
+  if (collection_limit === 250) {
+    collection_limit = Number.MAX_SAFE_INTEGER;
+  }
+
+  while (hasNextPage && allCollections.length < collection_limit) {
+    const batchSize = Math.min(250, collection_limit - allCollections.length);
+    // Add query argument if activeOnly is true
+    const query = `
+      query GetCollections($cursor: String) {
+        collections(first: ${batchSize}, after: $cursor${activeOnly ? ', query: "published_status:PUBLISHED"' : ''}) {
+          nodes {
+            id
+            title
+            handle
+          }
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
+        }
+      }
+    `;
+    const variables = { cursor: endCursor };
+    const fetchResult = await shopifyFetch(query, variables);
+    if (!fetchResult.data || !fetchResult.data.collections) break;
+    const collections = fetchResult.data.collections.nodes;
+    allCollections = allCollections.concat(collections);
+
+    hasNextPage = fetchResult.data.collections.pageInfo.hasNextPage;
+    endCursor = fetchResult.data.collections.pageInfo.endCursor;
+  }
+
+  // Render the collection list
+  var collection_list = ``;
+  allCollections.forEach((n, i) => {
+    collection_list += `<li class="link_style" ><a  {{ attributes_link }} href="/collections/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
+  });
+
+  var ulElement = document.createElement('ul');
+  ulElement.innerHTML = collection_list;
+  document.querySelector('.collections-sitemap').appendChild(ulElement);
+}
 
   if (document.querySelector('.collections-sitemap')) {
-       GetAllCollections();
+       let collections_limit = 0;
+        let collections_active = false;
+        {% for block in section.blocks %}
+        {% if block.type == 'collections' %}
+            collections_limit = {{ block.settings.collections_gap | json }};
+            collections_active = {{ block.settings.collections_active }};
+        {% endif %}
+        {% endfor %}
+        GetAllCollections(collections_limit, collections_active);
   }
   if (document.querySelector('.blogs-sitemap')) {
       GetAllBlogPosts();
