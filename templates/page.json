@@ -83,7 +83,7 @@
           "settings": {
             "title": "Articles",
             "articles_gap": 70,
-            "articles_active": true
+            "articles_active": false
           }
         },
         "pages_TnCeUU": {
