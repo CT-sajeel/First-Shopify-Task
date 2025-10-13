@@ -115,7 +115,7 @@
       ],
       "name": "CT Sitemap v2",
       "settings": {
-        "width": "fit-content",
+        "width": "100%",
         "max_width": "normal",
         "alignment": "left",
         "alignment_text": "left",
@@ -125,7 +125,7 @@
         "underline_text": "none",
         "link_style": "none",
         "text_color": "#000000",
-        "background": false,
+        "background": true,
         "background_color": "#00000026",
         "corner_radius": 0,
         "padding-block-top": 24,
