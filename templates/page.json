@@ -127,6 +127,7 @@
       "name": "CT Sitemap v2",
       "settings": {
         "width": "100%",
+        "grid": 3,
         "max_width": "normal",
         "alignment": "left",
         "alignment_text": "left",
