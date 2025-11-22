@@ -1068,6 +1068,7 @@ class VariantSelects extends HTMLElement {
   connectedCallback() {
     this.addEventListener('change', (event) => {
       const target = this.getInputForEventTarget(event.target);
+      alert('variant changed');
       this.updateSelectionMetadata(event);
 
       publish(PUB_SUB_EVENTS.optionValueSelectionChange, {
