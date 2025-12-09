@@ -1,4 +1,4 @@
-class clipboard extends HTMLElement{
+class Clipboard extends HTMLElement{
     constructor(){
         super();
       this.button = this.querySelector('button');
@@ -15,4 +15,4 @@ class clipboard extends HTMLElement{
     }
 
 }
-customElements.define('clipboard', clipboard);
+customElements.define('clipboard', Clipboard);
