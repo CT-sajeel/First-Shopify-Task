@@ -21,4 +21,4 @@ class Clipboard extends HTMLElement{
     }
 
 }
-customElements.define('clipboard', Clipboard);
+customElements.define('copy-url-button', Clipboard);
