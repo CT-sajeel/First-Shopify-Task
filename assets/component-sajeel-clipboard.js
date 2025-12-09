@@ -15,7 +15,7 @@ class Clipboard extends HTMLElement{
      
 
     }
-    getCopy(){
+    getCopy(url){
          navigator.clipboard.writeText(url)
          .then( ()=>{
               this.button.textContent = 'Copied !';
