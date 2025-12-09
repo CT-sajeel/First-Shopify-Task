@@ -22,6 +22,12 @@ class Clipboard extends HTMLElement{
             setTimeout(() => {
                this.button.textContent = 'Copy';
             }, 2000);
+        }).catch((e)=>{
+            console.error("can not copy", e);
+            this.button.textContent = "failed"
+             setTimeout(() => {
+               this.button.textContent = 'Copy';
+            }, 2000);
         })
 
     }
