@@ -5,7 +5,7 @@ class Clipboard extends HTMLElement{
       console.log("this.button" + this.button)
       const url = this.dataset.url;
       console.log("this.url" + url);
-      this.a = this.button.innerContent;
+      this.a = this.button.textContent;
       
       console.log("this.innertext" + this.a );
       this.originalText = this.button.textContent; 
