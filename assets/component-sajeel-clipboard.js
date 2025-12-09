@@ -1,15 +1,16 @@
 class Clipboard extends HTMLElement{
     constructor(){
         super();
+      this.url = this.dateset.url;
+      console.log("url" + this.url);
+
       this.button = this.querySelector('button');
-      console.log("this.button" + this)
-      const url = this.dataset.url;
-      console.log("this.url" + url);
-      this.a = this.button.textContent;
-      
-      console.log("this.innertext" + this.a );
-      this.originalText = this.button.textContent; 
-      console.log("this.url" + this.originalText)
+      this.text = this.button.textContent;
+
+      this.button.addEventListener('click', ()=>{
+
+        console.log('I am clicked');
+      })
      
 
     }
