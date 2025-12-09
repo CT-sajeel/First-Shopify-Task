@@ -28,4 +28,4 @@ constructor(){
  }
 
 }
-extendsElements('copy-url-button',Clipboard);
+customElements.define('copy-url-button',Clipboard);
