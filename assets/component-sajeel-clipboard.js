@@ -5,7 +5,5 @@ class clipboard extends HTMLElement{
     }
 
 
-return this.button;
-
 }
 customElements.define('clipboard', clipboard);
