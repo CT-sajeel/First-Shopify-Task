@@ -4,9 +4,12 @@ class Clipboard extends HTMLElement{
       this.button = this.querySelector('button');
       console.log("this.button" + this.button)
       const url = this.dataset.url;
-      console.log("this.url" + url)
+      console.log("this.url" + url);
       this.a = this.button.innerContent;
+      
       console.log("this.innertext" + this.a );
+      this.originalText = this.button.textContent; 
+      console.log("this.url" + this.originalText)
      
 
     }
