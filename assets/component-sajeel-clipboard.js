@@ -1,7 +1,7 @@
 class Clipboard extends HTMLElement{
     constructor(){
         super();
-      this.url = this.dateset.url;
+      this.url = this.dataset.url;
       console.log("url" + this.url);
 
       this.button = this.querySelector('button');
