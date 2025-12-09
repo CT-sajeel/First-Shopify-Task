@@ -105,7 +105,9 @@
                     </h2>
                   </a>
                 </div>
-                <copy-url-button data-url="{{ product.url }}"><button>copy</button></copy-url-button>
+                <copy-url-button data-url="{{ product.url }}">
+                   <button>copy</button>
+                </copy-url-button>
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                   {%- render 'price',
