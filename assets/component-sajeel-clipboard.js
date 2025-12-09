@@ -2,7 +2,7 @@ class Clipboard extends HTMLElement{
     constructor(){
         super();
       this.button = this.querySelector('button');
-      console.log("this.button" + this.button)
+      console.log("this.button" + this.button.textContent)
       const url = this.dataset.url;
       console.log("this.url" + url);
       this.a = this.button.textContent;
