@@ -5,12 +5,12 @@ class clipboard extends HTMLElement{
       const url = this.dataset.url;
     }
     getCopy(url){
-         navigate.clipboard.writeText(url)
-         .then(=>(
+         navigator.clipboard.writeText(url)
+         .then( ()=>{
             setTimeout(() => {
                this.button.textContent = 'Copied!';
             }, 2000);
-         ))
+        })
 
     }
 
