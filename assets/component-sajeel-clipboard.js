@@ -1,6 +1,11 @@
 class clipboard extends HTMLElement{
+    constructor(){
+        super();
+      this.button = this.querySelector('button');
+    }
 
-return console.log('clipboard');
+
+return this.button;
 
 }
 customElements.define('clipboard', clipboard);
