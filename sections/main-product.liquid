@@ -105,7 +105,7 @@
                     </h2>
                   </a>
                 </div>
-                <clipboard data-url="{{prduct.url}}"><button>copy</button></clipboard>
+                <clipboard data-url="{{ product.url }}"><button>copy</button></clipboard>
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                   {%- render 'price',
