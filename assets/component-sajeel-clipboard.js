@@ -2,9 +2,13 @@ class Clipboard extends HTMLElement{
     constructor(){
         super();
       this.button = this.querySelector('button');
+      console.log("this.button" + this.button)
       const url = this.dataset.url;
-      this.innertext = this.button.innerHTML;
-      this.button.innertext = "123"
+      console.log("this.url" + url)
+      this.innertext = this.button.innertext;
+      console.log("this.innertext" + this.innertext )
+     
+
     }
     getCopy(url){
          navigator.clipboard.writeText(url)
