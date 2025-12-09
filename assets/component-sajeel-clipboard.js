@@ -14,7 +14,7 @@ constructor(){
 }
 
  clipboard(url){
-    navigator.clipboard.writeText(url).then(()={
+    navigator.clipboard.writeText(url).then(()=>{
         this.button.textContent = "Copied";
         setTimeout(() => {
             this.button.textContent = "Copy";
