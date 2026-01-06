@@ -88,11 +88,64 @@
         "padding_top": 0,
         "padding_bottom": 92
       }
+    },
+    "custom_slider_ctbKcw": {
+      "type": "custom-slider",
+      "blocks": {
+        "slide_TFFNUM": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Mood_Shot_26_169_f8deadcb-5e06-4a03-982d-3efd7e301a02.webp",
+            "heading": "Slide Heading",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Shop Now",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        },
+        "slide_NwJCde": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Handbag_Collection_Mobile_960_x_720_2c05061d-6bfe-454e-8e58-65f5f8622ebf.webp",
+            "heading": "Slide Heading",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Shop Now",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        },
+        "slide_HJiADW": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Loved_By_Lea_Handbag_Collection_Desktop_3840_x_1528.webp",
+            "heading": "Slide Heading",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Shop Now",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_TFFNUM",
+        "slide_NwJCde",
+        "slide_HJiADW"
+      ],
+      "name": "Custom Slider",
+      "settings": {
+        "color_scheme": "background-1",
+        "mobile_height": 400,
+        "desktop_height": 600
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    "custom_text_section_7HWNm7"
+    "custom_text_section_7HWNm7",
+    "custom_slider_ctbKcw"
   ]
 }
