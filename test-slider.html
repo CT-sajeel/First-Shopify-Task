@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Slider Test</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #f5f5f5;
+      padding: 2rem 0;
+    }
+
+    .page-width {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .custom-slider {
+      position: relative;
+      overflow: hidden;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .slider-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .slider-container {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+
+    .slide {
+      min-width: 100%;
+      position: relative;
+      height: 400px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .slide {
+        height: 600px;
+      }
+    }
+
+    .slide-content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .slide-text-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
+    }
+
+    .slide-text-content {
+      text-align: center;
+      color: white;
+      z-index: 2;
+      padding: 2rem;
+      max-width: 800px;
+    }
+
+    .slide-heading {
+      margin-bottom: 1rem;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    @media screen and (max-width: 749px) {
+      .slide-heading {
+        font-size: 2rem;
+      }
+    }
+
+    .slide-subheading {
+      margin-bottom: 2rem;
+      font-size: 1.2rem;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .button {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: white;
+      color: #333;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .button--secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .slider-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .slider-button:hover {
+      background: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .slider-button--prev {
+      left: 2rem;
+    }
+
+    .slider-button--next {
+      right: 2rem;
+    }
+
+    @media screen and (max-width: 749px) {
+      .slider-button {
+        width: 40px;
+        height: 40px;
+      }
+
+      .slider-button--prev {
+        left: 1rem;
+      }
+
+      .slider-button--next {
+        right: 1rem;
+      }
+    }
+
+    .slider-dots {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.75rem;
+      z-index: 10;
+    }
+
+    .slider-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 0;
+    }
+
+    .slider-dot:hover {
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .slider-dot.active {
+      background: white;
+      width: 32px;
+      border-radius: 6px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    .info {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .info h2 {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .info ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .info li {
+      padding: 0.5rem 0;
+      color: #666;
+    }
+
+    .info li:before {
+      content: "✓ ";
+      color: #4CAF50;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-width">
+    <h1>Custom Slider Test</h1>
+
+    <custom-slider class="custom-slider">
+      <div class="slider-wrapper">
+        <div class="slider-container" data-slider>
+          <!-- Slide 1 -->
+          <div class="slide" data-slide="0">
+            <div class="slide-content">
+              <div class="slide-image">
+                <img src="C:/Users/haier/.gemini/antigravity/brain/1561bb66-ba10-4b93-8440-1a7efa39e05e/slider_image_1_1767743639311.png" alt="Modern Lifestyle">
+              </div>
+              <div class="slide-text-overlay">
+                <div class="slide-text-content">
+                  <h2 class="slide-heading">Welcome to Our Store</h2>
+                  <p class="slide-subheading">Discover premium products for your lifestyle</p>
+                  <a href="#" class="button">Shop Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="slide" data-slide="1">
+            <div class="slide-content">
+              <div class="slide-image">
+                <img src="C:/Users/haier/.gemini/antigravity/brain/1561bb66-ba10-4b93-8440-1a7efa39e05e/slider_image_2_1767743656246.png" alt="Fashion Collection">
+              </div>
+              <div class="slide-text-overlay">
+                <div class="slide-text-content">
+                  <h2 class="slide-heading">The Blue Edit</h2>
+                  <p class="slide-subheading">Discover the new collection</p>
+                  <a href="#" class="button button--secondary">Explore Collection</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="slide" data-slide="2">
+            <div class="slide-content">
+              <div class="slide-image">
+                <img src="C:/Users/haier/.gemini/antigravity/brain/1561bb66-ba10-4b93-8440-1a7efa39e05e/slider_image_3_1767743672157.png" alt="Summer Collection">
+              </div>
+              <div class="slide-text-overlay">
+                <div class="slide-text-content">
+                  <h2 class="slide-heading">Summer Collection</h2>
+                  <p class="slide-subheading">Live loud with 20% off!</p>
+                  <a href="#" class="button">Shop Sale</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="slider-button slider-button--prev" aria-label="Previous slide" data-slider-prev>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        
+        <button class="slider-button slider-button--next" aria-label="Next slide" data-slider-next>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <!-- Dots -->
+        <div class="slider-dots" data-slider-dots>
+          <button class="slider-dot active" aria-label="Go to slide 1" data-dot="0"></button>
+          <button class="slider-dot" aria-label="Go to slide 2" data-dot="1"></button>
+          <button class="slider-dot" aria-label="Go to slide 3" data-dot="2"></button>
+        </div>
+      </div>
+    </custom-slider>
+
+    <div class="info">
+      <h2>Features to Test:</h2>
+      <ul>
+        <li>Click the left/right arrow buttons to navigate</li>
+        <li>Click the dots at the bottom to jump to a specific slide</li>
+        <li>Swipe left/right on mobile/touch devices</li>
+        <li>Auto-play changes slides every 5 seconds</li>
+        <li>Hover over the slider to pause auto-play</li>
+        <li>Resize the browser window to test responsiveness</li>
+        <li>Smooth transitions between slides</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    class CustomSlider extends HTMLElement {
+      constructor() {
+        super();
+        this.slider = this.querySelector('[data-slider]');
+        this.slides = this.querySelectorAll('.slide');
+        this.prevButton = this.querySelector('[data-slider-prev]');
+        this.nextButton = this.querySelector('[data-slider-next]');
+        this.dots = this.querySelectorAll('[data-dot]');
+        this.currentSlide = 0;
+        this.autoplayInterval = null;
+
+        this.init();
+      }
+
+      init() {
+        if (this.slides.length <= 1) return;
+
+        this.prevButton?.addEventListener('click', () => this.prevSlide());
+        this.nextButton?.addEventListener('click', () => this.nextSlide());
+
+        this.dots.forEach(dot => {
+          dot.addEventListener('click', (e) => {
+            const slideIndex = parseInt(e.target.dataset.dot);
+            this.goToSlide(slideIndex);
+          });
+        });
+
+        // Touch support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        this.slider.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        });
+
+        this.slider.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          this.handleSwipe();
+        });
+
+        const handleSwipe = () => {
+          if (touchEndX < touchStartX - 50) this.nextSlide();
+          if (touchEndX > touchStartX + 50) this.prevSlide();
+        };
+
+        this.handleSwipe = handleSwipe;
+
+        // Auto-play
+        this.startAutoplay();
+
+        // Pause on hover
+        this.addEventListener('mouseenter', () => this.stopAutoplay());
+        this.addEventListener('mouseleave', () => this.startAutoplay());
+      }
+
+      goToSlide(index) {
+        this.currentSlide = index;
+        this.slider.style.transform = `translateX(-${this.currentSlide * 100}%)`;
+        this.updateDots();
+      }
+
+      nextSlide() {
+        this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+        this.goToSlide(this.currentSlide);
+      }
+
+      prevSlide() {
+        this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+        this.goToSlide(this.currentSlide);
+      }
+
+      updateDots() {
+        this.dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === this.currentSlide);
+        });
+      }
+
+      startAutoplay() {
+        this.autoplayInterval = setInterval(() => this.nextSlide(), 5000);
+      }
+
+      stopAutoplay() {
+        if (this.autoplayInterval) {
+          clearInterval(this.autoplayInterval);
+        }
+      }
+    }
+
+    customElements.define('custom-slider', CustomSlider);
+  </script>
+</body>
+</html>

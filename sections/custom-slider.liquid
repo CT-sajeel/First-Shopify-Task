@@ -7,7 +7,7 @@
   }
 {%- endstyle -%}
 
-<div class="custom-slider slider-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+<custom-slider class="custom-slider slider-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
   <div class="slider-wrapper">
     <div class="slider-container" data-slider>
       {%- for block in section.blocks -%}
@@ -86,7 +86,7 @@
       </div>
     {%- endif -%}
   </div>
-</div>
+</custom-slider>
 
 {% schema %}
 {
@@ -421,24 +421,17 @@
       });
 
       // Touch support for mobile
-      let touchStartX = 0;
-      let touchEndX = 0;
+      this.touchStartX = 0;
+      this.touchEndX = 0;
 
       this.slider.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
+        this.touchStartX = e.changedTouches[0].screenX;
       });
 
       this.slider.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
+        this.touchEndX = e.changedTouches[0].screenX;
         this.handleSwipe();
       });
-
-      const handleSwipe = () => {
-        if (touchEndX < touchStartX - 50) this.nextSlide();
-        if (touchEndX > touchStartX + 50) this.prevSlide();
-      };
-
-      this.handleSwipe = handleSwipe;
 
       // Auto-play
       this.startAutoplay();
@@ -446,6 +439,11 @@
       // Pause on hover
       this.addEventListener('mouseenter', () => this.stopAutoplay());
       this.addEventListener('mouseleave', () => this.startAutoplay());
+    }
+
+    handleSwipe() {
+      if (this.touchEndX < this.touchStartX - 50) this.nextSlide();
+      if (this.touchEndX > this.touchStartX + 50) this.prevSlide();
     }
 
     goToSlide(index) {
@@ -471,13 +469,19 @@
     }
 
     startAutoplay() {
+      this.stopAutoplay(); // Clear any existing interval first
       this.autoplayInterval = setInterval(() => this.nextSlide(), 5000);
     }
 
     stopAutoplay() {
       if (this.autoplayInterval) {
         clearInterval(this.autoplayInterval);
+        this.autoplayInterval = null;
       }
+    }
+
+    disconnectedCallback() {
+      this.stopAutoplay();
     }
   }
 
