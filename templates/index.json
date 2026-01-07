@@ -104,18 +104,6 @@
             "button_style_secondary": false
           }
         },
-        "slide_NwJCde": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Handbag_Collection_Mobile_960_x_720_2c05061d-6bfe-454e-8e58-65f5f8622ebf.webp",
-            "heading": "Slide Heading",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Shop Now",
-            "button_link": "",
-            "button_style_secondary": false
-          }
-        },
         "slide_HJiADW": {
           "type": "slide",
           "settings": {
@@ -131,14 +119,13 @@
       },
       "block_order": [
         "slide_TFFNUM",
-        "slide_NwJCde",
         "slide_HJiADW"
       ],
       "name": "Custom Slider",
       "settings": {
         "color_scheme": "background-2",
         "mobile_height": 400,
-        "desktop_height": 600
+        "desktop_height": 700
       }
     }
   },
