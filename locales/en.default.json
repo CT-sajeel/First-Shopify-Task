@@ -374,6 +374,60 @@
       "min_error": "This item has a minimum of {{ min }}",
       "max_error": "This item has a maximum of {{ max }}",
       "step_error": "You can only add this item in increments of {{ step }}"
+    },
+    "custom_slider": {
+      "name": "Custom slider",
+      "previous_slide": "Previous slide",
+      "next_slide": "Next slide",
+      "slide_navigation": "Slide navigation",
+      "go_to_slide": "Go to slide {{ number }}",
+      "settings": {
+        "header": {
+          "appearance": "Appearance",
+          "autoplay": "Autoplay"
+        },
+        "mobile_height": {
+          "label": "Mobile height"
+        },
+        "desktop_height": {
+          "label": "Desktop height"
+        },
+        "enable_autoplay": {
+          "label": "Enable autoplay"
+        },
+        "autoplay_duration": {
+          "label": "Autoplay duration",
+          "info": "Time between slide transitions"
+        }
+      },
+      "blocks": {
+        "slide": {
+          "name": "Slide",
+          "settings": {
+            "image": {
+              "label": "Image"
+            },
+            "heading": {
+              "label": "Heading"
+            },
+            "subheading": {
+              "label": "Subheading"
+            },
+            "button_label": {
+              "label": "Button label"
+            },
+            "button_link": {
+              "label": "Button link"
+            },
+            "button_style_secondary": {
+              "label": "Use secondary button style"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Custom slider"
+      }
     }
   },
   "localization": {

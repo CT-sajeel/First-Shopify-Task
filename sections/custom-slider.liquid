@@ -1,13 +1,16 @@
-{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
-
 {%- style -%}
   .slider-{{ section.id }} {
     --slider-height-mobile: {{ section.settings.mobile_height }}px;
     --slider-height-desktop: {{ section.settings.desktop_height }}px;
+    --slider-autoplay-duration: {{ section.settings.autoplay_duration }}ms;
   }
 {%- endstyle -%}
 
-<custom-slider class="custom-slider slider-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+<custom-slider 
+  class="custom-slider slider-{{ section.id }} color-{{ section.settings.color_scheme }} gradient"
+  data-autoplay="{{ section.settings.enable_autoplay }}"
+  data-autoplay-duration="{{ section.settings.autoplay_duration }}"
+>
   <div class="slider-wrapper">
     <div class="slider-container" data-slider>
       {%- for block in section.blocks -%}
@@ -67,21 +70,35 @@
     </div>
 
     {%- if section.blocks.size > 1 -%}
-      <button class="slider-button slider-button--prev" aria-label="Previous slide" data-slider-prev>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <button 
+        class="slider-button slider-button--prev" 
+        aria-label="{{ 'sections.custom_slider.previous_slide' | t }}" 
+        data-slider-prev
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
       
-      <button class="slider-button slider-button--next" aria-label="Next slide" data-slider-next>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <button 
+        class="slider-button slider-button--next" 
+        aria-label="{{ 'sections.custom_slider.next_slide' | t }}" 
+        data-slider-next
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
 
-      <div class="slider-dots" data-slider-dots>
+      <div class="slider-dots" data-slider-dots role="tablist" aria-label="{{ 'sections.custom_slider.slide_navigation' | t }}">
         {%- for block in section.blocks -%}
-          <button class="slider-dot{% if forloop.first %} active{% endif %}" aria-label="Go to slide {{ forloop.index }}" data-dot="{{ forloop.index0 }}"></button>
+          <button 
+            class="slider-dot{% if forloop.first %} active{% endif %}" 
+            role="tab"
+            aria-label="{{ 'sections.custom_slider.go_to_slide' | t: number: forloop.index }}" 
+            aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+            data-dot="{{ forloop.index0 }}"
+          ></button>
         {%- endfor -%}
       </div>
     {%- endif -%}
@@ -90,7 +107,7 @@
 
 {% schema %}
 {
-  "name": "Custom Slider",
+  "name": "t:sections.custom_slider.name",
   "tag": "section",
   "class": "section",
   "disabled_on": {
@@ -98,32 +115,36 @@
   },
   "settings": [
     {
+      "type": "header",
+      "content": "t:sections.custom_slider.settings.header.appearance"
+    },
+    {
       "type": "select",
       "id": "color_scheme",
       "options": [
         {
           "value": "accent-1",
-          "label": "Accent 1"
+          "label": "t:sections.all.colors.accent_1.label"
         },
         {
           "value": "accent-2",
-          "label": "Accent 2"
+          "label": "t:sections.all.colors.accent_2.label"
         },
         {
           "value": "background-1",
-          "label": "Background 1"
+          "label": "t:sections.all.colors.background_1.label"
         },
         {
           "value": "background-2",
-          "label": "Background 2"
+          "label": "t:sections.all.colors.background_2.label"
         },
         {
           "value": "inverse",
-          "label": "Inverse"
+          "label": "t:sections.all.colors.inverse.label"
         }
       ],
       "default": "background-1",
-      "label": "Color scheme"
+      "label": "t:sections.all.colors.label"
     },
     {
       "type": "range",
@@ -132,7 +153,7 @@
       "max": 600,
       "step": 50,
       "unit": "px",
-      "label": "Mobile height",
+      "label": "t:sections.custom_slider.settings.mobile_height.label",
       "default": 400
     },
     {
@@ -142,25 +163,46 @@
       "max": 800,
       "step": 50,
       "unit": "px",
-      "label": "Desktop height",
+      "label": "t:sections.custom_slider.settings.desktop_height.label",
       "default": 600
+    },
+    {
+      "type": "header",
+      "content": "t:sections.custom_slider.settings.header.autoplay"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_autoplay",
+      "label": "t:sections.custom_slider.settings.enable_autoplay.label",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_duration",
+      "min": 2000,
+      "max": 10000,
+      "step": 1000,
+      "unit": "ms",
+      "label": "t:sections.custom_slider.settings.autoplay_duration.label",
+      "default": 5000,
+      "info": "t:sections.custom_slider.settings.autoplay_duration.info"
     }
   ],
   "blocks": [
     {
       "type": "slide",
-      "name": "Slide",
+      "name": "t:sections.custom_slider.blocks.slide.name",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Image"
+          "label": "t:sections.custom_slider.blocks.slide.settings.image.label"
         },
         {
           "type": "inline_richtext",
           "id": "heading",
-          "default": "Slide Heading",
-          "label": "Heading"
+          "default": "Slide heading",
+          "label": "t:sections.custom_slider.blocks.slide.settings.heading.label"
         },
         {
           "type": "select",
@@ -168,49 +210,49 @@
           "options": [
             {
               "value": "h2",
-              "label": "Small"
+              "label": "t:sections.all.heading_size.options.small.label"
             },
             {
               "value": "h1",
-              "label": "Medium"
+              "label": "t:sections.all.heading_size.options.medium.label"
             },
             {
               "value": "h0",
-              "label": "Large"
+              "label": "t:sections.all.heading_size.options.large.label"
             }
           ],
           "default": "h1",
-          "label": "Heading size"
+          "label": "t:sections.all.heading_size.label"
         },
         {
           "type": "text",
           "id": "subheading",
           "default": "Tell your brand's story through images",
-          "label": "Subheading"
+          "label": "t:sections.custom_slider.blocks.slide.settings.subheading.label"
         },
         {
           "type": "text",
           "id": "button_label",
-          "default": "Shop Now",
-          "label": "Button label"
+          "default": "Shop now",
+          "label": "t:sections.custom_slider.blocks.slide.settings.button_label.label"
         },
         {
           "type": "url",
           "id": "button_link",
-          "label": "Button link"
+          "label": "t:sections.custom_slider.blocks.slide.settings.button_link.label"
         },
         {
           "type": "checkbox",
           "id": "button_style_secondary",
           "default": false,
-          "label": "Use secondary button style"
+          "label": "t:sections.custom_slider.blocks.slide.settings.button_style_secondary.label"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Custom Slider",
+      "name": "t:sections.custom_slider.presets.name",
       "blocks": [
         {
           "type": "slide"
@@ -403,6 +445,10 @@
       this.dots = this.querySelectorAll('[data-dot]');
       this.currentSlide = 0;
       this.autoplayInterval = null;
+      
+      // Read settings from data attributes
+      this.enableAutoplay = this.dataset.autoplay === 'true';
+      this.autoplayDuration = parseInt(this.dataset.autoplayDuration) || 5000;
 
       this.init();
     }
@@ -433,12 +479,14 @@
         this.handleSwipe();
       });
 
-      // Auto-play
-      this.startAutoplay();
-
-      // Pause on hover
-      this.addEventListener('mouseenter', () => this.stopAutoplay());
-      this.addEventListener('mouseleave', () => this.startAutoplay());
+      // Auto-play (only if enabled)
+      if (this.enableAutoplay) {
+        this.startAutoplay();
+        
+        // Pause on hover
+        this.addEventListener('mouseenter', () => this.stopAutoplay());
+        this.addEventListener('mouseleave', () => this.startAutoplay());
+      }
     }
 
     handleSwipe() {
@@ -464,13 +512,16 @@
 
     updateDots() {
       this.dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === this.currentSlide);
+        const isActive = index === this.currentSlide;
+        dot.classList.toggle('active', isActive);
+        dot.setAttribute('aria-selected', isActive);
       });
     }
 
     startAutoplay() {
+      if (!this.enableAutoplay) return;
       this.stopAutoplay(); // Clear any existing interval first
-      this.autoplayInterval = setInterval(() => this.nextSlide(), 5000);
+      this.autoplayInterval = setInterval(() => this.nextSlide(), this.autoplayDuration);
     }
 
     stopAutoplay() {
