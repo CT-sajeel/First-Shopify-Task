@@ -127,12 +127,23 @@
         "mobile_height": 400,
         "desktop_height": 700
       }
+    },
+    "country_detector_76mm69": {
+      "type": "country-detector",
+      "name": "Country Detector",
+      "settings": {
+        "heading": "Your Location",
+        "show_flag": true,
+        "background_color": "#f4f4f4",
+        "text_color": "#333333"
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
     "custom_text_section_7HWNm7",
-    "custom_slider_ctbKcw"
+    "custom_slider_ctbKcw",
+    "country_detector_76mm69"
   ]
 }
