@@ -1,0 +1,64 @@
+/* ── Country Detector Section ─────────────────────────────────────── */
+.country-detector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 0.75rem;
+  background-color: var(--cd-bg, #f4f4f4);
+  color: var(--cd-text, #333);
+  font-family: inherit;
+  text-align: center;
+}
+
+.country-detector__heading {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.country-detector__display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.country-detector__flag {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.country-detector__name {
+  font-size: 1.25rem;
+}
+
+.country-detector__error {
+  font-size: 0.875rem;
+  color: #c0392b;
+  margin: 0;
+}
+
+/* Loading state pulse */
+.country-detector__name:empty::after,
+.country-detector__name[data-loading]::after {
+  content: '';
+  display: inline-block;
+  width: 6rem;
+  height: 1em;
+  background: linear-gradient(90deg, #ddd 25%, #eee 50%, #ddd 75%);
+  background-size: 200% 100%;
+  animation: cd-shimmer 1.2s infinite;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+@keyframes cd-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
