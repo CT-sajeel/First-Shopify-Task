@@ -41,11 +41,16 @@ class CountryDetector {
   }
 
   async fetchCountryFromAPI() {
-    const response = await fetch(this.apiUrl);
-    if (!response.ok) throw new Error(`API error: ${response.status}`);
-    const data = await response.json();
-    if (!data.country_name || !data.country_code) throw new Error('Invalid API response');
-    return { name: data.country_name, isoCode: data.country_code };
+      const response = await fetch(this.apiUrl);
+  if (!response.ok) throw new Error(`API error: ${response.status}`);
+  const data = await response.json();
+
+  // ip-api.com returns { country, countryCode }
+  const name    = data.country    || data.country_name;
+  const isoCode = data.countryCode || data.country_code;
+
+  if (!name || !isoCode) throw new Error('Invalid API response');
+  return { name, isoCode };
   }
 
   // ── Flag Utility ────────────────────────────────────────────────────────────
