@@ -33,11 +33,11 @@
 <script src="{{ 'country-detector.js' | asset_url }}" defer></script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    var detector = new CountryDetector({
-      sectionId: 'country-detector-section',
-      cacheKey:  'cd_country_cache',
-      apiUrl:    'https://ipwho.is/',
-    });
+   var detector = new CountryDetector({
+    sectionId: 'country-detector-section',
+    cacheKey:  'cd_country_cache',
+    apiUrl:    '/browsing_context_suggestions.json', // ← same domain, never blocked
+  });
     detector.init();
   });
 </script>
