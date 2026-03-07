@@ -41,17 +41,16 @@ class CountryDetector {
   }
 
   async fetchCountryFromAPI() {
-     const response = await fetch(this.apiUrl);
-  if (!response.ok) throw new Error(`API error: ${response.status}`);
-  const data = await response.json();
+    const response = await fetch(this.apiUrl);
+    if (!response.ok) throw new Error(`API error: ${response.status}`);
+    const data = await response.json();
 
-  // ipwho.is returns { country, country_code }
-  if (!data.success) throw new Error('Invalid API response');
-  const name    = data.country;
-  const isoCode = data.country_code;
+    const country = data?.detected_values?.country;
+    const name    = country?.name;
+    const isoCode = country?.handle; // ← was iso_code, Shopify uses handle
 
-  if (!name || !isoCode) throw new Error('Invalid API response');
-  return { name, isoCode };
+    if (!name || !isoCode) throw new Error('Invalid API response');
+    return { name, isoCode };
   }
 
   // ── Flag Utility ────────────────────────────────────────────────────────────
