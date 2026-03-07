@@ -1,0 +1,82 @@
+{%- liquid
+  assign shopify_country     = localization.country.name    | default: ''
+  assign shopify_iso_code    = localization.country.iso_code | default: ''
+-%}
+
+<section
+  id="country-detector-section"
+  class="country-detector"
+  data-shopify-country="{{ shopify_country | escape }}"
+  data-shopify-iso-code="{{ shopify_iso_code | escape }}"
+  style="
+    --cd-bg: {{ section.settings.background_color }};
+    --cd-text: {{ section.settings.text_color }};
+  "
+  aria-label="{{ section.settings.heading | default: 'Your Location' }}"
+>
+  {%- if section.settings.heading != blank -%}
+    <h2 class="country-detector__heading">
+      {{ section.settings.heading | escape }}
+    </h2>
+  {%- endif -%}
+
+  <div class="country-detector__display" aria-live="polite">
+    {%- if section.settings.show_flag -%}
+      <span class="country-detector__flag" aria-hidden="true"></span>
+    {%- endif -%}
+    <span class="country-detector__name">{{ 'sections.country_detector.detecting' | t }}</span>
+  </div>
+
+  <p class="country-detector__error" aria-live="assertive" hidden></p>
+</section>
+
+<script src="{{ 'country-detector.js' | asset_url }}" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var detector = new CountryDetector({
+      sectionId: 'country-detector-section',
+      cacheKey:  'cd_country_cache',
+      apiUrl:    'https://ipapi.co/json/',
+    });
+    detector.init();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Country Detector",
+  "tag": "section",
+  "class": "country-detector-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Your Location"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_flag",
+      "label": "Show country flag",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#333333"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Country Detector"
+    }
+  ]
+}
+{% endschema %}
