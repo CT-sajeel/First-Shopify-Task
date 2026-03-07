@@ -133,7 +133,7 @@
       "name": "Country Detector",
       "settings": {
         "heading": "Your Location",
-        "show_flag": true,
+        "show_flag": false,
         "background_color": "#f4f4f4",
         "text_color": "#333333"
       }
