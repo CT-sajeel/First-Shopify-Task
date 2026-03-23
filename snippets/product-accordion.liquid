@@ -1,0 +1,143 @@
+<div class="CtAccordion">
+  <details class="CtAccordion__item" open>
+    <summary class="CtAccordion__summary">
+      <span class="CtAccordion__title">Description</span>
+      <span class="icon icon-minus" aria-hidden="true"></span>
+      <span class="icon icon-plus" aria-hidden="true"></span>
+    </summary>
+    <div class="CtAccordion__content CtDesktopDescription">
+      <div class="product-single__description rte">
+        {{ product.description }}
+      </div>
+    </div>
+  </details>
+
+  {% if product.metafields.custom.care_instructions.value != blank %}
+    <details class="CtAccordion__item">
+      <summary class="CtAccordion__summary">
+        <span class="CtAccordion__title">Care Instructions</span>
+        <span class="icon icon-minus" aria-hidden="true"></span>
+        <span class="icon icon-plus" aria-hidden="true"></span>
+      </summary>
+      <div class="CtAccordion__content CtDesktopInstruction rte">
+        <p style="text-align: left">
+          {{ product.metafields.custom.care_instructions.value | escape | newline_to_br }}
+        </p>
+      </div>
+    </details>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .CtAccordion {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .CtAccordion__item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .CtAccordion__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    cursor: pointer;
+    list-style: none;
+    transition: all 0.3s ease;
+  }
+
+  .CtAccordion__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .CtAccordion__title {
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  /* Smooth accordion animation */
+  .CtAccordion__content {
+    padding-bottom: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.4s ease,
+                padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .CtAccordion__item[open] .CtAccordion__content {
+    padding-bottom: 1rem;
+    max-height: 2000px;
+    opacity: 1;
+  }
+
+  .CtAccordion__item[open] .CtAccordion__summary {
+    font-weight: 600;
+  }
+
+  /* Icon transitions */
+  .icon-minus,
+  .icon-plus {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .CtAccordion__item[open] .icon-minus,
+  .CtAccordion__item .icon-plus {
+    display: block;
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+
+  .CtAccordion__item .icon-minus,
+  .CtAccordion__item[open] .icon-plus {
+    display: none;
+    opacity: 0;
+  }
+{% endstylesheet %}
+
+<script>
+  // Enhanced smooth accordion behavior
+  document.addEventListener('DOMContentLoaded', function() {
+    const accordionItems = document.querySelectorAll('.CtAccordion__item');
+    
+    accordionItems.forEach(item => {
+      const summary = item.querySelector('.CtAccordion__summary');
+      const content = item.querySelector('.CtAccordion__content');
+      
+      summary.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const isOpen = item.hasAttribute('open');
+        
+        if (isOpen) {
+          // Closing animation
+          const contentHeight = content.scrollHeight;
+          content.style.maxHeight = contentHeight + 'px';
+          
+          requestAnimationFrame(() => {
+            content.style.maxHeight = '0px';
+          });
+          
+          setTimeout(() => {
+            item.removeAttribute('open');
+          }, 500);
+        } else {
+          // Opening animation
+          item.setAttribute('open', '');
+          
+          requestAnimationFrame(() => {
+            const contentHeight = content.scrollHeight;
+            content.style.maxHeight = contentHeight + 'px';
+            
+            setTimeout(() => {
+              content.style.maxHeight = '2000px';
+            }, 500);
+          });
+        }
+      });
+    });
+  });
+</script>

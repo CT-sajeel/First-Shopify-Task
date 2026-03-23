@@ -1,0 +1,942 @@
+{% liquid
+  assign text_width = width | default: section.settings.width
+
+  if section.settings.font_size contains 'heading-lg' or section.settings.font_size contains 'heading-xl'
+    assign type = 'display'
+  elsif section.settings.font_size contains 'heading'
+    assign type = 'heading'
+  else
+    assign type = 'body'
+  endif
+  if section.settings.type_preset == 'rte' or section.settings.type_preset == 'paragraph'
+    assign is_rte = true
+  endif
+
+  capture text_block_classes
+    if text_width == '100%'
+      echo 'text-block--align-' | append: section.settings.alignment
+      if section.settings.max_width == 'none'
+        echo ' text-block--full-width '
+      endif
+    endif
+    if section.settings.background
+      echo ' text-block--background '
+    endif
+    if is_rte
+      echo ' rte '
+    endif
+  endcapture
+%}
+
+{% capture attributes %}
+    class="{{ class }} spacing-style text-block text-block--{{ section.id }} {{ section.settings.type_preset }}
+      {{ text_block_classes }}
+    "
+    style="
+      color: {{  section.settings.color }} !important; 
+      width: {{ text_width }};
+      max-width: {% if section.settings.max_width == 'narrow' %} 60% {% elsif section.settings.max_width == 'normal' %} 80% {% else %} 100% {% endif %};
+      {% if text_width == "100%" %}
+        text-align: {{ section.settings.alignment }};
+      {% endif %}
+      {% if section.settings.background %}
+        background-color: {{ section.settings.background_color | default: 'rgb(255 255 255 / 1.0)' }};
+        border-radius: {{ section.settings.corner_radius }}px;
+        padding: max(var(--padding-2xs), calc((var(--text-corner-radius) + var(--padding-xs)) * (1 - cos(45deg))));
+      {% endif %}
+      margin:auto;
+    "
+  
+    {{ section.shopify_attributes }}
+  {% endcapture %}
+
+{% capture attributes_link %}
+    class="{{ class }} spacing-style text-block text-block--{{ section.id }} {{ section.settings.type_preset_text }}
+      {{ text_block_classes }}
+    "
+    style="
+      text-decoration: {{  section.settings.underline_text }} !important;
+      color: {{ section.settings.text_color }} !important;
+      width: {{ text_width }};
+       max-width: {% if section.settings.max_width == 'narrow' %} 60% {% elsif section.settings.max_width == 'normal' %} 80% {% else %} 100% {% endif %};
+      {% if text_width == "100%" %}
+        text-align: {{ section.settings.alignment_text }};
+      {% endif %} margin:auto; display:block;
+    "
+  
+    {{ section.shopify_attributes_link }}
+  {% endcapture %}
+
+<style>
+
+
+   section.sitemap{
+    display: grid;
+    grid-template-columns: repeat({{section.settings.grid}}, 1fr);
+    gap: {{section.settings.grid-gap}}px;
+   }  
+   @media (max-width: 749px) {
+    .section.sitemap {
+        grid-template-columns: repeat(1, 1fr);
+    }
+   } 
+  .ct-top-padding{
+     padding-top: {{ section.settings.padding-block-top }}px;
+  }
+  .ct-bottom-padding {
+      padding-bottom: {{ section.settings.padding-block-bottom }}px;
+  }
+  .ct-right-padding{
+     padding-right: {{ section.settings.padding-block-right }}px;
+  }
+  .ct-left-padding {
+      padding-left: {{ section.settings.padding-block-left }}px;
+  }
+
+  .link_style {
+    list-style-type : {{section.settings.link_style }} !important;
+  }
+  .sitemap ul { padding:0px;}
+</style>
+{% liquid
+  assign element = 'div'
+  if section.settings.type_preset == 'h1'
+    assign element = 'h1'
+  elsif section.settings.type_preset == 'h2'
+    assign element = 'h2'
+  elsif section.settings.type_preset == 'h3'
+    assign element = 'h3'
+  elsif section.settings.type_preset == 'h4'
+    assign element = 'h4'
+  elsif section.settings.type_preset == 'h5'
+    assign element = 'h5'
+  elsif section.settings.type_preset == 'h6'
+    assign element = 'h6'
+  elsif section.settings.type_preset == 'paragraph'
+    assign element = 'p'
+  else
+    assign element = 'rte-formatter'
+  endif
+%}
+
+{% liquid
+  assign element_text = 'div'
+  if section.settings.type_preset_text == 'h1'
+    assign element_text = 'h1'
+  elsif section.settings.type_preset_text == 'h2'
+    assign element_text = 'h2'
+  elsif section.settings.type_preset_text == 'h3'
+    assign element_text = 'h3'
+  elsif section.settings.type_preset_text == 'h4'
+    assign element_text = 'h4'
+  elsif section.settings.type_preset_text == 'h5'
+    assign element_text = 'h5'
+  elsif section.settings.type_preset_text == 'h6'
+    assign element_text = 'h6'
+  elsif section.settings.type_preset_text == 'paragraph'
+    assign element_text = 'p'
+  else
+    assign element_text = 'rte-formatter'
+  endif
+%}
+{% comment %} Liquid/HTML {% endcomment %}
+<section class="section page-width sitemap ct-top-padding ct-bottom-padding wt-page   wt-page--compact">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'pages' -%}
+        <div class="ct-pages">
+            {% assign page_limit = block.settings.pages_gap %}
+            <{{ element }} {{ attributes }}>
+            {% if block.settings.title %} {{ block.settings.title }} {% else %} Pages {% endif %}
+            </{{ element }}>
+            <div class="pages-sitemap">
+            <ul>
+                {% for page in pages limit: page_limit %}
+                <li class="link_style">
+                    <a {{ attributes_link }} href="/pages/{{page.handle}}"
+                    ><{{ element_text }}>{{ page.title }}</{{ element_text }}></a
+                    >
+                </li>
+                {% endfor %}
+            </ul>
+            </div>
+        </div>
+      {%- when 'collections' -%}
+        <div class="ct-collections">
+        {% assign collection_limit = block.settings.collections_gap %}
+        <{{ element }} {{ attributes }}>
+          {% if block.settings.title %} {{ block.settings.title }} {% else %} Collections {% endif %}
+        </{{ element }}>
+        {% if collection_limit > 50 %}
+          <div class="collections-sitemap"></div>
+        {% else %}
+          <div class="collections-sitemap-50">
+            <ul>
+                  {% for collection in collections limit: collection_limit %}
+                  <li class="link_style">
+                      <a {{ attributes_link }} href="/collections/{{collection.handle}}"
+                      ><{{ element_text }}>{{ collection.title }}</{{ element_text }}></a
+                      >
+                  </li>
+                  {% endfor %}
+              </ul>
+          </div>
+        {% endif %}
+        </div>
+      {%- when 'products' -%}
+        <div class="ct-products">
+        {% assign product_limit = block.settings.products_gap %}
+        <{{ element }} {{ attributes }}>
+          {% if block.settings.title %} {{ block.settings.title }} {% else %} Products {% endif %}
+        </{{ element }}>
+        {% if product_limit > 50 %}
+          <div class="products-sitemap">size:{{product_limit }}</div>
+        {% else %}
+          <div class="products-sitemap-50">
+            <ul>
+                  {% for product in collections.all.products limit: product_limit %}
+                  <li class="link_style">
+                      <a {{ attributes_link }} href="/products/{{product.handle}}"
+                      ><{{ element_text }}>{{ product.title }}</{{ element_text }}></a
+                      >
+                  </li>
+                  {% endfor %}
+              </ul>
+          </div>
+          {% endif %}
+        </div>
+      {%- when 'blogs' -%}
+        <div class="ct-blogs">
+        {% assign blog_limit = block.settings.blogs_gap %}
+        <{{ element }} {{ attributes }}>
+          {% if block.settings.title %} {{ block.settings.title }} {% else %} Blogs {% endif %}
+        </{{ element }}>
+         {% comment %} Liquid cannot iterate 'blogs' globally. Relying on JS to fill this. {% endcomment %}
+         <div class="blogs-sitemap"></div> 
+        </div>
+      {%- when 'articles' -%}
+        <div class="ct-articles">
+        {% assign articles_limit = block.settings.articles_gap %}
+        <{{ element }} {{ attributes }}>
+          {% if block.settings.title %} {{ block.settings.title }} {% else %} Articles {% endif %}
+        </{{ element }}>
+        {% comment %} Liquid cannot iterate global 'articles'. Relying on JS to fill this. {% endcomment %}
+          <div class="articles-sitemap"></div>  
+        </div>
+    {%- endcase -%}
+  {%- endfor -%}
+</section>
+
+<script>
+  // Basic config
+  const SHOPIFY_DOMAIN = {{ section.settings.store_domain| json }}; 
+  const STOREFRONT_ACCESS_TOKEN = {{section.settings.sitemap_id | json }}; 
+  const apiUrl = `https://${SHOPIFY_DOMAIN}/api/2025-07/graphql.json`;
+  
+  // Helper function for GraphQL queries
+  async function shopifyFetch(query, variables = {}) {
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Shopify-Storefront-Access-Token': STOREFRONT_ACCESS_TOKEN
+        },
+        body: JSON.stringify({ query, variables })
+      });
+  
+      return await response.json();
+      console.log('successfull');
+    } catch (error) {
+      console.error('Error:', error);
+      return { errors: [{ message: error.message }] };
+    }
+  }
+
+  // Product Fetching Function
+async function GetAllProducts(product_limit, activeOnly = false) {
+  console.log("Loading: GetAllProducts");
+  let hasNextPage = true;
+  let endCursor = null;
+  let allProducts = [];
+
+  // If product_limit is 250, treat it as "fetch all products"
+  if (product_limit === 250) {
+    product_limit = Number.MAX_SAFE_INTEGER;
+  }
+
+  while (hasNextPage && allProducts.length < product_limit) {
+    const batchSize = Math.min(250, product_limit - allProducts.length);
+    // Add query argument if activeOnly is true
+    const query = `
+      query GetProducts($cursor: String) {
+        products(first: ${batchSize}, after: $cursor${activeOnly ? ', query: "status:ACTIVE"' : ''}) {
+          nodes {
+            id
+            title
+            handle
+          }
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
+        }
+      }
+    `;
+    const variables = { cursor: endCursor };
+    const fetchResult = await shopifyFetch(query, variables);
+    if (!fetchResult.data || !fetchResult.data.products) break;
+    const products = fetchResult.data.products.nodes;
+    allProducts = allProducts.concat(products);
+
+    hasNextPage = fetchResult.data.products.pageInfo.hasNextPage;
+    endCursor = fetchResult.data.products.pageInfo.endCursor;
+  }
+
+  var product_list = ``;
+  allProducts.forEach((n, i) => {
+    product_list += `<li class="link_style" ><a  {{ attributes_link }} href="/products/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
+  });
+
+  var ulElement = document.createElement('ul');
+  ulElement.innerHTML = product_list;
+  document.querySelector('.products-sitemap').appendChild(ulElement);
+}
+  
+if (document.querySelector('.products-sitemap')) {
+let product_limit = 0;
+let products_active = false;
+{% for block in section.blocks %}
+    {% if block.type == 'products' %}
+    product_limit = {{ block.settings.products_gap | json }};
+    products_active = {{ block.settings.products_active }};
+    {% endif %}
+{% endfor %}
+GetAllProducts(product_limit, products_active);
+}
+
+
+// Fetch all artilces  
+async function GetAllArticlesFromAllBlogs(article_limit_per_blog = 250, publishedOnly = false) {
+  // 1. Fetch all blogs (paginated if you have many blogs)
+  let blogs = [];
+  let blogsHasNextPage = true;
+  let blogsEndCursor = null;
+
+  while (blogsHasNextPage) {
+    const blogsQuery = `
+      query GetBlogs($cursor: String) {
+        blogs(first: 50, after: $cursor) {
+          nodes {
+            id
+            handle
+            title
+          }
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
+        }
+      }
+    `;
+    const blogsVariables = { cursor: blogsEndCursor };
+    const blogsResult = await shopifyFetch(blogsQuery, blogsEndCursor ? blogsVariables : {});
+    if (!blogsResult.data || !blogsResult.data.blogs) break;
+    blogs = blogs.concat(blogsResult.data.blogs.nodes);
+    blogsHasNextPage = blogsResult.data.blogs.pageInfo.hasNextPage;
+    blogsEndCursor = blogsResult.data.blogs.pageInfo.endCursor;
+  }
+
+  // 2. For each blog, fetch articles
+  let allArticles = [];
+  for (const blog of blogs) {
+    let hasNextPage = true;
+    let endCursor = null;
+    let blogArticles = [];
+    while (hasNextPage && blogArticles.length < article_limit_per_blog) {
+      const batchSize = Math.min(250, article_limit_per_blog - blogArticles.length);
+      const query = `
+        query GetArticles($blogId: ID!, $cursor: String) {
+          blog(id: $blogId) {
+            articles(first: ${batchSize}, after: $cursor${publishedOnly ? ', query: "published_status:PUBLISHED"' : ''}) {
+              nodes {
+                id
+                title
+                handle
+                publishedAt
+              }
+              pageInfo {
+                hasNextPage
+                endCursor
+              }
+            }
+          }
+        }
+      `;
+      const variables = { blogId: blog.id, cursor: endCursor };
+      const fetchResult = await shopifyFetch(query, endCursor ? variables : { blogId: blog.id });
+      if (!fetchResult.data || !fetchResult.data.blog || !fetchResult.data.blog.articles) break;
+      const articles = fetchResult.data.blog.articles.nodes.map(a => ({ ...a, blogHandle: blog.handle }));
+      blogArticles = blogArticles.concat(articles);
+      hasNextPage = fetchResult.data.blog.articles.pageInfo.hasNextPage;
+      endCursor = fetchResult.data.blog.articles.pageInfo.endCursor;
+    }
+    allArticles = allArticles.concat(blogArticles);
+  }
+
+  // Render the article list
+  var article_list = ``;
+  allArticles.forEach((n, i) => {
+    article_list += `<li class="link_style" ><a  {{ attributes_link }} href="/blogs/blog/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
+  });
+
+  var ulElement = document.createElement('ul');
+  ulElement.innerHTML = article_list;
+  document.querySelector('.articles-sitemap').appendChild(ulElement);
+}
+
+if (document.querySelector('.articles-sitemap')) {
+  let articles_limit = 0;
+  let articles_active = false;
+  {% for block in section.blocks %}
+      {% if block.type == 'articles' %}
+      articles_limit = {{ block.settings.articles_gap | json }};
+      articles_active = {{ block.settings.articles_active }};
+      {% endif %}
+  {% endfor %}
+  GetAllArticlesFromAllBlogs(articles_limit, articles_active);
+}
+
+// Collection Pages
+async function GetAllCollections(collection_limit, activeOnly = false) {
+  console.log("Loading: GetAllCollections");
+  let hasNextPage = true;
+  let endCursor = null;
+  let allCollections = [];
+
+  // If collection_limit is 250, treat it as "fetch all collections"
+  if (collection_limit === 250) {
+    collection_limit = Number.MAX_SAFE_INTEGER;
+  }
+
+  while (hasNextPage && allCollections.length < collection_limit) {
+    const batchSize = Math.min(250, collection_limit - allCollections.length);
+    // Add query argument if activeOnly is true
+    const query = `
+      query GetCollections($cursor: String) {
+        collections(first: ${batchSize}, after: $cursor${activeOnly ? ', query: "published_status:PUBLISHED"' : ''}) {
+          nodes {
+            id
+            title
+            handle
+          }
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
+        }
+      }
+    `;
+    const variables = { cursor: endCursor };
+    const fetchResult = await shopifyFetch(query, variables);
+    if (!fetchResult.data || !fetchResult.data.collections) break;
+    const collections = fetchResult.data.collections.nodes;
+    allCollections = allCollections.concat(collections);
+
+    hasNextPage = fetchResult.data.collections.pageInfo.hasNextPage;
+    endCursor = fetchResult.data.collections.pageInfo.endCursor;
+  }
+
+  // Render the collection list
+  var collection_list = ``;
+  allCollections.forEach((n, i) => {
+    collection_list += `<li class="link_style" ><a  {{ attributes_link }} href="/collections/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
+  });
+
+  var ulElement = document.createElement('ul');
+  ulElement.innerHTML = collection_list;
+  document.querySelector('.collections-sitemap').appendChild(ulElement);
+}
+
+if (document.querySelector('.collections-sitemap')) {
+    let collections_limit = 0;
+    let collections_active = false;
+    {% for block in section.blocks %}
+    {% if block.type == 'collections' %}
+        collections_limit = {{ block.settings.collections_gap | json }};
+        collections_active = {{ block.settings.collections_active }};
+    {% endif %}
+    {% endfor %}
+    GetAllCollections(collections_limit, collections_active);
+}
+
+//Blog fetch
+async function GetAllBlogPosts(limit){
+    console.log("Loading: GetAllBlogs");
+    const query = `query GetBlogs{
+    blogs(first: ${limit}) {
+        nodes {
+        id
+        title
+        handle
+        }
+    }
+    }`;
+    const variables = {};
+    const fetchResult = await shopifyFetch(query, variables);
+    const blogs = fetchResult.data.blogs.nodes;
+    console.log(blogs);
+
+    var blog_list = ``;
+    blogs.forEach((n, i) => {
+        blog_list += `<li class="link_style" ><a  {{ attributes_link }}  href="/blogs/${n.handle}"><{{ element_text }}>${n.title}</{{ element_text }}></a></li>`;
+    });
+
+    // Now create the <ul> and append it to the <div class="products-sitemap">
+    var ulElement = document.createElement('ul');
+    ulElement.innerHTML = blog_list; // Add the list items to the <ul>
+
+    document.querySelector('.blogs-sitemap').appendChild(ulElement); // Append the <ul> to the div
+}
+
+if (document.querySelector('.blogs-sitemap')) {
+    let blog_limit = 20;
+    {% for block in section.blocks %}
+        {% if block.type == 'blogs' %}
+            blog_limit = {{ block.settings.blogs_gap | default: 20 }};
+        {% endif %}
+    {% endfor %}
+    GetAllBlogPosts(blog_limit);
+}
+</script>
+
+{% schema %}
+{
+  "name": "CT Sitemap V4",
+  "class": "ct-sitemap",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+    "type": "text",
+    "id": "store_domain",
+    "label": "STORE SHOPIFY DOMAN"
+    },
+    {
+    "type": "text",
+    "id": "sitemap_id",
+    "label": "STOREFRONT ACCESS TOKEN"
+    },  
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "fit-content",
+          "label": "Fit"
+        },
+        {
+          "value": "100%",
+          "label": "Fill"
+        }
+      ],
+      "default": "fit-content"
+    },
+    {
+      "type": "range",
+      "id": "grid",
+      "label": "Grid Column",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "grid-gap",
+      "label": "Grid Gap",
+      "min": 1,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "select",
+      "id": "max_width",
+      "label": "Max width",
+      "options": [
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Heading Alignment",
+      "default": "left",
+      "visible_if": "{{ section.settings.width == '100%' }}"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment_text",
+      "label": "Text Alignment",
+      "default": "left",
+      "visible_if": "{{ section.settings.width == '100%' }}"
+    },
+    {
+      "type": "header",
+      "content": "Heading Typography"
+    },
+    {
+      "type": "select",
+      "id": "type_preset",
+      "label": "Heading Tag",
+      "options": [
+        {
+          "value": "paragraph",
+          "label": "Paragraph"
+        },
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        }
+      ],
+      "default": "h2",
+      "info": "Edit presets in Theme"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Heading Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Link Typography"
+    },
+    {
+      "type": "select",
+      "id": "type_preset_text",
+      "label": "Link Tag",
+      "options": [
+        {
+          "value": "paragraph",
+          "label": "Paragraph"
+        },
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        }
+      ],
+      "default": "paragraph",
+      "info": "Edit presets in Theme"
+    },
+    {
+      "type": "select",
+      "id": "underline_text",
+      "label": "Link Underline",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "underline",
+          "label": "Underline"
+        }
+      ],
+      "default": "none",
+      "info": "Underline link"
+    },
+    {
+      "type": "select",
+      "id": "link_style",
+      "label": "Link Style",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "disc",
+          "label": "Disc"
+        },
+        {
+          "value": "decimal",
+          "label": "Number"
+        }
+      ],
+      "default": "none",
+      "info": "Add number, dic or keep links empty"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "checkbox",
+      "id": "background",
+      "label": "Background",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "alpha": true,
+      "default": "#00000026"
+    },
+    {
+      "type": "range",
+      "id": "corner_radius",
+      "label": "Corner Radius",
+      "default": 0,
+      "min": 0,
+      "max": 50,
+      "step": 1
+    },
+    {
+      "type": "header",
+      "content": "Padding "
+    },
+    {
+      "type": "range",
+      "id": "padding-block-top",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding-block-bottom",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Pages",
+      "type": "pages",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Pages"
+        },
+        {
+          "type": "text",
+          "label": "Pages Title",
+          "id": "title",
+          "default": "Pages"
+        },
+        {
+          "type": "range",
+          "id": "pages_gap",
+          "label": "Number of Pages to Show",
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "default": 20
+        }
+      ]
+    },
+    {
+      "name": "Collections",
+      "type": "collections",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Collections"
+        },
+        {
+          "type": "text",
+          "label": "Collections Title",
+          "id": "title",
+          "default": "Collections"
+        },
+        {
+          "type": "range",
+          "id": "collections_gap",
+          "label": "Number of Collections to Show",
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "default": 100
+        },
+        {
+        "type": "checkbox",
+        "id": "collections_active",
+        "label": "Active Collections Only",
+        "default": false
+        }
+      ]
+    },
+    {
+      "name": "Blogs",
+      "type": "blogs",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Blogs"
+        },
+        {
+          "type": "text",
+          "label": "Blogs Title",
+          "id": "title",
+          "default": "Blogs"
+        },
+        {
+          "type": "range",
+          "id": "blogs_gap",
+          "label": "Number of Blogs to Show",
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "default": 20
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "type": "products",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Products"
+        },
+        {
+          "type": "text",
+          "label": "Products Title",
+          "id": "title",
+          "default": "Products"
+        },
+        {
+          "type": "range",
+          "id": "products_gap",
+          "label": "Number of Products to Show",
+          "min": 0,
+          "max": 250,
+          "step": 5,
+          "default": 30,
+          "info": "To show all products set value as 250"
+        },
+        {
+        "type": "checkbox",
+        "id": "products_active",
+        "label": "Active Products Only",
+        "default": false
+        }
+      ]
+    },
+        {
+      "name": "Articles",
+      "type": "articles",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Articles"
+        },
+        {
+          "type": "text",
+          "label": "Articles Title",
+          "id": "title",
+          "default": "Articles"
+        },
+        {
+          "type": "range",
+          "id": "articles_gap",
+          "label": "Number of Articles to Show",
+          "min": 0,
+          "max": 250,
+          "step": 5,
+          "default": 30,
+          "info": "To show all Articles set value as 250"
+        },
+        {
+        "type": "checkbox",
+        "id": "articles_active",
+        "label": "Active Articles Only",
+        "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "CT Sitemap V4"
+    }
+  ]
+}
+{% endschema %}
